@@ -70,7 +70,7 @@ def set_gains(can_id : int, pos_gain : float, vel_gain : float, vel_int_gain : f
 # Heartbeat (Error + State info)
 def get_error_and_state(can_id : int):
     can_msg = recieve_can_msg(can_id, 'Heartbeat')
-    return can_msg['Axis_Error'], can_msg['Axis_State']
+    return int(can_msg['Axis_Error']), int(can_msg['Axis_State'])
 
 # Encoder data (Position + Velocity)
 def get_position_and_velocity_estimates(can_id : int):
