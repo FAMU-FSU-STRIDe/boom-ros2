@@ -14,6 +14,7 @@ class STARQMotorDriverNode(Node):
 
         self.motor_confs : list[ODriveConfig] = []
         self.last_cmds : list[ODriveCommand] = []
+        self.max_motor_id = 0
 
         info_frequency = 20.0 # Hz
         self.cmd_sub = self.create_subscription(ODriveCommandArray, '/starq/motors/cmd', self.cmd_motors_callback, 10)
@@ -49,6 +50,7 @@ class STARQMotorDriverNode(Node):
 
     # Configure motors
     def conf_motors_callback(self, request : ConfigureMotors_Request, response):
+        self.max_motor_id = 0
         self.motor_confs = list[ODriveConfig](request.configs)
         for config in self.motor_confs:
             can_id = config.can_id
@@ -59,12 +61,14 @@ class STARQMotorDriverNode(Node):
             canfunc.set_trap_traj_limits(can_id, config.trap_traj_velocity_limit, config.trap_traj_acceleration_limit,
                                          config.trap_traj_deceleration_limit, config.trap_traj_inertia)
             canfunc.set_gains(can_id, config.position_gain, config.velocity_gain, config.velocity_integrator_gain)
+            if config.id > self.max_motor_id:
+                max_motor_id = config.id
         self.get_logger().info("Motor configurations updated.")
         return response
 
     def get_info_callback(self):
         infos = ODriveInfoArray()
-        infos.infos = [ODriveInfo()] * len(self.motor_confs)
+        infos.infos = [ODriveInfo()] * (self.max_motor_id+1)
         for config in self.motor_confs:
             info = ODriveInfo()
             can_id = config.can_id
@@ -80,7 +84,7 @@ class STARQMotorDriverNode(Node):
                 info.pos_error = last_cmd.input_position - info.pos_estimate
                 info.vel_error = last_cmd.input_velocity - info.vel_estimate
                 info.torque_error = last_cmd.input_torque - info.torque_estimate
-            infos.infos.insert(config.id, info)
+            infos.infos[config.id] = info
         self.info_pub.publish(infos)
         
     # Stop motors
