@@ -80,6 +80,7 @@ class STARQMotorDriverNode(Node):
                 info.vel_error = last_cmd.input_velocity - info.vel_estimate
                 info.torque_error = last_cmd.input_torque - info.torque_estimate
             infos.infos.insert(config.id, info)
+        print(infos)
         self.info_pub.publish(infos)
         
     # Stop motors
