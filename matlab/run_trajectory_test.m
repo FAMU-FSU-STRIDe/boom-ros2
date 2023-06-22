@@ -1,0 +1,4 @@
+clear
+%%
+
+boom = BoomController();

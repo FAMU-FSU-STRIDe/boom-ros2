@@ -15,7 +15,7 @@ class STARQMotorDriverNode(Node):
         self.motor_confs : list[ODriveConfig] = []
         self.last_cmds : list[ODriveCommand] = []
 
-        info_frequency = 100 # Hz
+        info_frequency = 100.0 # Hz
         self.cmd_sub = self.create_subscription(ODriveCommandArray, '/starq/motors/cmd', self.cmd_motors_callback, 10)
         self.conf_srv = self.create_service(ConfigureMotors, '/starq/motors/conf', self.conf_motors_callback)
         self.info_pub = self.create_publisher(ODriveInfoArray, '/starq/motors/info', 10)
@@ -102,7 +102,10 @@ def main(args=None):
     canfunc._canbus.shutdown()
     node.get_logger().info("Motor driver node closed.")
     node.destroy_node()
-    rclpy.shutdown()
+    try:
+        rclpy.shutdown()
+    except Exception:
+        pass
 
 if __name__ == '__main__':
     main()
