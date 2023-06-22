@@ -59,11 +59,12 @@ class STARQMotorDriverNode(Node):
             canfunc.set_trap_traj_limits(can_id, config.trap_traj_velocity_limit, config.trap_traj_acceleration_limit,
                                          config.trap_traj_deceleration_limit, config.trap_traj_inertia)
             canfunc.set_gains(can_id, config.position_gain, config.velocity_gain, config.velocity_integrator_gain)
-            self.get_logger().info("Motor configurations updated.")
+        self.get_logger().info("Motor configurations updated.")
         return response
 
     def get_info_callback(self):
         infos = ODriveInfoArray()
+        infos.infos = [ODriveInfo] * len(self.motor_confs)
         for config in self.motor_confs:
             info = ODriveInfo()
             can_id = config.can_id
@@ -73,7 +74,7 @@ class STARQMotorDriverNode(Node):
             info.torque_estimate = info.iq_measured * (8.27 / 330)
             #info.motor_temperature = canfunc.get_temperature(can_id)
             info.bus_voltage, info.bus_current = canfunc.get_bus_voltage_and_current(can_id)
-            if (len(self.last_cmds) <= config.id):
+            if (config.id < len(self.last_cmds)):
                 last_cmd = self.last_cmds[config.id]
                 info.pos_error = last_cmd.input_position - info.pos_estimate
                 info.vel_error = last_cmd.input_velocity - info.vel_estimate
@@ -81,8 +82,7 @@ class STARQMotorDriverNode(Node):
             infos.infos.insert(config.id, info)
         self.info_pub.publish(infos)
         
-    
-    # Emergency stop
+    # Stop motors
     def stop(self):
         for config in self.motor_confs:
             canfunc.set_state(config.id, 1) # Idle
