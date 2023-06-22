@@ -77,6 +77,11 @@ def get_position_and_velocity_estimates(can_id : int):
     can_msg = recieve_can_msg(can_id, 'Get_Encoder_Estimates')
     return can_msg['Pos_Estimate'], can_msg['Vel_Estimate']
 
+# Torque estimate + target
+def get_torque_target_and_estimate(can_id : int):
+    can_msg = recieve_can_msg(can_id, 'Get_Torques')
+    return can_msg['Torque_Target'], can_msg['Torque_Estimate']
+
 # QCurrent data
 def get_qcurrent_setpoint_and_measured(can_id : int):
     can_msg = recieve_can_msg(can_id, 'Get_Iq')
