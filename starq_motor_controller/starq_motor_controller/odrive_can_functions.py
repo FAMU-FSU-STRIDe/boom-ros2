@@ -24,10 +24,6 @@ def recieve_can_msg(can_id : int, msg_name : str):
 def clear_errors(can_id : int):
     send_can_msg(can_id, 'Clear_Errors', {})
 
-# Emergency stop
-def emergency_stop(can_id : int):
-    send_can_msg(can_id, 'Estop', {})
-
 
 ## MOTOR COMMANDS
 
@@ -61,7 +57,7 @@ def set_limits(can_id : int, vel_lim : float, curr_lim : float):
 # Set Trap Traj Velocity, Acceleration Limits + Inertia
 def set_trap_traj_limits(can_id : int, vel_lim : float, accel_lim : float, decel_lim : float, inertia : float):
     send_can_msg(can_id, 'Set_Traj_Vel_Limit', {'Traj_Vel_Limit': vel_lim})
-    send_can_msg(can_id, 'Set_Traj_Accel_Limit', {'Traj_Accel_Limit': accel_lim, 'Traj_Decel_Limit': decel_lim})
+    send_can_msg(can_id, 'Set_Traj_Accel_Limits', {'Traj_Accel_Limit': accel_lim, 'Traj_Decel_Limit': decel_lim})
     send_can_msg(can_id, 'Set_Traj_Inertia', {'Traj_Inertia': inertia})
     
 # Set Gains

@@ -31,11 +31,11 @@ classdef STARQController < handle
         end
 
         function configureMotors(obj, confMsg)
-            call(obj.Node, confMsg);
+            call(obj.ConfigureMotorsServiceClient, confMsg)
         end
 
         function configureLegs(obj, confMsg)
-            call(obj.Node, confMsg);
+            call(obj.ConfigureLegsServiceClient, confMsg);
         end
     end
 

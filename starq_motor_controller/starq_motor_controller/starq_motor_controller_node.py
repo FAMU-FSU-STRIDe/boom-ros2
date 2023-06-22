@@ -84,7 +84,7 @@ class STARQMotorDriverNode(Node):
     # Emergency stop
     def stop(self):
         for config in self.motor_confs:
-            canfunc.emergency_stop(config.can_id)
+            canfunc.set_state(config.id, 1) # Idle
 
 
 # ROS Entry
