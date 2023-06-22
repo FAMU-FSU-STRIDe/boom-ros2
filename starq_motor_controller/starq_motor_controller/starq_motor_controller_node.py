@@ -62,7 +62,7 @@ class STARQMotorDriverNode(Node):
                                          config.trap_traj_deceleration_limit, config.trap_traj_inertia)
             canfunc.set_gains(can_id, config.position_gain, config.velocity_gain, config.velocity_integrator_gain)
             if config.id > self.max_motor_id:
-                max_motor_id = config.id
+                self.max_motor_id = config.id
         self.get_logger().info("Motor configurations updated.")
         return response
 
