@@ -19,7 +19,6 @@ classdef STARQController < handle
                 "/starq/legs/conf", "starq_interfaces/ConfigureLegs");
             [obj.RunLegTrajectoryActionClient, ~] = ros2actionclient(obj.Node,...
                 "/starq/legs/run_trajectory", "starq_interfaces/RunLegTrajectory");
-
         end
 
         function sendTrajectory(obj, goalMsg)

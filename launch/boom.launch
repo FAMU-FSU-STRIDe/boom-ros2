@@ -1,0 +1,9 @@
+<launch>
+
+    <node pkg="starq_motor_driver" exec="motor_driver_node" name="motor_driver"/>
+
+    <node pkg="starq_leg_kinematics" exec="leg_kinematics_node" name="leg_kinematics"/>
+
+    <node pkg="starq_trajectory_publisher" exec="trajectory_publisher_server" name="trajectory_publisher"/>
+
+</launch>

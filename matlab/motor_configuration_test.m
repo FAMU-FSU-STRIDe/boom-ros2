@@ -15,6 +15,8 @@ motor0.velocity_integrator_gain = single(0.30);
 motor0.gear_ratio = single(6);
 
 motor1 = motor0;
+motor1.id = uint8(1);
+motor1.can_id = uint8(1);
 
 motors = [motor0, motor1];
 

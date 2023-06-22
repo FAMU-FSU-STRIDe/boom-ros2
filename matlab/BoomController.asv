@@ -1,0 +1,29 @@
+classdef BoomController < STARQController
+    
+    properties
+        LegConfig
+        MotorConfigs
+    end
+    
+    methods
+        function obj = BoomController()
+            obj.MotorConfigs = [...
+                defaultMotorConfig(0, 0),...
+                defaultMotorConfig(1,1)];
+            obj.LegConfig = defaultFiveBar2DLegConfig(0);
+            if (waitForServer(obj.ConfigureMotorsServiceClient, 'Timeout', 3) ~= 1)
+                disp("Could not connect to ConfigureMotorsServiceClient");
+            else
+                obj.configureMotors(ros)
+            end
+            if (waitForServer(obj.ConfigureLegsServiceClient, 'Timeout', 3) ~= 1)
+                disp("Could not connect to ConfigureLegsServiceClient");
+            end
+            if (waitForServer(obj.RunLegTrajectoryActionClient, 'Timeout', 3) ~= 1)
+                disp("Could not connect to RunLegTrajectoryActionClient");
+            end
+        end
+        
+    end
+end
+
