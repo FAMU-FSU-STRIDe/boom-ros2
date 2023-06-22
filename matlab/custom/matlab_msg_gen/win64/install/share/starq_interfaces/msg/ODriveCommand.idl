@@ -1,0 +1,16 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from starq_interfaces/msg\ODriveCommand.msg
+// generated code does not contain a copyright notice
+
+
+module starq_interfaces {
+  module msg {
+    struct ODriveCommand {
+      float input_position;
+
+      float input_velocity;
+
+      float input_torque;
+    };
+  };
+};

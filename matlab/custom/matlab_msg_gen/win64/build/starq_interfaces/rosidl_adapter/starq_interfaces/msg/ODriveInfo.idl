@@ -1,0 +1,38 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from starq_interfaces/msg\ODriveInfo.msg
+// generated code does not contain a copyright notice
+
+
+module starq_interfaces {
+  module msg {
+    struct ODriveInfo {
+      uint8 state;
+
+      uint32 fault;
+
+      float pos_estimate;
+
+      float vel_estimate;
+
+      float torque_estimate;
+
+      float torque_target;
+
+      float iq_setpoint;
+
+      float iq_measured;
+
+      float motor_temperature;
+
+      float bus_voltage;
+
+      float bus_current;
+
+      float pos_error;
+
+      float vel_error;
+
+      float torque_error;
+    };
+  };
+};

@@ -1,0 +1,648 @@
+-- The C compiler identification is MSVC 19.29.30151.0
+-- The CXX compiler identification is MSVC 19.29.30151.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.29.30133/bin/Hostx86/x64/cl.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.29.30133/bin/Hostx86/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 0.9.8 (C:/Program Files/MATLAB/R2023a/sys/ros2/win64/ros2/share/ament_cmake/cmake)
+-- Found PythonInterp: C:/Users/jtyle/AppData/Roaming/MathWorks/MATLAB/R2023a/ros2/win64/venv/Scripts/python.exe (found suitable version "3.9", minimum required is "3") 
+-- Using PYTHON_EXECUTABLE: C:/Users/jtyle/AppData/Roaming/MathWorks/MATLAB/R2023a/ros2/win64/venv/Scripts/python.exe
+-- Found ament_cmake_ros: 0.9.2 (C:/Program Files/MATLAB/R2023a/sys/ros2/win64/ros2/share/ament_cmake_ros/cmake)
+-- Found rosidl_typesupport_c: 1.0.2 (C:/Program Files/MATLAB/R2023a/sys/ros2/win64/ros2/share/rosidl_typesupport_c/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Found rosidl_adapter: 1.2.1 (C:/Program Files/MATLAB/R2023a/sys/ros2/win64/ros2/share/rosidl_adapter/cmake)
+-- Found FastRTPS: C:/Program Files/MATLAB/R2023a/sys/ros2/win64/ros2/include  
+-- Found rosidl_typesupport_cpp: 1.0.2 (C:/Program Files/MATLAB/R2023a/sys/ros2/win64/ros2/share/rosidl_typesupport_cpp/cmake)
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rosidl_default_generators: 1.0.1 (C:/Program Files/MATLAB/R2023a/sys/ros2/win64/ros2/share/rosidl_default_generators/cmake)
+-- Found action_msgs: 1.0.0 (C:/Program Files/MATLAB/R2023a/sys/ros2/win64/ros2/share/action_msgs/cmake)
+-- Found class_loader: 2.0.2 (C:/Program Files/MATLAB/R2023a/sys/ros2/win64/ros2/share/class_loader/cmake)
+-- Found rclcpp: 2.3.1 (C:/Program Files/MATLAB/R2023a/sys/ros2/win64/ros2/share/rclcpp/cmake)
+-- Found rmw_implementation_cmake: 1.0.3 (C:/Program Files/MATLAB/R2023a/sys/ros2/win64/ros2/share/rmw_implementation_cmake/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - not found
+-- Found Threads: TRUE  
+-- Found PythonInterp: C:/Users/jtyle/AppData/Roaming/MathWorks/MATLAB/R2023a/ros2/win64/venv/Scripts/python.exe (found version "3.9") 
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Configuring done (13.9s)
+-- Generating done (0.5s)
+-- Build files have been written to: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/build/starq_interfaces
+[1/120] Generating C code for ROS interfaces
+[2/120] Generating C++ code for ROS interfaces
+[3/120] Building C object CMakeFiles\starq_interfaces__rosidl_generator_c.dir\rosidl_generator_c\starq_interfaces\msg\detail\leg_info__functions.c.obj
+[4/120] Building C object CMakeFiles\starq_interfaces__rosidl_generator_c.dir\rosidl_generator_c\starq_interfaces\msg\detail\leg_info_array__functions.c.obj
+[5/120] Building C object CMakeFiles\starq_interfaces__rosidl_generator_c.dir\rosidl_generator_c\starq_interfaces\msg\detail\leg_command__functions.c.obj
+[6/120] Building C object CMakeFiles\starq_interfaces__rosidl_generator_c.dir\rosidl_generator_c\starq_interfaces\srv\detail\configure_legs__functions.c.obj
+[7/120] Building C object CMakeFiles\starq_interfaces__rosidl_generator_c.dir\rosidl_generator_c\starq_interfaces\msg\detail\o_drive_command__functions.c.obj
+[8/120] Building C object CMakeFiles\starq_interfaces__rosidl_generator_c.dir\rosidl_generator_c\starq_interfaces\msg\detail\o_drive_command_array__functions.c.obj
+[9/120] Building C object CMakeFiles\starq_interfaces__rosidl_generator_c.dir\rosidl_generator_c\starq_interfaces\msg\detail\o_drive_info__functions.c.obj
+[10/120] Building C object CMakeFiles\starq_interfaces__rosidl_generator_c.dir\rosidl_generator_c\starq_interfaces\msg\detail\leg_command_array__functions.c.obj
+[11/120] Building C object CMakeFiles\starq_interfaces__rosidl_generator_c.dir\rosidl_generator_c\starq_interfaces\msg\detail\leg_config__functions.c.obj
+[12/120] Building C object CMakeFiles\starq_interfaces__rosidl_generator_c.dir\rosidl_generator_c\starq_interfaces\msg\detail\o_drive_config__functions.c.obj
+[13/120] Building C object CMakeFiles\starq_interfaces__rosidl_generator_c.dir\rosidl_generator_c\starq_interfaces\srv\detail\configure_motors__functions.c.obj
+[14/120] Building C object CMakeFiles\starq_interfaces__rosidl_generator_c.dir\rosidl_generator_c\starq_interfaces\msg\detail\o_drive_info_array__functions.c.obj
+[15/120] Building C object CMakeFiles\starq_interfaces__rosidl_generator_c.dir\rosidl_generator_c\starq_interfaces\action\detail\run_leg_trajectory__functions.c.obj
+[16/120] Linking C shared library starq_interfaces__rosidl_generator_c.dll
+[17/120] Generating C++ type support dispatch for ROS interfaces
+[18/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_cpp.dir\rosidl_typesupport_cpp\starq_interfaces\msg\o_drive_info__type_support.cpp.obj
+[19/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_cpp.dir\rosidl_typesupport_cpp\starq_interfaces\msg\o_drive_command__type_support.cpp.obj
+[20/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_cpp.dir\rosidl_typesupport_cpp\starq_interfaces\msg\o_drive_info_array__type_support.cpp.obj
+[21/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_cpp.dir\rosidl_typesupport_cpp\starq_interfaces\msg\o_drive_command_array__type_support.cpp.obj
+[22/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_cpp.dir\rosidl_typesupport_cpp\starq_interfaces\msg\leg_info__type_support.cpp.obj
+[23/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_cpp.dir\rosidl_typesupport_cpp\starq_interfaces\msg\leg_config__type_support.cpp.obj
+[24/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_cpp.dir\rosidl_typesupport_cpp\starq_interfaces\srv\configure_motors__type_support.cpp.obj
+[25/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_cpp.dir\rosidl_typesupport_cpp\starq_interfaces\srv\configure_legs__type_support.cpp.obj
+[26/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_cpp.dir\rosidl_typesupport_cpp\starq_interfaces\msg\leg_command__type_support.cpp.obj
+[27/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_cpp.dir\rosidl_typesupport_cpp\starq_interfaces\msg\leg_info_array__type_support.cpp.obj
+[28/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_cpp.dir\rosidl_typesupport_cpp\starq_interfaces\msg\o_drive_config__type_support.cpp.obj
+[29/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_cpp.dir\rosidl_typesupport_cpp\starq_interfaces\msg\leg_command_array__type_support.cpp.obj
+[30/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_cpp.dir\rosidl_typesupport_cpp\starq_interfaces\action\run_leg_trajectory__type_support.cpp.obj
+[31/120] Generating C++ introspection for ROS interfaces
+[32/120] Generating C++ type support for eProsima Fast-RTPS
+[33/120] Generating C type support dispatch for ROS interfaces
+[34/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_introspection_cpp.dir\92780e6bec25882a859ee4afdf34a76f\detail\o_drive_command__type_support.cpp.obj
+[35/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_introspection_cpp.dir\402f517fd237e165d8bef8b37c27a4b8\msg\detail\leg_command__type_support.cpp.obj
+[36/120] Linking CXX shared library starq_interfaces__rosidl_typesupport_cpp.dll
+[37/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_introspection_cpp.dir\52e9832cdc957db4666396dd65dcff06\leg_command_array__type_support.cpp.obj
+[38/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_introspection_cpp.dir\402f517fd237e165d8bef8b37c27a4b8\msg\detail\leg_config__type_support.cpp.obj
+[39/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_introspection_cpp.dir\402f517fd237e165d8bef8b37c27a4b8\msg\detail\leg_info__type_support.cpp.obj
+[40/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_introspection_cpp.dir\52e9832cdc957db4666396dd65dcff06\o_drive_info_array__type_support.cpp.obj
+[41/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_introspection_cpp.dir\a57dabd63012ac6c7f3d6d69bbd67280\detail\configure_motors__type_support.cpp.obj
+[42/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_introspection_cpp.dir\92780e6bec25882a859ee4afdf34a76f\detail\leg_info_array__type_support.cpp.obj
+[43/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_introspection_cpp.dir\a57dabd63012ac6c7f3d6d69bbd67280\detail\configure_legs__type_support.cpp.obj
+[44/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_introspection_cpp.dir\52e9832cdc957db4666396dd65dcff06\o_drive_command_array__type_support.cpp.obj
+[45/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_introspection_cpp.dir\92780e6bec25882a859ee4afdf34a76f\detail\o_drive_config__type_support.cpp.obj
+[46/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_c.dir\rosidl_typesupport_c\starq_interfaces\msg\o_drive_info_array__type_support.cpp.obj
+[47/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_introspection_cpp.dir\402f517fd237e165d8bef8b37c27a4b8\msg\detail\o_drive_info__type_support.cpp.obj
+[48/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_c.dir\rosidl_typesupport_c\starq_interfaces\msg\leg_command_array__type_support.cpp.obj
+[49/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_c.dir\rosidl_typesupport_c\starq_interfaces\msg\leg_command__type_support.cpp.obj
+[50/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_c.dir\rosidl_typesupport_c\starq_interfaces\msg\o_drive_command_array__type_support.cpp.obj
+[51/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_c.dir\rosidl_typesupport_c\starq_interfaces\msg\leg_info__type_support.cpp.obj
+[52/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_c.dir\rosidl_typesupport_c\starq_interfaces\msg\o_drive_command__type_support.cpp.obj
+[53/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_introspection_cpp.dir\e21c3cdd97f422ae9c444e80e5948221\run_leg_trajectory__type_support.cpp.obj
+[54/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_c.dir\rosidl_typesupport_c\starq_interfaces\msg\leg_config__type_support.cpp.obj
+[55/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_fastrtps_cpp.dir\9155a264f68b446838c8bb62ae763ef6\dds_fastrtps\leg_command__type_support.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[56/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_c.dir\rosidl_typesupport_c\starq_interfaces\msg\leg_info_array__type_support.cpp.obj
+[57/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_c.dir\rosidl_typesupport_c\starq_interfaces\msg\o_drive_config__type_support.cpp.obj
+[58/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_c.dir\rosidl_typesupport_c\starq_interfaces\msg\o_drive_info__type_support.cpp.obj
+[59/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_c.dir\rosidl_typesupport_c\starq_interfaces\srv\configure_legs__type_support.cpp.obj
+[60/120] Generating C introspection for ROS interfaces
+[61/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_fastrtps_cpp.dir\1ef3f275d0ee5acfc66b1c170318cac3\leg_command_array__type_support.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[62/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_fastrtps_cpp.dir\6579cc2cb37b9119751bac6f19da0174\detail\dds_fastrtps\leg_info__type_support.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[63/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_fastrtps_cpp.dir\9155a264f68b446838c8bb62ae763ef6\dds_fastrtps\leg_config__type_support.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[64/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_c.dir\rosidl_typesupport_c\starq_interfaces\srv\configure_motors__type_support.cpp.obj
+[65/120] Building C object CMakeFiles\starq_interfaces__rosidl_typesupport_introspection_c.dir\4b2e9c0f957957c89d78b93c0f4ffb50\msg\detail\leg_command__type_support.c.obj
+[66/120] Building C object CMakeFiles\starq_interfaces__rosidl_typesupport_introspection_c.dir\4b2e9c0f957957c89d78b93c0f4ffb50\msg\detail\leg_info__type_support.c.obj
+[67/120] Building C object CMakeFiles\starq_interfaces__rosidl_typesupport_introspection_c.dir\7e176793951c56c58d4178b95028abad\detail\leg_command_array__type_support.c.obj
+[68/120] Building C object CMakeFiles\starq_interfaces__rosidl_typesupport_introspection_c.dir\899dc4d2c725d3ca2a50e9f6a1729f60\detail\run_leg_trajectory__type_support.c.obj
+[69/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_c.dir\rosidl_typesupport_c\starq_interfaces\action\run_leg_trajectory__type_support.cpp.obj
+[70/120] Building C object CMakeFiles\starq_interfaces__rosidl_typesupport_introspection_c.dir\4b2e9c0f957957c89d78b93c0f4ffb50\msg\detail\o_drive_config__type_support.c.obj
+[71/120] Building C object CMakeFiles\starq_interfaces__rosidl_typesupport_introspection_c.dir\4b2e9c0f957957c89d78b93c0f4ffb50\msg\detail\leg_info_array__type_support.c.obj
+[72/120] Building C object CMakeFiles\starq_interfaces__rosidl_typesupport_introspection_c.dir\4b2e9c0f957957c89d78b93c0f4ffb50\msg\detail\leg_config__type_support.c.obj
+[73/120] Building C object CMakeFiles\starq_interfaces__rosidl_typesupport_introspection_c.dir\4b2e9c0f957957c89d78b93c0f4ffb50\msg\detail\o_drive_command__type_support.c.obj
+[74/120] Building C object CMakeFiles\starq_interfaces__rosidl_typesupport_introspection_c.dir\4b2e9c0f957957c89d78b93c0f4ffb50\msg\detail\o_drive_info__type_support.c.obj
+[75/120] Building C object CMakeFiles\starq_interfaces__rosidl_typesupport_introspection_c.dir\79bb25bfa866ebe6675b0747b15e8b23\o_drive_command_array__type_support.c.obj
+[76/120] Building C object CMakeFiles\starq_interfaces__rosidl_typesupport_introspection_c.dir\7e176793951c56c58d4178b95028abad\detail\o_drive_info_array__type_support.c.obj
+[77/120] Building C object CMakeFiles\starq_interfaces__rosidl_typesupport_introspection_c.dir\4b2e9c0f957957c89d78b93c0f4ffb50\srv\detail\configure_legs__type_support.c.obj
+[78/120] Building C object CMakeFiles\starq_interfaces__rosidl_typesupport_introspection_c.dir\4b2e9c0f957957c89d78b93c0f4ffb50\srv\detail\configure_motors__type_support.c.obj
+[79/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_fastrtps_cpp.dir\9155a264f68b446838c8bb62ae763ef6\dds_fastrtps\leg_info_array__type_support.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[80/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_fastrtps_cpp.dir\9155a264f68b446838c8bb62ae763ef6\dds_fastrtps\o_drive_config__type_support.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[81/120] Linking CXX shared library starq_interfaces__rosidl_typesupport_introspection_cpp.dll
+[82/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_fastrtps_cpp.dir\9155a264f68b446838c8bb62ae763ef6\dds_fastrtps\o_drive_command__type_support.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[83/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_fastrtps_cpp.dir\9155a264f68b446838c8bb62ae763ef6\dds_fastrtps\o_drive_info__type_support.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[84/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_fastrtps_cpp.dir\1ef3f275d0ee5acfc66b1c170318cac3\o_drive_info_array__type_support.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[85/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_fastrtps_cpp.dir\1ef3f275d0ee5acfc66b1c170318cac3\o_drive_command_array__type_support.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[86/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_fastrtps_cpp.dir\d6493ec94260af6d33d20d2b9d21bdf9\configure_motors__type_support.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[87/120] Linking CXX shared library starq_interfaces__rosidl_typesupport_c.dll
+[88/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_fastrtps_cpp.dir\d9186c63d1629839d14bde6a283213c3\dds_fastrtps\configure_legs__type_support.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[89/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_fastrtps_cpp.dir\143144a1951f2048a3f80dc6ff0c60f2\run_leg_trajectory__type_support.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[90/120] Linking C shared library starq_interfaces__rosidl_typesupport_introspection_c.dll
+[91/120] Linking CXX shared library starq_interfaces__rosidl_typesupport_fastrtps_cpp.dll
+[92/120] Generating C type support for eProsima Fast-RTPS
+[93/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_fastrtps_c.dir\8ce801e20afe617b7a1ad1e3a53f8153\msg\detail\o_drive_info__type_support_c.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[94/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_fastrtps_c.dir\8ce801e20afe617b7a1ad1e3a53f8153\msg\detail\leg_config__type_support_c.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[95/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_fastrtps_c.dir\8ce801e20afe617b7a1ad1e3a53f8153\msg\detail\o_drive_command__type_support_c.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[96/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_fastrtps_c.dir\8ce801e20afe617b7a1ad1e3a53f8153\msg\detail\leg_command__type_support_c.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[97/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_fastrtps_c.dir\e60d3546d99f1c8795e92f6f113673f8\detail\o_drive_info_array__type_support_c.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[98/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_fastrtps_c.dir\8ce801e20afe617b7a1ad1e3a53f8153\msg\detail\leg_command_array__type_support_c.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[99/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_fastrtps_c.dir\8ce801e20afe617b7a1ad1e3a53f8153\msg\detail\leg_info_array__type_support_c.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[100/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_fastrtps_c.dir\e60d3546d99f1c8795e92f6f113673f8\detail\o_drive_command_array__type_support_c.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[101/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_fastrtps_c.dir\8ce801e20afe617b7a1ad1e3a53f8153\srv\detail\configure_legs__type_support_c.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[102/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_fastrtps_c.dir\8ce801e20afe617b7a1ad1e3a53f8153\msg\detail\o_drive_config__type_support_c.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[103/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_fastrtps_c.dir\8ce801e20afe617b7a1ad1e3a53f8153\msg\detail\leg_info__type_support_c.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[104/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_fastrtps_c.dir\d7a2064c5b97ca75719f37cdc6d40af1\detail\run_leg_trajectory__type_support_c.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[105/120] Building CXX object CMakeFiles\starq_interfaces__rosidl_typesupport_fastrtps_c.dir\8ce801e20afe617b7a1ad1e3a53f8153\srv\detail\configure_motors__type_support_c.cpp.obj
+cl : Command line warning D9025 : overriding '/W3' with '/W4'
+[106/120] Linking CXX shared library starq_interfaces__rosidl_typesupport_fastrtps_c.dll
+[107/120] Building CXX object CMakeFiles\starq_interfaces_matlab.dir\src\starq_interfaces_ODriveInfo_message.cpp.obj
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ODriveInfo_message.cpp(28): warning C4275: non dll-interface class 'MATLABROS2MsgInterfaceBase' used as base for dll-interface class 'MATLABROS2MsgInterface<starq_interfaces::msg::ODriveInfo>'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABROS2MsgInterface.hpp(50): note: see declaration of 'MATLABROS2MsgInterfaceBase'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ODriveInfo_message.cpp(28): note: see declaration of 'MATLABROS2MsgInterface<starq_interfaces::msg::ODriveInfo>'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ODriveInfo_message.cpp(215): warning C4275: non dll-interface class 'ROS2MsgElementInterfaceFactory' used as base for dll-interface class 'ros2_starq_interfaces_ODriveInfo_message'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABROS2MsgInterface.hpp(55): note: see declaration of 'ROS2MsgElementInterfaceFactory'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ODriveInfo_message.cpp(215): note: see declaration of 'ros2_starq_interfaces_ODriveInfo_message'
+[108/120] Building CXX object CMakeFiles\starq_interfaces_matlab.dir\src\starq_interfaces_ODriveConfig_message.cpp.obj
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ODriveConfig_message.cpp(28): warning C4275: non dll-interface class 'MATLABROS2MsgInterfaceBase' used as base for dll-interface class 'MATLABROS2MsgInterface<starq_interfaces::msg::ODriveConfig>'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABROS2MsgInterface.hpp(50): note: see declaration of 'MATLABROS2MsgInterfaceBase'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ODriveConfig_message.cpp(28): note: see declaration of 'MATLABROS2MsgInterface<starq_interfaces::msg::ODriveConfig>'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ODriveConfig_message.cpp(227): warning C4275: non dll-interface class 'ROS2MsgElementInterfaceFactory' used as base for dll-interface class 'ros2_starq_interfaces_ODriveConfig_message'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABROS2MsgInterface.hpp(55): note: see declaration of 'ROS2MsgElementInterfaceFactory'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ODriveConfig_message.cpp(227): note: see declaration of 'ros2_starq_interfaces_ODriveConfig_message'
+[109/120] Building CXX object CMakeFiles\starq_interfaces_matlab.dir\src\starq_interfaces_LegConfig_message.cpp.obj
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_LegConfig_message.cpp(28): warning C4275: non dll-interface class 'MATLABROS2MsgInterfaceBase' used as base for dll-interface class 'MATLABROS2MsgInterface<starq_interfaces::msg::LegConfig>'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABROS2MsgInterface.hpp(50): note: see declaration of 'MATLABROS2MsgInterfaceBase'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_LegConfig_message.cpp(28): note: see declaration of 'MATLABROS2MsgInterface<starq_interfaces::msg::LegConfig>'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_LegConfig_message.cpp(85): warning C4275: non dll-interface class 'ROS2MsgElementInterfaceFactory' used as base for dll-interface class 'ros2_starq_interfaces_LegConfig_message'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABROS2MsgInterface.hpp(55): note: see declaration of 'ROS2MsgElementInterfaceFactory'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_LegConfig_message.cpp(85): note: see declaration of 'ros2_starq_interfaces_LegConfig_message'
+[110/120] Building CXX object CMakeFiles\starq_interfaces_matlab.dir\src\starq_interfaces_ODriveInfoArray_message.cpp.obj
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ODriveInfoArray_message.cpp(28): warning C4275: non dll-interface class 'MATLABROS2MsgInterfaceBase' used as base for dll-interface class 'MATLABROS2MsgInterface<starq_interfaces::msg::ODriveInfoArray>'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABROS2MsgInterface.hpp(50): note: see declaration of 'MATLABROS2MsgInterfaceBase'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ODriveInfoArray_message.cpp(28): note: see declaration of 'MATLABROS2MsgInterface<starq_interfaces::msg::ODriveInfoArray>'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ODriveInfoArray_message.cpp(65): warning C4275: non dll-interface class 'ROS2MsgElementInterfaceFactory' used as base for dll-interface class 'ros2_starq_interfaces_ODriveInfoArray_message'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABROS2MsgInterface.hpp(55): note: see declaration of 'ROS2MsgElementInterfaceFactory'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ODriveInfoArray_message.cpp(65): note: see declaration of 'ros2_starq_interfaces_ODriveInfoArray_message'
+[111/120] Building CXX object CMakeFiles\starq_interfaces_matlab.dir\src\starq_interfaces_LegInfo_message.cpp.obj
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_LegInfo_message.cpp(28): warning C4275: non dll-interface class 'MATLABROS2MsgInterfaceBase' used as base for dll-interface class 'MATLABROS2MsgInterface<starq_interfaces::msg::LegInfo>'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABROS2MsgInterface.hpp(50): note: see declaration of 'MATLABROS2MsgInterfaceBase'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_LegInfo_message.cpp(28): note: see declaration of 'MATLABROS2MsgInterface<starq_interfaces::msg::LegInfo>'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_LegInfo_message.cpp(89): warning C4275: non dll-interface class 'ROS2MsgElementInterfaceFactory' used as base for dll-interface class 'ros2_starq_interfaces_LegInfo_message'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABROS2MsgInterface.hpp(55): note: see declaration of 'ROS2MsgElementInterfaceFactory'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_LegInfo_message.cpp(89): note: see declaration of 'ros2_starq_interfaces_LegInfo_message'
+[112/120] Building CXX object CMakeFiles\starq_interfaces_matlab.dir\src\starq_interfaces_ODriveCommand_message.cpp.obj
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ODriveCommand_message.cpp(28): warning C4275: non dll-interface class 'MATLABROS2MsgInterfaceBase' used as base for dll-interface class 'MATLABROS2MsgInterface<starq_interfaces::msg::ODriveCommand>'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABROS2MsgInterface.hpp(50): note: see declaration of 'MATLABROS2MsgInterfaceBase'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ODriveCommand_message.cpp(28): note: see declaration of 'MATLABROS2MsgInterface<starq_interfaces::msg::ODriveCommand>'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ODriveCommand_message.cpp(83): warning C4275: non dll-interface class 'ROS2MsgElementInterfaceFactory' used as base for dll-interface class 'ros2_starq_interfaces_ODriveCommand_message'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABROS2MsgInterface.hpp(55): note: see declaration of 'ROS2MsgElementInterfaceFactory'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ODriveCommand_message.cpp(83): note: see declaration of 'ros2_starq_interfaces_ODriveCommand_message'
+[113/120] Building CXX object CMakeFiles\starq_interfaces_matlab.dir\src\starq_interfaces_ODriveCommandArray_message.cpp.obj
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ODriveCommandArray_message.cpp(28): warning C4275: non dll-interface class 'MATLABROS2MsgInterfaceBase' used as base for dll-interface class 'MATLABROS2MsgInterface<starq_interfaces::msg::ODriveCommandArray>'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABROS2MsgInterface.hpp(50): note: see declaration of 'MATLABROS2MsgInterfaceBase'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ODriveCommandArray_message.cpp(28): note: see declaration of 'MATLABROS2MsgInterface<starq_interfaces::msg::ODriveCommandArray>'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ODriveCommandArray_message.cpp(65): warning C4275: non dll-interface class 'ROS2MsgElementInterfaceFactory' used as base for dll-interface class 'ros2_starq_interfaces_ODriveCommandArray_message'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABROS2MsgInterface.hpp(55): note: see declaration of 'ROS2MsgElementInterfaceFactory'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ODriveCommandArray_message.cpp(65): note: see declaration of 'ros2_starq_interfaces_ODriveCommandArray_message'
+[114/120] Building CXX object CMakeFiles\starq_interfaces_matlab.dir\src\starq_interfaces_LegCommandArray_message.cpp.obj
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_LegCommandArray_message.cpp(28): warning C4275: non dll-interface class 'MATLABROS2MsgInterfaceBase' used as base for dll-interface class 'MATLABROS2MsgInterface<starq_interfaces::msg::LegCommandArray>'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABROS2MsgInterface.hpp(50): note: see declaration of 'MATLABROS2MsgInterfaceBase'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_LegCommandArray_message.cpp(28): note: see declaration of 'MATLABROS2MsgInterface<starq_interfaces::msg::LegCommandArray>'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_LegCommandArray_message.cpp(65): warning C4275: non dll-interface class 'ROS2MsgElementInterfaceFactory' used as base for dll-interface class 'ros2_starq_interfaces_LegCommandArray_message'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABROS2MsgInterface.hpp(55): note: see declaration of 'ROS2MsgElementInterfaceFactory'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_LegCommandArray_message.cpp(65): note: see declaration of 'ros2_starq_interfaces_LegCommandArray_message'
+[115/120] Building CXX object CMakeFiles\starq_interfaces_matlab.dir\src\starq_interfaces_LegCommand_message.cpp.obj
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_LegCommand_message.cpp(28): warning C4275: non dll-interface class 'MATLABROS2MsgInterfaceBase' used as base for dll-interface class 'MATLABROS2MsgInterface<starq_interfaces::msg::LegCommand>'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABROS2MsgInterface.hpp(50): note: see declaration of 'MATLABROS2MsgInterfaceBase'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_LegCommand_message.cpp(28): note: see declaration of 'MATLABROS2MsgInterface<starq_interfaces::msg::LegCommand>'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_LegCommand_message.cpp(89): warning C4275: non dll-interface class 'ROS2MsgElementInterfaceFactory' used as base for dll-interface class 'ros2_starq_interfaces_LegCommand_message'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABROS2MsgInterface.hpp(55): note: see declaration of 'ROS2MsgElementInterfaceFactory'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_LegCommand_message.cpp(89): note: see declaration of 'ros2_starq_interfaces_LegCommand_message'
+[116/120] Building CXX object CMakeFiles\starq_interfaces_matlab.dir\src\starq_interfaces_ConfigureMotors_service.cpp.obj
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ConfigureMotors_service.cpp(38): warning C4275: non dll-interface class 'MATLABROS2MsgInterfaceBase' used as base for dll-interface class 'MATLABROS2MsgInterface<starq_interfaces::srv::ConfigureMotors::Request>'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABSvcClientInterface.hpp(47): note: see declaration of 'MATLABROS2MsgInterfaceBase'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ConfigureMotors_service.cpp(38): note: see declaration of 'MATLABROS2MsgInterface<starq_interfaces::srv::ConfigureMotors::Request>'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ConfigureMotors_service.cpp(74): warning C4275: non dll-interface class 'MATLABROS2MsgInterfaceBase' used as base for dll-interface class 'MATLABROS2MsgInterface<starq_interfaces::srv::ConfigureMotors::Response>'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABSvcClientInterface.hpp(47): note: see declaration of 'MATLABROS2MsgInterfaceBase'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ConfigureMotors_service.cpp(74): note: see declaration of 'MATLABROS2MsgInterface<starq_interfaces::srv::ConfigureMotors::Response>'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ConfigureMotors_service.cpp(92): warning C4275: non dll-interface class 'ROS2MsgElementInterfaceFactory' used as base for dll-interface class 'ros2_starq_interfaces_ConfigureMotors_service'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABROS2MsgInterface.hpp(55): note: see declaration of 'ROS2MsgElementInterfaceFactory'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ConfigureMotors_service.cpp(92): note: see declaration of 'ros2_starq_interfaces_ConfigureMotors_service'
+[117/120] Building CXX object CMakeFiles\starq_interfaces_matlab.dir\src\starq_interfaces_LegInfoArray_message.cpp.obj
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_LegInfoArray_message.cpp(28): warning C4275: non dll-interface class 'MATLABROS2MsgInterfaceBase' used as base for dll-interface class 'MATLABROS2MsgInterface<starq_interfaces::msg::LegInfoArray>'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABROS2MsgInterface.hpp(50): note: see declaration of 'MATLABROS2MsgInterfaceBase'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_LegInfoArray_message.cpp(28): note: see declaration of 'MATLABROS2MsgInterface<starq_interfaces::msg::LegInfoArray>'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_LegInfoArray_message.cpp(65): warning C4275: non dll-interface class 'ROS2MsgElementInterfaceFactory' used as base for dll-interface class 'ros2_starq_interfaces_LegInfoArray_message'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABROS2MsgInterface.hpp(55): note: see declaration of 'ROS2MsgElementInterfaceFactory'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_LegInfoArray_message.cpp(65): note: see declaration of 'ros2_starq_interfaces_LegInfoArray_message'
+[118/120] Building CXX object CMakeFiles\starq_interfaces_matlab.dir\src\starq_interfaces_ConfigureLegs_service.cpp.obj
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ConfigureLegs_service.cpp(38): warning C4275: non dll-interface class 'MATLABROS2MsgInterfaceBase' used as base for dll-interface class 'MATLABROS2MsgInterface<starq_interfaces::srv::ConfigureLegs::Request>'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABSvcClientInterface.hpp(47): note: see declaration of 'MATLABROS2MsgInterfaceBase'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ConfigureLegs_service.cpp(38): note: see declaration of 'MATLABROS2MsgInterface<starq_interfaces::srv::ConfigureLegs::Request>'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ConfigureLegs_service.cpp(74): warning C4275: non dll-interface class 'MATLABROS2MsgInterfaceBase' used as base for dll-interface class 'MATLABROS2MsgInterface<starq_interfaces::srv::ConfigureLegs::Response>'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABSvcClientInterface.hpp(47): note: see declaration of 'MATLABROS2MsgInterfaceBase'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ConfigureLegs_service.cpp(74): note: see declaration of 'MATLABROS2MsgInterface<starq_interfaces::srv::ConfigureLegs::Response>'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ConfigureLegs_service.cpp(92): warning C4275: non dll-interface class 'ROS2MsgElementInterfaceFactory' used as base for dll-interface class 'ros2_starq_interfaces_ConfigureLegs_service'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABROS2MsgInterface.hpp(55): note: see declaration of 'ROS2MsgElementInterfaceFactory'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_ConfigureLegs_service.cpp(92): note: see declaration of 'ros2_starq_interfaces_ConfigureLegs_service'
+[119/120] Building CXX object CMakeFiles\starq_interfaces_matlab.dir\src\starq_interfaces_RunLegTrajectory_action.cpp.obj
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_RunLegTrajectory_action.cpp(38): warning C4275: non dll-interface class 'MATLABROS2MsgInterfaceBase' used as base for dll-interface class 'MATLABROS2MsgInterface<starq_interfaces::action::RunLegTrajectory::Goal>'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABActClientInterface.hpp(8): note: see declaration of 'MATLABROS2MsgInterfaceBase'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_RunLegTrajectory_action.cpp(38): note: see declaration of 'MATLABROS2MsgInterface<starq_interfaces::action::RunLegTrajectory::Goal>'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_RunLegTrajectory_action.cpp(88): warning C4275: non dll-interface class 'MATLABROS2MsgInterfaceBase' used as base for dll-interface class 'MATLABROS2MsgInterface<starq_interfaces::action::RunLegTrajectory::Result>'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABActClientInterface.hpp(8): note: see declaration of 'MATLABROS2MsgInterfaceBase'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_RunLegTrajectory_action.cpp(88): note: see declaration of 'MATLABROS2MsgInterface<starq_interfaces::action::RunLegTrajectory::Result>'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_RunLegTrajectory_action.cpp(144): warning C4275: non dll-interface class 'MATLABROS2MsgInterfaceBase' used as base for dll-interface class 'MATLABROS2MsgInterface<starq_interfaces::action::RunLegTrajectory::Feedback>'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABActClientInterface.hpp(8): note: see declaration of 'MATLABROS2MsgInterfaceBase'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_RunLegTrajectory_action.cpp(144): note: see declaration of 'MATLABROS2MsgInterface<starq_interfaces::action::RunLegTrajectory::Feedback>'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_RunLegTrajectory_action.cpp(192): warning C4275: non dll-interface class 'ROS2MsgElementInterfaceFactory' used as base for dll-interface class 'ros2_starq_interfaces_RunLegTrajectory_action'
+C:\Program Files\MATLAB\R2023a\toolbox\ros\include\ros2\MATLABROS2MsgInterface.hpp(55): note: see declaration of 'ROS2MsgElementInterfaceFactory'
+C:\Users\jtyle\OneDrive\Documents\BOOM_WS\matlab\custom\matlab_msg_gen\win64\src\starq_interfaces\src\starq_interfaces_RunLegTrajectory_action.cpp(192): note: see declaration of 'ros2_starq_interfaces_RunLegTrajectory_action'
+[120/120] Linking CXX shared library starq_interfaces_matlab.dll
+-- Install configuration: "Release"
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/ament_index/resource_index/rosidl_interfaces/starq_interfaces
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action/detail
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action/detail/run_leg_trajectory__functions.c
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action/detail/run_leg_trajectory__functions.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action/detail/run_leg_trajectory__struct.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action/detail/run_leg_trajectory__type_support.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action/run_leg_trajectory.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_command_array__functions.c
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_command_array__functions.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_command_array__struct.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_command_array__type_support.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_command__functions.c
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_command__functions.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_command__struct.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_command__type_support.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_config__functions.c
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_config__functions.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_config__struct.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_config__type_support.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_info_array__functions.c
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_info_array__functions.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_info_array__struct.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_info_array__type_support.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_info__functions.c
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_info__functions.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_info__struct.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_info__type_support.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_command_array__functions.c
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_command_array__functions.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_command_array__struct.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_command_array__type_support.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_command__functions.c
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_command__functions.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_command__struct.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_command__type_support.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_config__functions.c
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_config__functions.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_config__struct.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_config__type_support.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_info_array__functions.c
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_info_array__functions.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_info_array__struct.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_info_array__type_support.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_info__functions.c
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_info__functions.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_info__struct.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_info__type_support.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/leg_command.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/leg_command_array.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/leg_config.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/leg_info.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/leg_info_array.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/o_drive_command.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/o_drive_command_array.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/o_drive_config.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/o_drive_info.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/o_drive_info_array.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/rosidl_generator_c__visibility_control.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/configure_legs.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/configure_motors.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/configure_legs__functions.c
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/configure_legs__functions.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/configure_legs__struct.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/configure_legs__type_support.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/configure_motors__functions.c
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/configure_motors__functions.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/configure_motors__struct.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/configure_motors__type_support.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/lib/starq_interfaces__rosidl_generator_c.lib
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/bin/starq_interfaces__rosidl_generator_c.dll
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action/detail
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action/detail/run_leg_trajectory__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_command_array__rosidl_typesupport_fastrtps_c.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_command__rosidl_typesupport_fastrtps_c.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_config__rosidl_typesupport_fastrtps_c.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_info_array__rosidl_typesupport_fastrtps_c.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_info__rosidl_typesupport_fastrtps_c.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_command_array__rosidl_typesupport_fastrtps_c.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_command__rosidl_typesupport_fastrtps_c.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_config__rosidl_typesupport_fastrtps_c.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_info_array__rosidl_typesupport_fastrtps_c.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_info__rosidl_typesupport_fastrtps_c.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/configure_legs__rosidl_typesupport_fastrtps_c.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/configure_motors__rosidl_typesupport_fastrtps_c.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/lib/starq_interfaces__rosidl_typesupport_fastrtps_c.lib
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/bin/starq_interfaces__rosidl_typesupport_fastrtps_c.dll
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action/detail
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action/detail/dds_fastrtps
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action/detail/run_leg_trajectory__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/dds_fastrtps
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_command_array__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_command__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_config__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_info_array__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_info__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_command_array__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_command__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_config__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_info_array__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_info__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/configure_legs__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/configure_motors__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/dds_fastrtps
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/lib/starq_interfaces__rosidl_typesupport_fastrtps_cpp.lib
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/bin/starq_interfaces__rosidl_typesupport_fastrtps_cpp.dll
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action/detail
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action/detail/run_leg_trajectory__rosidl_typesupport_introspection_c.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action/detail/run_leg_trajectory__type_support.c
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_command_array__rosidl_typesupport_introspection_c.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_command_array__type_support.c
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_command__rosidl_typesupport_introspection_c.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_command__type_support.c
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_config__rosidl_typesupport_introspection_c.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_config__type_support.c
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_info_array__rosidl_typesupport_introspection_c.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_info_array__type_support.c
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_info__rosidl_typesupport_introspection_c.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_info__type_support.c
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_command_array__rosidl_typesupport_introspection_c.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_command_array__type_support.c
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_command__rosidl_typesupport_introspection_c.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_command__type_support.c
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_config__rosidl_typesupport_introspection_c.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_config__type_support.c
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_info_array__rosidl_typesupport_introspection_c.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_info_array__type_support.c
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_info__rosidl_typesupport_introspection_c.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_info__type_support.c
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/configure_legs__rosidl_typesupport_introspection_c.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/configure_legs__type_support.c
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/configure_motors__rosidl_typesupport_introspection_c.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/configure_motors__type_support.c
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/lib/starq_interfaces__rosidl_typesupport_introspection_c.lib
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/bin/starq_interfaces__rosidl_typesupport_introspection_c.dll
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/lib/starq_interfaces__rosidl_typesupport_c.lib
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/bin/starq_interfaces__rosidl_typesupport_c.dll
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action/detail
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action/detail/run_leg_trajectory__builder.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action/detail/run_leg_trajectory__struct.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action/detail/run_leg_trajectory__traits.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action/run_leg_trajectory.hpp
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_command_array__builder.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_command_array__struct.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_command_array__traits.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_command__builder.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_command__struct.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_command__traits.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_config__builder.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_config__struct.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_config__traits.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_info_array__builder.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_info_array__struct.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_info_array__traits.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_info__builder.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_info__struct.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_info__traits.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_command_array__builder.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_command_array__struct.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_command_array__traits.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_command__builder.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_command__struct.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_command__traits.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_config__builder.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_config__struct.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_config__traits.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_info_array__builder.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_info_array__struct.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_info_array__traits.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_info__builder.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_info__struct.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_info__traits.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/leg_command.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/leg_command_array.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/leg_config.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/leg_info.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/leg_info_array.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/o_drive_command.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/o_drive_command_array.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/o_drive_config.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/o_drive_info.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/o_drive_info_array.hpp
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/configure_legs.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/configure_motors.hpp
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/configure_legs__builder.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/configure_legs__struct.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/configure_legs__traits.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/configure_motors__builder.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/configure_motors__struct.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/configure_motors__traits.hpp
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action/detail
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action/detail/run_leg_trajectory__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/action/detail/run_leg_trajectory__type_support.cpp
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_command_array__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_command_array__type_support.cpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_command__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_command__type_support.cpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_config__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_config__type_support.cpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_info_array__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_info_array__type_support.cpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_info__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/leg_info__type_support.cpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_command_array__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_command_array__type_support.cpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_command__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_command__type_support.cpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_config__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_config__type_support.cpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_info_array__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_info_array__type_support.cpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_info__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/msg/detail/o_drive_info__type_support.cpp
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/configure_legs__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/configure_legs__type_support.cpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/configure_motors__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/srv/detail/configure_motors__type_support.cpp
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/lib/starq_interfaces__rosidl_typesupport_introspection_cpp.lib
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/bin/starq_interfaces__rosidl_typesupport_introspection_cpp.dll
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/lib/starq_interfaces__rosidl_typesupport_cpp.lib
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/bin/starq_interfaces__rosidl_typesupport_cpp.dll
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/msg/LegCommand.idl
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/msg/LegCommandArray.idl
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/msg/LegConfig.idl
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/msg/LegInfo.idl
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/msg/LegInfoArray.idl
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/msg/ODriveCommand.idl
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/msg/ODriveCommandArray.idl
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/msg/ODriveConfig.idl
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/msg/ODriveInfo.idl
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/msg/ODriveInfoArray.idl
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/srv/ConfigureLegs.idl
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/srv/ConfigureMotors.idl
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/action/RunLegTrajectory.idl
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/msg/LegCommand.msg
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/msg/LegCommandArray.msg
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/msg/LegConfig.msg
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/msg/LegInfo.msg
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/msg/LegInfoArray.msg
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/msg/ODriveCommand.msg
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/msg/ODriveCommandArray.msg
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/msg/ODriveConfig.msg
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/msg/ODriveInfo.msg
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/msg/ODriveInfoArray.msg
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/srv/ConfigureLegs.srv
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/srv/ConfigureLegs_Request.msg
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/srv/ConfigureLegs_Response.msg
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/srv/ConfigureMotors.srv
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/srv/ConfigureMotors_Request.msg
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/srv/ConfigureMotors_Response.msg
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/action/RunLegTrajectory.action
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include
+-- Up-to-date: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/include/starq_interfaces/visibility_control.h
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/lib/starq_interfaces_matlab.lib
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/bin/starq_interfaces_matlab.dll
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m/
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/configureLegsRequest.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/configureLegsResponse.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/configureMotorsRequest.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/configureMotorsResponse.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/legCommand.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/legCommandArray.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/legConfig.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/legInfo.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/legInfoArray.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/oDriveCommand.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/oDriveCommandArray.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/oDriveConfig.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/oDriveInfo.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/oDriveInfoArray.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/runLegTrajectoryFeedback.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/runLegTrajectoryGoal.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/runLegTrajectoryResult.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/starq_interfaces_msg_LegCommandArray_1To2_Converter.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/starq_interfaces_msg_LegCommandArray_2To1_Converter.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/starq_interfaces_msg_LegCommand_1To2_Converter.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/starq_interfaces_msg_LegCommand_2To1_Converter.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/starq_interfaces_msg_LegConfig_1To2_Converter.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/starq_interfaces_msg_LegConfig_2To1_Converter.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/starq_interfaces_msg_LegInfoArray_1To2_Converter.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/starq_interfaces_msg_LegInfoArray_2To1_Converter.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/starq_interfaces_msg_LegInfo_1To2_Converter.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/starq_interfaces_msg_LegInfo_2To1_Converter.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/starq_interfaces_msg_ODriveCommandArray_1To2_Converter.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/starq_interfaces_msg_ODriveCommandArray_2To1_Converter.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/starq_interfaces_msg_ODriveCommand_1To2_Converter.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/starq_interfaces_msg_ODriveCommand_2To1_Converter.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/starq_interfaces_msg_ODriveConfig_1To2_Converter.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/starq_interfaces_msg_ODriveConfig_2To1_Converter.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/starq_interfaces_msg_ODriveInfoArray_1To2_Converter.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/starq_interfaces_msg_ODriveInfoArray_2To1_Converter.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/starq_interfaces_msg_ODriveInfo_1To2_Converter.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/m//+ros/+internal/+ros2/+custommessages/+starq_interfaces/starq_interfaces_msg_ODriveInfo_2To1_Converter.m
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/ament_index/resource_index/package_run_dependencies/starq_interfaces
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/ament_index/resource_index/parent_prefix_path/starq_interfaces
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/environment/ament_prefix_path.bat
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/environment/ament_prefix_path.dsv
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/environment/path.bat
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/environment/path.dsv
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/local_setup.bat
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/local_setup.dsv
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/package.dsv
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/ament_index/resource_index/packages/starq_interfaces
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/cmake/starq_interfaces__rosidl_generator_cExport.cmake
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/cmake/starq_interfaces__rosidl_generator_cExport-release.cmake
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/cmake/starq_interfaces__rosidl_typesupport_introspection_cExport.cmake
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/cmake/starq_interfaces__rosidl_typesupport_introspection_cExport-release.cmake
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/cmake/starq_interfaces__rosidl_typesupport_cExport.cmake
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/cmake/starq_interfaces__rosidl_typesupport_cExport-release.cmake
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/cmake/starq_interfaces__rosidl_generator_cppExport.cmake
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/cmake/starq_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/cmake/starq_interfaces__rosidl_typesupport_introspection_cppExport-release.cmake
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/cmake/starq_interfaces__rosidl_typesupport_cppExport.cmake
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/cmake/starq_interfaces__rosidl_typesupport_cppExport-release.cmake
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/cmake/export_starq_interfacesExport.cmake
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/cmake/export_starq_interfacesExport-release.cmake
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/cmake/rosidl_cmake-extras.cmake
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/cmake/starq_interfacesConfig.cmake
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/cmake/starq_interfacesConfig-version.cmake
+-- Installing: C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/install/share/starq_interfaces/package.xml

@@ -1,0 +1,65 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from starq_interfaces/msg\ODriveConfig.msg
+// generated code does not contain a copyright notice
+
+
+module starq_interfaces {
+  module msg {
+    @verbatim (language="comment", text=
+      " Message to update ODrive Controller config")
+    struct ODriveConfig {
+      @verbatim (language="comment", text=
+        " Motor ID")
+      uint8 id;
+
+      @verbatim (language="comment", text=
+        " CAN Communication ID")
+      uint8 can_id;
+
+      @verbatim (language="comment", text=
+        " Axis States" "\n"
+        " https://docs.odriverobotics.com/v/latest/fibre_types/com_odriverobotics_ODrive.html#ODrive.Axis.AxisState")
+      uint32 requested_state;
+
+      @verbatim (language="comment", text=
+        " Control modes" "\n"
+        " https://docs.odriverobotics.com/v/latest/fibre_types/com_odriverobotics_ODrive.html#ODrive.Controller.ControlMode")
+      uint32 control_mode;
+
+      @verbatim (language="comment", text=
+        " Input modes" "\n"
+        " https://docs.odriverobotics.com/v/latest/fibre_types/com_odriverobotics_ODrive.html#ODrive.Controller.InputMode")
+      uint32 input_mode;
+
+      @verbatim (language="comment", text=
+        " Limits")
+      float velocity_limit;
+
+      float current_limit;
+
+      @verbatim (language="comment", text=
+        " Trapezoidal Trajectory config" "\n"
+        " https://docs.odriverobotics.com/v/latest/control-input-modes.html#trajectory-control")
+      float trap_traj_velocity_limit;
+
+      float trap_traj_acceleration_limit;
+
+      float trap_traj_deceleration_limit;
+
+      float trap_traj_inertia;
+
+      @verbatim (language="comment", text=
+        " Gains" "\n"
+        " https://docs.odriverobotics.com/v/latest/control.html")
+      float position_gain;
+
+      float velocity_gain;
+
+      float velocity_integrator_gain;
+
+      @verbatim (language="comment", text=
+        " Gear ratio")
+      float gear_ratio;
+    };
+  };
+};

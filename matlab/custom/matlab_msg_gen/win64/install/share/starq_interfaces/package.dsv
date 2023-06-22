@@ -1,0 +1,12 @@
+source;share\starq_interfaces\hook\cmake_prefix_path.ps1
+source;share\starq_interfaces\hook\cmake_prefix_path.bat
+source;share\starq_interfaces\hook\cmake_prefix_path.dsv
+source;share\starq_interfaces\hook\path_dll.ps1
+source;share\starq_interfaces\hook\path_dll.bat
+source;share\starq_interfaces\hook\path_dll.dsv
+source;share\starq_interfaces\hook\path.ps1
+source;share\starq_interfaces\hook\path.bat
+source;share\starq_interfaces\hook\path.dsv
+source;share/starq_interfaces/local_setup.bat
+source;share/starq_interfaces/local_setup.dsv
+source;share/starq_interfaces/local_setup.ps1

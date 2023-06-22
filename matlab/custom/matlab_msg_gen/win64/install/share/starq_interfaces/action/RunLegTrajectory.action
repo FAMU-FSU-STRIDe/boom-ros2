@@ -1,0 +1,8 @@
+float32 publish_rate # Hz
+starq_interfaces/LegCommandArray[] trajectory
+---
+starq_interfaces/LegInfoArray[] leg_infos
+starq_interfaces/ODriveInfoArray[] motor_infos
+---
+starq_interfaces/LegInfoArray lastest_leg_info
+starq_interfaces/ODriveInfoArray latest_motor_info

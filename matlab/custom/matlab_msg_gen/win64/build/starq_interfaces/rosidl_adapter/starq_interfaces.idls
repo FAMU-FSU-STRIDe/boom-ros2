@@ -1,0 +1,13 @@
+C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/build/starq_interfaces/rosidl_adapter/starq_interfaces:msg/LegCommand.idl
+C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/build/starq_interfaces/rosidl_adapter/starq_interfaces:msg/LegCommandArray.idl
+C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/build/starq_interfaces/rosidl_adapter/starq_interfaces:msg/LegConfig.idl
+C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/build/starq_interfaces/rosidl_adapter/starq_interfaces:msg/LegInfo.idl
+C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/build/starq_interfaces/rosidl_adapter/starq_interfaces:msg/LegInfoArray.idl
+C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/build/starq_interfaces/rosidl_adapter/starq_interfaces:msg/ODriveCommand.idl
+C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/build/starq_interfaces/rosidl_adapter/starq_interfaces:msg/ODriveCommandArray.idl
+C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/build/starq_interfaces/rosidl_adapter/starq_interfaces:msg/ODriveConfig.idl
+C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/build/starq_interfaces/rosidl_adapter/starq_interfaces:msg/ODriveInfo.idl
+C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/build/starq_interfaces/rosidl_adapter/starq_interfaces:msg/ODriveInfoArray.idl
+C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/build/starq_interfaces/rosidl_adapter/starq_interfaces:srv/ConfigureLegs.idl
+C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/build/starq_interfaces/rosidl_adapter/starq_interfaces:srv/ConfigureMotors.idl
+C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/build/starq_interfaces/rosidl_adapter/starq_interfaces:action/RunLegTrajectory.idl

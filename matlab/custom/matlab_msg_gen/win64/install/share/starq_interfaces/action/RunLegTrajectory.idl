@@ -1,0 +1,29 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from starq_interfaces/action\RunLegTrajectory.action
+// generated code does not contain a copyright notice
+
+#include "starq_interfaces/msg/LegCommandArray.idl"
+#include "starq_interfaces/msg/LegInfoArray.idl"
+#include "starq_interfaces/msg/ODriveInfoArray.idl"
+
+module starq_interfaces {
+  module action {
+    struct RunLegTrajectory_Goal {
+      @verbatim (language="comment", text=
+        " Hz")
+      float publish_rate;
+
+      sequence<starq_interfaces::msg::LegCommandArray> trajectory;
+    };
+    struct RunLegTrajectory_Result {
+      sequence<starq_interfaces::msg::LegInfoArray> leg_infos;
+
+      sequence<starq_interfaces::msg::ODriveInfoArray> motor_infos;
+    };
+    struct RunLegTrajectory_Feedback {
+      starq_interfaces::msg::LegInfoArray lastest_leg_info;
+
+      starq_interfaces::msg::ODriveInfoArray latest_motor_info;
+    };
+  };
+};

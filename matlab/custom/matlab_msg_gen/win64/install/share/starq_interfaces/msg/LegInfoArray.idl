@@ -1,0 +1,13 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from starq_interfaces/msg\LegInfoArray.msg
+// generated code does not contain a copyright notice
+
+#include "starq_interfaces/msg/LegInfo.idl"
+
+module starq_interfaces {
+  module msg {
+    struct LegInfoArray {
+      sequence<starq_interfaces::msg::LegInfo> infos;
+    };
+  };
+};

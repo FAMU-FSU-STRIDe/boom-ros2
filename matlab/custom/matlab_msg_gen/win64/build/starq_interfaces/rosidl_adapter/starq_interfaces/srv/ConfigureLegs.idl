@@ -1,0 +1,16 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from starq_interfaces/srv\ConfigureLegs.srv
+// generated code does not contain a copyright notice
+
+#include "starq_interfaces/msg/LegConfig.idl"
+
+module starq_interfaces {
+  module srv {
+    struct ConfigureLegs_Request {
+      sequence<starq_interfaces::msg::LegConfig> configs;
+    };
+    struct ConfigureLegs_Response {
+      uint8 structure_needs_at_least_one_member;
+    };
+  };
+};

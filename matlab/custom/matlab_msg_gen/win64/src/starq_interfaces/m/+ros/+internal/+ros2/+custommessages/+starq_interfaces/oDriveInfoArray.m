@@ -1,0 +1,31 @@
+function [data, info] = oDriveInfoArray
+%ODriveInfoArray gives an empty data for starq_interfaces/ODriveInfoArray
+% Copyright 2019-2021 The MathWorks, Inc.
+data = struct();
+data.MessageType = 'starq_interfaces/ODriveInfoArray';
+[data.infos, info.infos] = ros.internal.ros2.custommessages.starq_interfaces.oDriveInfo;
+info.infos.MLdataType = 'struct';
+info.infos.MaxLen = NaN;
+info.infos.MinLen = 0;
+info.MessageType = 'starq_interfaces/ODriveInfoArray';
+info.constant = 0;
+info.default = 0;
+info.maxstrlen = NaN;
+info.MaxLen = 1;
+info.MinLen = 1;
+info.MatPath = cell(1,15);
+info.MatPath{1} = 'infos';
+info.MatPath{2} = 'infos.state';
+info.MatPath{3} = 'infos.fault';
+info.MatPath{4} = 'infos.pos_estimate';
+info.MatPath{5} = 'infos.vel_estimate';
+info.MatPath{6} = 'infos.torque_estimate';
+info.MatPath{7} = 'infos.torque_target';
+info.MatPath{8} = 'infos.iq_setpoint';
+info.MatPath{9} = 'infos.iq_measured';
+info.MatPath{10} = 'infos.motor_temperature';
+info.MatPath{11} = 'infos.bus_voltage';
+info.MatPath{12} = 'infos.bus_current';
+info.MatPath{13} = 'infos.pos_error';
+info.MatPath{14} = 'infos.vel_error';
+info.MatPath{15} = 'infos.torque_error';

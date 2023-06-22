@@ -1,0 +1,18 @@
+{
+  "package_name": "starq_interfaces",
+  "non_idl_tuples": [
+    "C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/src/starq_interfaces:msg/LegCommand.msg",
+    "C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/src/starq_interfaces:msg/LegCommandArray.msg",
+    "C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/src/starq_interfaces:msg/LegConfig.msg",
+    "C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/src/starq_interfaces:msg/LegInfo.msg",
+    "C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/src/starq_interfaces:msg/LegInfoArray.msg",
+    "C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/src/starq_interfaces:msg/ODriveCommand.msg",
+    "C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/src/starq_interfaces:msg/ODriveCommandArray.msg",
+    "C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/src/starq_interfaces:msg/ODriveConfig.msg",
+    "C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/src/starq_interfaces:msg/ODriveInfo.msg",
+    "C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/src/starq_interfaces:msg/ODriveInfoArray.msg",
+    "C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/src/starq_interfaces:srv/ConfigureLegs.srv",
+    "C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/src/starq_interfaces:srv/ConfigureMotors.srv",
+    "C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/src/starq_interfaces:action/RunLegTrajectory.action"
+  ]
+}
