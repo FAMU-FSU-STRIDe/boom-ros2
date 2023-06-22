@@ -75,11 +75,15 @@ private:
     }
 
     void motor_info_callback_(const ODriveInfoArray::SharedPtr info_msg) {
+        if (!this->trajectory_result_ || !this->trajectory_feedback_)
+            return;
         this->trajectory_result_->motor_infos.emplace_back(*info_msg);
         this->trajectory_feedback_->latest_motor_info = *info_msg;
     }
 
     void leg_info_callback_(const LegInfoArray::SharedPtr info_msg) {
+        if (!this->trajectory_result_ || !this->trajectory_feedback_)
+            return;
         this->trajectory_result_->leg_infos.emplace_back(*info_msg);
         this->trajectory_feedback_->lastest_leg_info = *info_msg;
     }
