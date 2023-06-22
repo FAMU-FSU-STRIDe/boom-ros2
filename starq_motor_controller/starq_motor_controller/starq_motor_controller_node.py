@@ -69,14 +69,15 @@ class STARQMotorDriverNode(Node):
             can_id = config.can_id
             info.fault, info.state = canfunc.get_error_and_state(can_id)
             info.pos_estimate, info.vel_estimate = canfunc.get_position_and_velocity_estimates(can_id)
-            info.torque_target, info.torque_estimate = canfunc.get_torque_target_and_estimate(can_id)
             info.iq_setpoint, info.iq_measured = canfunc.get_qcurrent_setpoint_and_measured(can_id)
+            info.torque_estimate = info.iq_measured * (8.27 / 330)
             info.motor_temperature = canfunc.get_temperature(can_id)
             info.bus_voltage, info.bus_current = canfunc.get_bus_voltage_and_current(can_id)
-            last_cmd = self.last_cmds[config.id]
-            info.pos_error = last_cmd.input_position - info.pos_estimate
-            info.vel_error = last_cmd.input_velocity - info.vel_estimate
-            info.torque_error = last_cmd.input_torque - info.torque_estimate
+            if (len(self.last_cmds) <= config.id):
+                last_cmd = self.last_cmds[config.id]
+                info.pos_error = last_cmd.input_position - info.pos_estimate
+                info.vel_error = last_cmd.input_velocity - info.vel_estimate
+                info.torque_error = last_cmd.input_torque - info.torque_estimate
             infos.infos.insert(config.id, info)
         self.info_pub.publish(infos)
         
