@@ -64,7 +64,7 @@ class STARQMotorDriverNode(Node):
 
     def get_info_callback(self):
         infos = ODriveInfoArray()
-        infos.infos = [ODriveInfo] * len(self.motor_confs)
+        infos.infos = [ODriveInfo()] * len(self.motor_confs)
         for config in self.motor_confs:
             info = ODriveInfo()
             can_id = config.can_id
