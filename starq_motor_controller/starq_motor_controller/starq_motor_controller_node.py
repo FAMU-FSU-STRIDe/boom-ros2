@@ -30,7 +30,7 @@ class STARQMotorDriverNode(Node):
             self.get_logger().warn("No motors configured!")
         for config in self.motor_confs:
             try:
-                cmd = ODriveCommand(msg.commands[config.id])
+                cmd : ODriveCommand = msg.commands[config.id]
             except IndexError:
                 self.get_logger().error(f"Missing motor command for id: {config.id}")
                 continue

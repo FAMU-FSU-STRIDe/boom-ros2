@@ -39,10 +39,10 @@ classdef STARQController < handle
     end
 
     methods (Access=private)
-        function runLegTrajectoryFeedbackCallback(obj, msg)
+        function runLegTrajectoryFeedbackCallback(obj, ~, msg)
             obj.RunLegTrajectoryActionLatestFeedback = msg;
         end
-        function runLegTrajectoryResultCallback(obj, msg)
+        function runLegTrajectoryResultCallback(obj, ~, msg)
             obj.RunLegTrajectoryActionLatestResult = msg;
         end
     end
