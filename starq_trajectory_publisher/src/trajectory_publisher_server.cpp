@@ -117,8 +117,8 @@ private:
     void execute_() {
         const auto goal = goal_handle_->get_goal();
         rclcpp::Rate loop_rate(goal->publish_rate);
-        int& loop = trajectory_result_->loops_completed;
-        for (loop = 0; loop < goal->num_loops || goal->num_loops == -1; loop++) {
+        uint32_t& loop = trajectory_result_->loops_completed;
+        for (loop = 0; int(loop) < goal->num_loops || goal->num_loops == -1; loop++) {
             for (const auto& cmds : goal->trajectory) {
                 if (goal_handle_->is_canceling()) {
                     handle_result_(rclcpp_action::ResultCode::CANCELED);
