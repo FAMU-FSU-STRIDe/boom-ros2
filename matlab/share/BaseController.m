@@ -10,6 +10,8 @@ classdef BaseController < handle
         RunLegTrajectoryActionGoalHandle
         RunLegTrajectoryActionLatestFeedback
         RunLegTrajectoryActionLatestResult
+        isInRecordingMode
+        RunLegTrajectoryActionRecording
     end
     
     methods (Access=public)
@@ -23,9 +25,18 @@ classdef BaseController < handle
                 "/starq/legs/conf", "starq_interfaces/ConfigureLegs");
             obj.RunLegTrajectoryActionClient = ros2actionclient(obj.Node,...
                 "/starq/legs/run_trajectory", "starq_interfaces/RunLegTrajectory");
+            obj.isInRecordingMode = false;
+            obj.RunLegTrajectoryActionRecording = [];
         end
 
-        function sendLegTrajectory(obj, goalMsg)
+        function sendLegTrajectory(obj, goalMsg, recordPlayback)
+            arguments
+                obj
+                goalMsg
+                recordPlayback = false
+            end
+            obj.isInRecordingMode = recordPlayback;
+            obj.RunLegTrajectoryActionRecording = [];
             cllbckOptions = ros2ActionSendGoalOptions(...
                 FeedbackFcn=@obj.runLegTrajectoryFeedbackCallback,...
                 ResultFcn=@obj.runLegTrajectoryResultCallback);
@@ -51,12 +62,34 @@ classdef BaseController < handle
             msg = ros2message("starq_interfaces/ConfigureLegsRequest");
             msg.configs = obj.LegConfigs;
             obj.sendLegConfigs(msg);
-        end  
+        end
+
+        function cancelTrajectory(obj)
+            cancelGoal(obj.RunLegTrajectoryActionClient,...
+                obj.RunLegTrajectoryActionGoalHandle);
+        end
+
+        function ready(obj)
+            for m = 1:length(obj.MotorConfigs)
+                obj.MotorConfigs(m).requested_state = uint32(8);
+            end
+            obj.updateMotorConfigs();
+        end
+
+        function idle(obj)
+            for m = 1:length(obj.MotorConfigs)
+                obj.MotorConfigs(m).requested_state = uint32(1);
+            end
+            obj.updateMotorConfigs();
+        end
     end
 
     methods (Access=private)
         function runLegTrajectoryFeedbackCallback(obj, ~, msg)
             obj.RunLegTrajectoryActionLatestFeedback = msg;
+            if (obj.isInRecordingMode)
+                obj.RunLegTrajectoryActionRecording = [obj.RunLegTrajectoryActionRecording, msg];
+            end
         end
         function runLegTrajectoryResultCallback(obj, ~, msg)
             obj.RunLegTrajectoryActionLatestResult = msg;
