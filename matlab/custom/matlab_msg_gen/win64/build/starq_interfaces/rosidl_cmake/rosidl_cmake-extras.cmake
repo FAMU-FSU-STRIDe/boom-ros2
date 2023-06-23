@@ -1,4 +1,0 @@
-# generated from rosidl_cmake/cmake/rosidl_cmake-extras.cmake.in
-
-set(starq_interfaces_IDL_FILES "msg/LegCommand.idl;msg/LegCommandArray.idl;msg/LegConfig.idl;msg/LegInfo.idl;msg/LegInfoArray.idl;msg/ODriveCommand.idl;msg/ODriveCommandArray.idl;msg/ODriveConfig.idl;msg/ODriveInfo.idl;msg/ODriveInfoArray.idl;srv/ConfigureLegs.idl;srv/ConfigureMotors.idl;action/RunLegTrajectory.idl")
-set(starq_interfaces_INTERFACE_FILES "msg/LegCommand.msg;msg/LegCommandArray.msg;msg/LegConfig.msg;msg/LegInfo.msg;msg/LegInfoArray.msg;msg/ODriveCommand.msg;msg/ODriveCommandArray.msg;msg/ODriveConfig.msg;msg/ODriveInfo.msg;msg/ODriveInfoArray.msg;srv/ConfigureLegs.srv;srv/ConfigureLegs_Request.msg;srv/ConfigureLegs_Response.msg;srv/ConfigureMotors.srv;srv/ConfigureMotors_Request.msg;srv/ConfigureMotors_Response.msg;action/RunLegTrajectory.action")
