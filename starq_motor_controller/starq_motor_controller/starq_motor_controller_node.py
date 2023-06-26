@@ -18,9 +18,9 @@ class STARQMotorDriverNode(Node):
         self.max_motor_id = -1
 
         info_frequency = 50.0 # Hz
-        self.cmd_sub = self.create_subscription(ODriveCommandArray, '/starq/motors/cmd', self.cmd_motors_callback, 1)
+        self.cmd_sub = self.create_subscription(ODriveCommandArray, '/starq/motors/cmd', self.cmd_motors_callback, 10)
         self.conf_srv = self.create_service(ConfigureMotors, '/starq/motors/conf', self.conf_motors_callback)
-        self.info_pub = self.create_publisher(ODriveInfoArray, '/starq/motors/info', 1)
+        self.info_pub = self.create_publisher(ODriveInfoArray, '/starq/motors/info', 10)
         self.info_timer = self.create_timer(1.0/info_frequency, self.get_info_callback)
 
         self.get_logger().info("Motor controller node initialized.")

@@ -33,12 +33,12 @@ public:
             std::bind(&TrajectoryPublisherServer::handle_cancel_, this, _1),
             std::bind(&TrajectoryPublisherServer::handle_accepted_, this, _1));
 
-        this->motor_info_sub_ = this->create_subscription<ODriveInfoArray>("/starq/motors/info", 1,
+        this->motor_info_sub_ = this->create_subscription<ODriveInfoArray>("/starq/motors/info", 10,
             std::bind(&TrajectoryPublisherServer::motor_info_callback_, this, _1));
-        this->leg_info_sub_ = this->create_subscription<LegInfoArray>("/starq/legs/info", 1,
+        this->leg_info_sub_ = this->create_subscription<LegInfoArray>("/starq/legs/info", 10,
             std::bind(&TrajectoryPublisherServer::leg_info_callback_, this, _1));
 
-        this->leg_cmd_pub_ = this->create_publisher<LegCommandArray>("/starq/legs/cmd", 1);
+        this->leg_cmd_pub_ = this->create_publisher<LegCommandArray>("/starq/legs/cmd", 10);
 
         using namespace std::chrono_literals;
         this->feedback_timer_ = this->create_wall_timer(20ms, std::bind(&TrajectoryPublisherServer::feedback_callback_, this));
