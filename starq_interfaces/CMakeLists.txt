@@ -21,6 +21,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/LegCommandArray.msg"
   "msg/LegInfo.msg"
   "msg/LegInfoArray.msg"
+  "msg/BoomEncoderInfo.msg"
   "srv/ConfigureLegs.srv"
   "action/RunLegTrajectory.action"
 )

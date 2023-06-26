@@ -1,17 +1,21 @@
 ## Setting up MATLAB for ROS2
 
-### Install Python 3.8 or 3.9
+### 1. Install MATLAB R2023a
 
-### Install Visual Studio C++ 2019
+### 2. Install Python 3.8 or 3.9
 
-### Install CMake >3.15
+### 3. Install Visual Studio C++ 2019
 
-### Run this command as administrator
+### 4. Install CMake >3.15
+
+### 5. Run this command as administrator
 
 ```
-mklink /D "C:\Program Files\MATLAB\<VERSION>\bin\win64\cmake" "C:\Program Files\CMake"
+mklink /D "C:\Program Files\MATLAB\R2023a\bin\win64\cmake" "C:\Program Files\CMake"
 ```
 
-### Delete C:\Users\ (user) \ source
+### 6. Delete `C:\Users\[user]\source` if it exists
 
-### Run gen_msgs.m
+### 7. Run `matlab\generateMsgs.m`
+
+### 8. Right click `matlab\share` > Add to Path > Selected Folders

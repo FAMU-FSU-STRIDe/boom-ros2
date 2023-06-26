@@ -1,13 +1,9 @@
 {
     "python.analysis.extraPaths": [
-        "/starq_ws/install/starq_motor_controller/lib/python3.10/site-packages",
-        "/starq_ws/install/starq_interfaces/local/lib/python3.10/dist-packages",
         "/opt/ros/humble/lib/python3.10/site-packages",
         "/opt/ros/humble/local/lib/python3.10/dist-packages"
     ],
     "python.autoComplete.extraPaths": [
-        "/starq_ws/install/starq_motor_controller/lib/python3.10/site-packages",
-        "/starq_ws/install/starq_interfaces/local/lib/python3.10/dist-packages",
         "/opt/ros/humble/lib/python3.10/site-packages",
         "/opt/ros/humble/local/lib/python3.10/dist-packages"
     ],

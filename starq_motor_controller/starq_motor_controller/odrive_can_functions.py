@@ -24,6 +24,9 @@ def recieve_can_msg(can_id : int, msg_name : str):
 def clear_errors(can_id : int):
     send_can_msg(can_id, 'Clear_Errors', {})
 
+# Emergency stop
+def emergency_stop(can_id : int):
+    send_can_msg(can_id, 'Estop', {})
 
 ## MOTOR COMMANDS
 
@@ -88,8 +91,9 @@ def get_qcurrent_setpoint_and_measured(can_id : int):
     return can_msg['Iq_Setpoint'], can_msg['Iq_Measured']
 
 # Temperature data (FET + Motor)
-def get_temperature(can_id : int):
-    return recieve_can_msg(can_id, 'Get_Temperature')['Motor_Temperature']
+def get_temperatures(can_id : int):
+    can_msg = recieve_can_msg(can_id, 'Get_Temperature')
+    return can_msg['FET_Temperature'], can_msg['Motor_Temperature']
 
 # Bus Voltage + Current
 def get_bus_voltage_and_current(can_id : int):

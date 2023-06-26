@@ -41,7 +41,7 @@ public:
         this->leg_cmd_pub_ = this->create_publisher<LegCommandArray>("/starq/legs/cmd", 10);
 
         using namespace std::chrono_literals;
-        this->feedback_timer_ = this->create_wall_timer(50ms, std::bind(&TrajectoryPublisherServer::feedback_callback_, this));
+        this->feedback_timer_ = this->create_wall_timer(20ms, std::bind(&TrajectoryPublisherServer::feedback_callback_, this));
 
         RCLCPP_INFO(this->get_logger(), "Trajectory Publisher server initialized.");
     }
@@ -116,9 +116,9 @@ private:
 
     void execute_() {
         const auto goal = goal_handle_->get_goal();
+        uint32_t& loop = trajectory_feedback_->loops_completed;
         rclcpp::Rate loop_rate(goal->publish_rate);
-        for (int loop = 0; (loop < goal->num_loops) || (goal->num_loops == -1); loop++) {
-            trajectory_result_->loops_completed = loop;
+        for (loop = 0; (int(loop) < goal->num_loops) || (goal->num_loops == -1); loop++) {
             for (const auto& cmds : goal->trajectory) {
                 if (goal_handle_->is_canceling()) {
                     handle_result_(rclcpp_action::ResultCode::CANCELED);

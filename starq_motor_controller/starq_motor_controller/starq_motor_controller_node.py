@@ -54,6 +54,9 @@ class STARQMotorDriverNode(Node):
         self.motor_confs = list[ODriveConfig](request.configs)
         for config in self.motor_confs:
             can_id = config.can_id
+            if config.requested_state == 0:
+                canfunc.emergency_stop(can_id) # Emergency stop
+                continue
             canfunc.clear_errors(can_id)
             canfunc.set_state(can_id, config.requested_state)
             canfunc.set_control_mode(can_id, config.control_mode, config.input_mode)
@@ -75,9 +78,9 @@ class STARQMotorDriverNode(Node):
             info.fault, info.state = canfunc.get_error_and_state(can_id)
             info.pos_estimate, info.vel_estimate = canfunc.get_position_and_velocity_estimates(can_id)
             info.iq_setpoint, info.iq_measured = canfunc.get_qcurrent_setpoint_and_measured(can_id)
-            #info.torque_target, info.torque_estimate = canfunc.get_torque_target_and_estimate(can_id)
+            info.torque_target, info.torque_estimate = canfunc.get_torque_target_and_estimate(can_id)
             info.torque_estimate = 8.27 * info.iq_measured / 330
-            #info.motor_temperature = canfunc.get_temperature(can_id)
+            info.fet_temperature, info.motor_temperature = canfunc.get_temperatures(can_id)
             info.bus_voltage, info.bus_current = canfunc.get_bus_voltage_and_current(can_id)
             if (config.id < len(self.last_cmds)):
                 last_cmd = self.last_cmds[config.id]
@@ -87,10 +90,15 @@ class STARQMotorDriverNode(Node):
             infos.infos[config.id] = info
         self.info_pub.publish(infos)
         
-    # Stop motors
-    def stop(self):
+    # Put motors in idle
+    def idle(self):
         for config in self.motor_confs:
             canfunc.set_state(config.id, 1) # Idle
+
+    # Emergency stop motors
+    def emergency_stop(self):
+        for config in self.motor_confs:
+            canfunc.emergency_stop(config.id)
 
 
 # ROS Entry
@@ -103,7 +111,7 @@ def main(args=None):
         node.get_logger().error(str(e))
     except KeyboardInterrupt:
         pass
-    node.stop()
+    node.idle()
     canfunc._canbus.shutdown()
     node.get_logger().info("Motor driver node closed.")
     node.destroy_node()

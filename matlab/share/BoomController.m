@@ -1,6 +1,7 @@
 classdef BoomController < BaseController
     
     properties
+        BoomEncodersSubscriber % TODO
     end
 
     methods
@@ -10,67 +11,42 @@ classdef BoomController < BaseController
                 defaultMotorConfig(0, 0),...
                 defaultMotorConfig(1, 1)];
             obj.LegConfigs = defaultFiveBar2DLegConfig(0, [0,1]);
-            if (waitForServer(obj.ConfigureMotorsServiceClient, 'Timeout', 3) ~= 1)
-                disp("Could not connect to ConfigureMotorsServiceClient");
-            else
-                obj.updateMotorConfigs()
-            end
-            if (waitForServer(obj.ConfigureLegsServiceClient, 'Timeout', 3) ~= 1)
-                disp("Could not connect to ConfigureLegsServiceClient");
-            else
-                obj.updateLegConfigs()
-            end
-            if (waitForServer(obj.RunLegTrajectoryActionClient, 'Timeout', 3) ~= 1)
-                disp("Could not connect to RunLegTrajectoryActionClient");
-            end
+            obj.updateMotorConfigs();
+            obj.updateLegConfigs();
         end
 
-        function sendPointTrajectory(obj, points, publish_rate, loops, recordPlayback)
+        function runPointTrajectory(obj, points, freq, loops, record)
             arguments
                 obj
                 points
-                publish_rate
+                freq
                 loops = 1
-                recordPlayback = false
+                record = false
             end
             goalMsg = ros2message("starq_interfaces/RunLegTrajectoryGoal");
+            traj_size = size(points, 2);
             goalMsg.num_loops = int32(loops);
-            goalMsg.publish_rate = single(publish_rate);
-            for i = 1:size(points,2)
+            goalMsg.publish_rate = single(traj_size * freq);
+            for i = 1:traj_size
                 leg_cmd = ros2message("starq_interfaces/LegCommandArray");
                 leg_cmd.commands(1).input_pos = single(points(:,i));
                 leg_cmd.commands(1).input_vel = single([0;0]);
                 leg_cmd.commands(1).input_acc = single([0;0]);
                 goalMsg.trajectory(i) = leg_cmd;
             end
-            obj.sendLegTrajectory(goalMsg, recordPlayback);
+            obj.sendLegTrajectory(goalMsg, record);
         end
 
-        function setPoint(obj, x, y)
-            obj.sendPointTrajectory([x;y], 1);
+        function goToPoint(obj, x, y)
+            obj.runPointTrajectory([x;y], 1);
         end
 
-        function runGait(obj, points, stride_frequency, loops, recordPlayback)
-            arguments
-                obj
-                points
-                stride_frequency {mustBeNumeric, mustBePositive} = 2.5
-                loops {mustBeInteger} = -1
-                recordPlayback = false
-            end
-            traj_size = size(points, 2);
-            publish_rate = traj_size * stride_frequency;
-            obj.sendPointTrajectory(points,publish_rate,loops,recordPlayback);
+        function recordPointTrajectory(obj, points, freq, loops)
+            obj.runPointTrajectory(points, freq, loops, true);
         end
 
-        function recordGait(obj, points, stride_frequency, loops)
-            arguments
-                obj
-                points
-                stride_frequency {mustBeNumeric, mustBePositive} = 2.5
-                loops {mustBeInteger} = -1
-            end
-            obj.runGait(points,stride_frequency,loops,true);
+        function loopPointTrajectory(obj, points, freq)
+            obj.runPointTrajectory(points, freq, -1, false);
         end
 
     end
