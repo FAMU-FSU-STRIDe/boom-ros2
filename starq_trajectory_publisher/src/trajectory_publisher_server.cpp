@@ -153,6 +153,8 @@ private:
                 RCLCPP_INFO(this->get_logger(), "Aborting trajectory. (Motor Fault %d)", this->fault_);
                 break;
             default:
+                // Should never reach this point
+                RCLCPP_INFO(this->get_logger(), "Aborting trajectory for unknown reason. (BAD)");
                 break;
         }
         this->trajectory_result_ = nullptr;
