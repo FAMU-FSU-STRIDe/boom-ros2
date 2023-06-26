@@ -2,7 +2,7 @@ clc
 close all
 %% Params
 
-stride_frequency = 1.0; % Hz
+stride_frequency = 2.5; % Hz
 T = 1/stride_frequency;
 
 N = 500;

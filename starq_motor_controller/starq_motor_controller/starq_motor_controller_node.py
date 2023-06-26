@@ -16,7 +16,7 @@ class STARQMotorDriverNode(Node):
         self.last_cmds : list[ODriveCommand] = []
         self.max_motor_id = -1
 
-        info_frequency = 100.0 # Hz
+        info_frequency = 50.0 # Hz
         self.cmd_sub = self.create_subscription(ODriveCommandArray, '/starq/motors/cmd', self.cmd_motors_callback, 10)
         self.conf_srv = self.create_service(ConfigureMotors, '/starq/motors/conf', self.conf_motors_callback)
         self.info_pub = self.create_publisher(ODriveInfoArray, '/starq/motors/info', 10)

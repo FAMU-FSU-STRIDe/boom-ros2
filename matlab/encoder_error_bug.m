@@ -1,12 +1,12 @@
 %% Encoder error bug
 close all
-clear boom
+clear
 
 hop_maker
 
 % Set run parameters
-stride_frequency = 0.5; % Hz
-num_loops = 3;
+stride_frequency = 2.5; % Hz
+num_loops = 5;
 
 % Create connection to boom ROS network
 boom = BoomController();
@@ -40,3 +40,5 @@ legend(["Commanded", "Encoder Estimate"])
 
 % Put motors in idle mode
 boom.idle()
+
+clear boom

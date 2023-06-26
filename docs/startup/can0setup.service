@@ -2,7 +2,7 @@
 Description=Setup can0
 
 [Service]
-ExecStart=/starq_ws/src/docs/can/start-can0.sh
+ExecStart=/starq_ws/src/docs/startup/start-can0.sh
 Type=oneshot
 RemainAfterExit=yes
 User=root

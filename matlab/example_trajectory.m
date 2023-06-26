@@ -3,7 +3,7 @@ close all
 clear boom
 
 % Generate trajectory
-% trajectory = [];
+trajectory = [];
 % trajectory = [ x0, x1, x2, x3, ... , xn;
 %                y0, y1, y2, y3, ... , yn];
 
