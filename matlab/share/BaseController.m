@@ -42,11 +42,11 @@ classdef BaseController < handle
                 FeedbackFcn=@obj.runLegTrajectoryFeedbackCallback,...
                 ResultFcn=@obj.runLegTrajectoryResultCallback);
             if (waitForServer(obj.RunLegTrajectoryActionClient, 'Timeout', 1) == 1)
+                obj.RunLegTrajectoryActionGoalHandle = ...
+                    sendGoal(obj.RunLegTrajectoryActionClient, goalMsg, cllbckOptions);
                 if (record)
                     obj.startRecording(goalMsg);
                 end
-                obj.RunLegTrajectoryActionGoalHandle = ...
-                    sendGoal(obj.RunLegTrajectoryActionClient, goalMsg, cllbckOptions);
             else
                 disp("Could not connect to RunLegTrajectoryActionClient");
             end
@@ -105,7 +105,8 @@ classdef BaseController < handle
 
         function [time, motor_pos, motor_vel, motor_trq, ...
                     motor_pos_err, motor_vel_err, motor_trq_err,...
-                    motor_qcurrent, bus_current, bus_voltage, motor_temp...
+                    motor_qcurrent, bus_current, bus_voltage,...
+                    fet_temp, motor_temp...
                  ] = recordingResults(obj)
             record = obj.TrajectoryActionRecording;
             record_size = length(record);
@@ -120,6 +121,7 @@ classdef BaseController < handle
             motor_qcurrent = nan(record_size, motors_count);
             bus_current = nan(record_size, motors_count);
             bus_voltage = nan(record_size, motors_count);
+            fet_temp = nan(record_size, motors_count);
             motor_temp = nan(record_size, motors_count);
             for r = 1:record_size
                 motor_infos = record(r).latest_motor_info;
@@ -134,6 +136,7 @@ classdef BaseController < handle
                     motor_qcurrent(r,m) = info.iq_measured;
                     bus_current(r,m) = info.bus_current;
                     bus_voltage(r,m) = info.bus_voltage;
+                    fet_temp(r,m) = info.fet_temperature;
                     motor_temp(r,m) = info.motor_temperature;
                 end
             end

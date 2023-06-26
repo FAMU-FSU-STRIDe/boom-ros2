@@ -1,5 +1,6 @@
 import rclpy
 from rclpy.node import Node
+import time
 
 from starq_interfaces.msg import *
 from starq_interfaces.srv._configure_motors import *
@@ -16,10 +17,10 @@ class STARQMotorDriverNode(Node):
         self.last_cmds : list[ODriveCommand] = []
         self.max_motor_id = -1
 
-        info_frequency = 20.0 # Hz
-        self.cmd_sub = self.create_subscription(ODriveCommandArray, '/starq/motors/cmd', self.cmd_motors_callback, 10)
+        info_frequency = 50.0 # Hz
+        self.cmd_sub = self.create_subscription(ODriveCommandArray, '/starq/motors/cmd', self.cmd_motors_callback, 1)
         self.conf_srv = self.create_service(ConfigureMotors, '/starq/motors/conf', self.conf_motors_callback)
-        self.info_pub = self.create_publisher(ODriveInfoArray, '/starq/motors/info', 10)
+        self.info_pub = self.create_publisher(ODriveInfoArray, '/starq/motors/info', 1)
         self.info_timer = self.create_timer(1.0/info_frequency, self.get_info_callback)
 
         self.get_logger().info("Motor controller node initialized.")
@@ -72,6 +73,7 @@ class STARQMotorDriverNode(Node):
     def get_info_callback(self):
         infos = ODriveInfoArray()
         infos.infos = [ODriveInfo()] * (self.max_motor_id+1)
+        timer_start = time.time()
         for config in self.motor_confs:
             info = ODriveInfo()
             can_id = config.can_id
@@ -89,6 +91,7 @@ class STARQMotorDriverNode(Node):
                 info.vel_error = last_cmd.input_velocity * config.gear_ratio - info.vel_estimate
                 info.torque_error = last_cmd.input_torque / config.gear_ratio - info.torque_estimate
             infos.infos[config.id] = info
+        self.get_logger().info(f"Took {time.time() - timer_start} seconds to retrieve can info")
         self.info_pub.publish(infos)
         
     # Put motors in idle

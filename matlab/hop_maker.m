@@ -2,11 +2,10 @@ clc
 close all
 %% Params
 
-stride_frequency = 2.5; % Hz
+stride_frequency = 1.0; % Hz
 T = 1/stride_frequency;
 
 N = 500;
-% publish_rate = f*N
 
 V_thrust = 500; % mm/s
 V_swing = 1000; % mm/s

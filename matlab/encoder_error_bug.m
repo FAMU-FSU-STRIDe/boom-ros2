@@ -1,15 +1,12 @@
-%% Example gait trajectory for BoomController
+%% Encoder error bug
 close all
 clear boom
 
-% Generate trajectory
-% trajectory = [];
-% trajectory = [ x0, x1, x2, x3, ... , xn;
-%                y0, y1, y2, y3, ... , yn];
+hop_maker
 
 % Set run parameters
-stride_frequency = 1.0; % Hz
-num_loops = 10;
+stride_frequency = 0.5; % Hz
+num_loops = 3;
 
 % Create connection to boom ROS network
 boom = BoomController();
@@ -30,13 +27,16 @@ pause(period + 1.0);
     motor_qcurrent, bus_current, bus_voltage,...
     fet_temp, motor_temp] = boom.recordingResults();
 
+motor_cmd = motor_pos_err + motor_pos;
+
 % Plot results
 figure()
 hold on
-plot(time, motor_pos);
+plot(time, motor_cmd(:,1), '--k');
+plot(time, motor_pos(:,1), '-r');
 xlabel("Time (s)")
 ylabel("Position (rev)")
-legend(["Motor0", "Motor1"])
+legend(["Commanded", "Encoder Estimate"])
 
 % Put motors in idle mode
 boom.idle()
