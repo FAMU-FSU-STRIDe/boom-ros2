@@ -6,7 +6,7 @@ f = 2.0; % Hz
 T = 1/f;
 
 N = 500;
-publish_rate = f*N
+% publish_rate = f*N
 
 V_thrust = 500; % mm/s
 V_swing = 1000; % mm/s
@@ -52,4 +52,4 @@ plot(t,h)
 %% Save
 
 x = zeros(1,N);
-jump_traj = [x; -h];
+trajectory = [x; -h];

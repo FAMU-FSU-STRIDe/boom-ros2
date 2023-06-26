@@ -1,4 +1,5 @@
 %% Example gait trajectory for BoomController
+close all
 
 % Generate trajectory
 trajectory = [];

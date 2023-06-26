@@ -6,4 +6,6 @@
 
     <node pkg="starq_trajectory_publisher" exec="trajectory_publisher_server" name="trajectory_publisher"/>
 
+    <node pkg="starq_boom_encoders" exec="boom_encoders_node" name="boom_encoders"/>
+
 </launch>

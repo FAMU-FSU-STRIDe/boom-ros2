@@ -46,7 +46,7 @@ class STARQMotorDriverNode(Node):
             elif config.control_mode == 1:
                 canfunc.set_torque(config.can_id,
                                    torque=cmd.input_torque / config.gear_ratio)
-        self.last_cmds = list[ODriveCommand](msg.commands)
+        self.last_cmds = msg.commands
 
     # Configure motors
     def conf_motors_callback(self, request : ConfigureMotors_Request, response):
@@ -75,13 +75,17 @@ class STARQMotorDriverNode(Node):
         for config in self.motor_confs:
             info = ODriveInfo()
             can_id = config.can_id
+            self.get_logger().info("A")
             info.fault, info.state = canfunc.get_error_and_state(can_id)
             info.pos_estimate, info.vel_estimate = canfunc.get_position_and_velocity_estimates(can_id)
             info.iq_setpoint, info.iq_measured = canfunc.get_qcurrent_setpoint_and_measured(can_id)
+            self.get_logger().info("B")
             info.torque_target, info.torque_estimate = canfunc.get_torque_target_and_estimate(can_id)
-            info.torque_estimate = 8.27 * info.iq_measured / 330
+            #info.torque_estimate = 8.27 * info.iq_measured / 330
+            self.get_logger().info("C")
             info.fet_temperature, info.motor_temperature = canfunc.get_temperatures(can_id)
             info.bus_voltage, info.bus_current = canfunc.get_bus_voltage_and_current(can_id)
+            self.get_logger().info("D")
             if (config.id < len(self.last_cmds)):
                 last_cmd = self.last_cmds[config.id]
                 info.pos_error = last_cmd.input_position - info.pos_estimate
