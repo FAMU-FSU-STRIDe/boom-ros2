@@ -111,16 +111,16 @@ classdef BaseController < handle
             record_size = length(record);
             motors_count = length(obj.MotorConfigs);
             time = linspace(0,(1/obj.FeedbackRate)*record_size, record_size);
-            motor_pos = nan(record_size, motors_count);
-            motor_vel = nan(record_size, motors_count);
-            motor_trq = nan(record_size, motors_count);
-            motor_pos_err = nan(record_size, motors_count);
-            motor_vel_err = nan(record_size, motors_count);
-            motor_trq_err = nan(record_size, motors_count);
-            motor_qcurrent = nan(record_size, motors_count);
-            bus_current = nan(record_size, motors_count);
-            bus_voltage = nan(record_size, motors_count);
-            motor_temp = nan(record_size, motors_count);
+            motor_pos = nan(motors_count, record_size);
+            motor_vel = nan(motors_count, record_size);
+            motor_trq = nan(motors_count, record_size);
+            motor_pos_err = nan(motors_count, record_size);
+            motor_vel_err = nan(motors_count, record_size);
+            motor_trq_err = nan(motors_count, record_size);
+            motor_qcurrent = nan(motors_count, record_size);
+            bus_current = nan(motors_count, record_size);
+            bus_voltage = nan(motors_count, record_size);
+            motor_temp = nan(motors_count, record_size);
             for r = 1:record_size
                 motor_infos = record(r).latest_motor_info;
                 for m = 1:length(motor_infos.infos)
@@ -153,11 +153,12 @@ classdef BaseController < handle
         end
         function startRecording(obj, goalMsg)
             obj.RecordingLength = 0;
+            obj.TrajectoryActionRecording = struct('MessageType', {}, 'loops_completed');
             feedback_size = numel(goalMsg.trajectory) * double(goalMsg.num_loops)...
                 * obj.FeedbackRate / double(goalMsg.publish_rate);
-            obj.TrajectoryActionRecording = repmat(...
-                ros2message("starq_interfaces/RunLegTrajectoryFeedback"),...
-                feedback_size, 1);
+            for i = feedback_size:-1:1
+                obj.TrajectoryActionRecording(i) = ros2message("starq_interfaces/RunLegTrajectoryFeedback");
+            end
             obj.isInRecordingMode = true;
         end
     end

@@ -2,8 +2,8 @@ clc
 close all
 %% Params
 
-f = 2.0; % Hz
-T = 1/f;
+stride_frequency = 2.5; % Hz
+T = 1/stride_frequency;
 
 N = 500;
 % publish_rate = f*N

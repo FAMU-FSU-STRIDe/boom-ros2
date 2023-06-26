@@ -85,9 +85,9 @@ class STARQMotorDriverNode(Node):
             info.bus_voltage, info.bus_current = canfunc.get_bus_voltage_and_current(can_id)
             if (config.id < len(self.last_cmds)):
                 last_cmd = self.last_cmds[config.id]
-                info.pos_error = last_cmd.input_position - info.pos_estimate
-                info.vel_error = last_cmd.input_velocity - info.vel_estimate
-                info.torque_error = last_cmd.input_torque - info.torque_estimate
+                info.pos_error = last_cmd.input_position * config.gear_ratio - info.pos_estimate
+                info.vel_error = last_cmd.input_velocity * config.gear_ratio - info.vel_estimate
+                info.torque_error = last_cmd.input_torque / config.gear_ratio - info.torque_estimate
             infos.infos[config.id] = info
         self.info_pub.publish(infos)
         
