@@ -12,6 +12,7 @@ classdef BaseController < handle
         RunLegTrajectoryActionLatestResult
         isInRecordingMode
         RecordingLength
+        RecordingExpectedLength
         TrajectoryActionRecording
         FeedbackRate
     end
@@ -29,6 +30,7 @@ classdef BaseController < handle
                 "/starq/legs/run_trajectory", "starq_interfaces/RunLegTrajectory");
             obj.isInRecordingMode = false;
             obj.RecordingLength = 0;
+            obj.RecordingExpectedLength = 1;
             obj.FeedbackRate = 50; % Hz
         end
 
@@ -103,6 +105,20 @@ classdef BaseController < handle
             obj.updateMotorConfigs();
         end
 
+        function startRecording(obj, goalMsg)
+            obj.RecordingLength = 0;
+            obj.RecordingExpectedLength = numel(goalMsg.trajectory) * double(goalMsg.num_loops)...
+                * obj.FeedbackRate / double(goalMsg.publish_rate);
+            obj.TrajectoryActionRecording = repmat(...
+                ros2message("starq_interfaces/RunLegTrajectoryFeedback"),...
+                obj.RecordingExpectedLength, 1);
+            obj.isInRecordingMode = true;
+        end
+
+        function stopRecording(obj)
+            obj.isInRecordingMode = false;
+        end
+
         function [time, motor_pos, motor_vel, motor_trq, ...
                     motor_pos_err, motor_vel_err, motor_trq_err,...
                     motor_qcurrent, bus_current, bus_voltage,...
@@ -153,15 +169,7 @@ classdef BaseController < handle
         end
         function runLegTrajectoryResultCallback(obj, ~, msg)
             obj.RunLegTrajectoryActionLatestResult = msg;
-        end
-        function startRecording(obj, goalMsg)
-            obj.RecordingLength = 0;
-            feedback_size = numel(goalMsg.trajectory) * double(goalMsg.num_loops)...
-                * obj.FeedbackRate / double(goalMsg.publish_rate);
-            obj.TrajectoryActionRecording = repmat(...
-                ros2message("starq_interfaces/RunLegTrajectoryFeedback"),...
-                feedback_size, 1);
-            obj.isInRecordingMode = true;
+            obj.stopRecording();
         end
     end
 end
