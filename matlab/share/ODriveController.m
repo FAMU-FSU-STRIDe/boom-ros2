@@ -5,7 +5,7 @@ classdef ODriveController < handle
         NumberOfMotors
         ODriveConfigs
         ConfigureMotorsServiceClient
-        %ODriveInfoRecorder
+        ODriveInfoRecorder
         ODriveCommandPublisher
         ODriveInfoRate
     end
@@ -25,8 +25,8 @@ classdef ODriveController < handle
             end
             obj.ConfigureMotorsServiceClient = ros2svcclient(obj.Node,...
                 "/starq/motors/conf","starq_interfaces/ConfigureMotors");
-            % obj.ODriveInfoRecorder = TopicRecorder(obj.Node, ...
-            %     "/starq/motors/info", "starq_interfaces/ODriveInfoArray");
+            obj.ODriveInfoRecorder = TopicRecorder(obj.Node, ...
+                "/starq/motors/info", "starq_interfaces/ODriveInfoArray");
             obj.ODriveCommandPublisher = ros2publisher(obj.Node, ...
                 "/starq/motors/cmd", "starq_interfaces/ODriveCommandArray");
             obj.ODriveInfoRate = 50; % Hz
@@ -80,17 +80,17 @@ classdef ODriveController < handle
             obj.idle()
         end
 
-        % function startRecording(obj, expected_size)
-        %     arguments
-        %         obj
-        %         expected_size {mustBeNumeric} = 1
-        %     end
-        %     obj.ODriveInfoRecorder.startRecording(expected_size);
-        % end
-        % 
-        % function stopRecording(obj)
-        %     obj.ODriveInfoRecorder.stopRecording();
-        % end
+        function startRecording(obj, expected_size)
+            arguments
+                obj
+                expected_size {mustBeNumeric} = 1
+            end
+            obj.ODriveInfoRecorder.startRecording(expected_size);
+        end
+
+        function stopRecording(obj)
+            obj.ODriveInfoRecorder.stopRecording();
+        end
 
         function goToPosition(obj, positions)
             msg = ros2message("starq_interfaces/ODriveCommandArray");

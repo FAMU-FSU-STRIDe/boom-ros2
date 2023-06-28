@@ -1,21 +1,24 @@
-function [time, motor_pos, motor_vel, motor_trq, ...
+function [motor_pos, motor_vel, motor_trq, ...
                     motor_pos_cmd, motor_vel_cmd, motor_trq_cmd,...
                     motor_qcurrent, bus_current, bus_voltage,...
                     fet_temp, motor_temp...
-                 ] = parseMotorInfoArrayData(obj, info_data)
+                 ] = parseMotorInfoArrayData(info_data)
     recording_size = length(info_data);
-    time = linspace(0,(1/obj.ODriveInfoRate)*recording_size, recording_size);
-    motor_pos = nan(recording_size, obj.NumberOfMotors);
-    motor_vel = nan(recording_size, obj.NumberOfMotors);
-    motor_trq = nan(recording_size, obj.NumberOfMotors);
-    motor_pos_cmd = nan(recording_size, obj.NumberOfMotors);
-    motor_vel_cmd = nan(recording_size, obj.NumberOfMotors);
-    motor_trq_cmd = nan(recording_size, obj.NumberOfMotors);
-    motor_qcurrent = nan(recording_size, obj.NumberOfMotors);
-    bus_current = nan(recording_size, obj.NumberOfMotors);
-    bus_voltage = nan(recording_size, obj.NumberOfMotors);
-    fet_temp = nan(recording_size, obj.NumberOfMotors);
-    motor_temp = nan(recording_size, obj.NumberOfMotors);
+    if (recording_size == 0)
+        return;
+    end
+    motor_count = length(info_data(1).infos);
+    motor_pos = nan(recording_size, motor_count);
+    motor_vel = nan(recording_size, motor_count);
+    motor_trq = nan(recording_size, motor_count);
+    motor_pos_cmd = nan(recording_size, motor_count);
+    motor_vel_cmd = nan(recording_size, motor_count);
+    motor_trq_cmd = nan(recording_size, motor_count);
+    motor_qcurrent = nan(recording_size, motor_count);
+    bus_current = nan(recording_size, motor_count);
+    bus_voltage = nan(recording_size, motor_count);
+    fet_temp = nan(recording_size, motor_count);
+    motor_temp = nan(recording_size, motor_count);
     for r = 1:recording_size
         motor_infos = info_data(r);
         for m = 1:length(motor_infos.infos)

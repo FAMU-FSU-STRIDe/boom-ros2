@@ -1,11 +1,11 @@
 <launch>
 
-    <node pkg="starq_motor_controller" exec="motor_controller_node" name="motor_driver"/>
+    <node pkg="starq_motor_controller" exec="motor_controller_node" name="motor_driver" output="log"/>
 
-    <node pkg="starq_leg_kinematics" exec="leg_kinematics_node" name="leg_kinematics"/>
+    <node pkg="starq_leg_kinematics" exec="leg_kinematics_node" name="leg_kinematics"  output="log"/>
 
-    <node pkg="starq_trajectory_publisher" exec="trajectory_publisher_server" name="trajectory_publisher"/>
+    <node pkg="starq_trajectory_publisher" exec="trajectory_publisher_server" name="trajectory_publisher"  output="log"/>
 
-    <node pkg="starq_boom_encoders" exec="boom_encoders_node" name="boom_encoders"/>
+    <node pkg="starq_boom_encoders" exec="boom_encoders_node" name="boom_encoders"  output="log"/>
 
 </launch>

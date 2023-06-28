@@ -1,14 +1,11 @@
 # Request
 int32 num_loops
 float32 publish_rate # Hz
-bool record_info
 starq_interfaces/LegCommandArray[] trajectory
 ---
 # Result
 uint32 exit_code
 uint32 fault
-starq_interfaces/ODriveInfoArray[] motor_info # If record_info = true
-starq_interfaces/LegInfoArray[] leg_info # If record_info = true
 ---
 # Feedback (@ 50 Hz)
 uint32 loops_completed
