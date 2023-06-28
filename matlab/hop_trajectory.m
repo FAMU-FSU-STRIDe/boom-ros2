@@ -14,12 +14,18 @@ boom = BoomController();
 % Put motors in control mode
 boom.ready();
 
+% Start recording
+boom.startRecording();
+
 % Run point trajectory
 boom.runPointTrajectory(trajectory, stride_frequency, num_loops);
 
 % Pause until the action is done
 period = num_loops / stride_frequency; % s
 pause(period + 1.0);
+
+% Stop recording
+boom.stopRecording();
 
 % Get results from recording
 [motor_pos, motor_vel, motor_trq,...

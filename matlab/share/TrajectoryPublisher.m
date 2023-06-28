@@ -15,8 +15,8 @@ classdef TrajectoryPublisher < handle
                 "/starq/legs/run_trajectory", "starq_interfaces/RunLegTrajectory");
         end
 
-        function sendLegTrajectory(obj, trajectory, num_loops, publish_rate, record_info)
-            goalMsg = matrixToRunLegTrajectoryGoal(trajectory, num_loops, publish_rate, record_info);
+        function sendLegTrajectory(obj, trajectory, num_loops, publish_rate)
+            goalMsg = matrixToRunLegTrajectoryGoal(trajectory, num_loops, publish_rate);
             cllbckOptions = ros2ActionSendGoalOptions(...
                 FeedbackFcn=@obj.runLegTrajectoryFeedbackCallback,...
                 ResultFcn=@obj.runLegTrajectoryResultCallback);

@@ -21,3 +21,5 @@ ylabel("Tilt (ticks)")
 subplot(2,1,2)
 plot(orientation_data)
 ylabel("orientation (rev)")
+
+clear node % closes ROS node

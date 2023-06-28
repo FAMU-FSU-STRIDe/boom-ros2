@@ -13,19 +13,18 @@ classdef BoomController < BasicController
             obj.BoomEncodersInfoRate = 50; % Hz
         end
 
-        function runPointTrajectory(obj, points, stride_frequency, num_loops, record_info)
+        function runPointTrajectory(obj, points, stride_frequency, num_loops)
             arguments
                 obj
                 points
                 stride_frequency = 1; % Hz
                 num_loops = 1;
-                record_info = true;
             end
             dims = size(points,1);
             traj_size = size(points,2);
             trajectory = nan(dims, 1, traj_size);
             trajectory(:,1,:) = points;
-            obj.runTrajectory(trajectory, stride_frequency, num_loops, record_info);
+            obj.runTrajectory(trajectory, stride_frequency, num_loops);
         end
         
         function startRecording(obj, expected_size)

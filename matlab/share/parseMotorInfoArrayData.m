@@ -4,9 +4,6 @@ function [motor_pos, motor_vel, motor_trq, ...
                     fet_temp, motor_temp...
                  ] = parseMotorInfoArrayData(info_data)
     recording_size = length(info_data);
-    if (recording_size == 0)
-        return;
-    end
     motor_count = length(info_data(1).infos);
     motor_pos = nan(recording_size, motor_count);
     motor_vel = nan(recording_size, motor_count);
