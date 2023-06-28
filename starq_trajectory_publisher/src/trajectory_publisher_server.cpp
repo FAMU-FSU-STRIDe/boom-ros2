@@ -90,7 +90,7 @@ private:
     }
 
     void motor_info_callback_(const ODriveInfoArray::SharedPtr info_msg) {
-        if (this->is_recording_) {
+        if (this->trajectory_result_ && this->is_recording_) {
             this->trajectory_result_->motor_info.push_back(*info_msg);
         }
         for (auto info : info_msg->infos)
@@ -104,7 +104,7 @@ private:
     }
 
     void leg_info_callback_(const LegInfoArray::SharedPtr info_msg) {
-        if (this->is_recording_) {
+        if (this->trajectory_result_ && this->is_recording_) {
             this->trajectory_result_->leg_info.push_back(*info_msg);
         }
     }
