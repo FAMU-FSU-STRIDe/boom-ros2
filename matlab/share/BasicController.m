@@ -28,15 +28,16 @@ classdef BasicController < handle
             obj.ODriveController.estop();
         end
 
-        function runTrajectory(obj, trajectory, stride_frequency, num_loops)
+        function runTrajectory(obj, trajectory, stride_frequency, num_loops, record_info)
             arguments
                 obj
                 trajectory
                 stride_frequency = 1; % Hz
                 num_loops = 1;
+                record_info = false;
             end
             publish_rate = size(trajectory, 3) * stride_frequency;
-            obj.TrajectoryPublisher.sendLegTrajectory(trajectory, num_loops, publish_rate);
+            obj.TrajectoryPublisher.sendLegTrajectory(trajectory, num_loops, publish_rate, record_info);
         end
 
         function cancelTrajectory(obj)
@@ -58,11 +59,11 @@ classdef BasicController < handle
         end
 
         function [time, motor_pos, motor_vel, motor_trq, ...
-                    motor_pos_err, motor_vel_err, motor_trq_err,...
+                    motor_pos_cmd, motor_vel_cmd, motor_trq_cmd,...
                     motor_qcurrent, bus_current, bus_voltage,...
                     fet_temp, motor_temp] = motorData(obj)
             [time, motor_pos, motor_vel, motor_trq, ...
-                    motor_pos_err, motor_vel_err, motor_trq_err,...
+                    motor_pos_cmd, motor_vel_cmd, motor_trq_cmd,...
                     motor_qcurrent, bus_current, bus_voltage,...
                     fet_temp, motor_temp] = obj.ODriveController.recordingData();
         end

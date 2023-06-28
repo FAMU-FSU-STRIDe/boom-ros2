@@ -1,4 +1,4 @@
-function goalMsg = matrixToRunLegTrajectoryGoal(trajectory, num_loops, publish_rate)
+function goalMsg = matrixToRunLegTrajectoryGoal(trajectory, num_loops, publish_rate, record_info)
 
     goalMsg = ros2message("starq_interfaces/RunLegTrajectoryGoal");
     if (size(trajectory, 4) > 3)
@@ -13,6 +13,7 @@ function goalMsg = matrixToRunLegTrajectoryGoal(trajectory, num_loops, publish_r
     
     goalMsg.num_loops = int32(num_loops);
     goalMsg.publish_rate = single(publish_rate);
+    goalMsg.record_info = logical(record_info);
     for order = 1:size(trajectory, 4)
         for time = 1:size(trajectory,3)
             for leg = 1:size(trajectory,2)

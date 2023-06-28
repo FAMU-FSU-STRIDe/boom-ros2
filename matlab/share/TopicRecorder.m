@@ -35,7 +35,7 @@ classdef TopicRecorder < handle
         function msgCallback(obj, msg)
             if (obj.isRecording)
                 obj.RecordingSize = obj.RecordingSize + 1;
-                obj.RecordingData(obj.RecordingSize) = msg
+                obj.RecordingData(obj.RecordingSize) = msg;
             end
         end
     end

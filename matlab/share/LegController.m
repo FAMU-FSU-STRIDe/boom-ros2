@@ -5,7 +5,7 @@ classdef LegController < handle
         NumberOfLegs
         LegConfigs
         ConfigureLegsServiceClient
-        LegInfoRecorder
+        %LegInfoRecorder
         LegCommandPublisher
         LegInfoRate
     end
@@ -20,13 +20,13 @@ classdef LegController < handle
             obj.NumberOfLegs = num_legs;
             obj.LegConfigs= repmat(ros2message("starq_interfaces/LegConfig"), ...
                 obj.NumberOfLegs, 1);
-            for i = obj.NumberOfLegs:-1:1
+            for i = 1:obj.NumberOfLegs
                 obj.LegConfigs(i) = defaultFiveBar2DLegConfig(i-1, [2*(i-1), 2*(i-1)+1]);
             end
             obj.ConfigureLegsServiceClient = ros2svcclient(obj.Node,...
                 "/starq/legs/conf","starq_interfaces/ConfigureLegs");
-            obj.LegInfoRecorder = TopicRecorder(obj.Node, ...
-                "/starq/legs/info", "starq_interfaces/LegInfoArray");
+            % obj.LegInfoRecorder = TopicRecorder(obj.Node, ...
+            %     "/starq/legs/info", "starq_interfaces/LegInfoArray");
             obj.LegCommandPublisher = ros2publisher(obj.Node, ...
                 "/starq/legs/cmd", "starq_interfaces/LegCommandArray");
             obj.LegInfoRate = 50; % Hz
@@ -44,19 +44,17 @@ classdef LegController < handle
             obj.sendConfigs();
         end
 
-        function startRecording(obj, expected_size)
-            arguments
-                obj
-                expected_size {mustBeNumeric} = 1
-            end
-            obj.LegInfoRecorder.startRecording(expected_size);
-        end
-
-        function stopRecording(obj)
-            obj.LegInfoRecorder.stopRecording();
-        end
-
-        % function [] = recordingData(obj)
+        % function startRecording(obj, expected_size)
+        %     arguments
+        %         obj
+        %         expected_size {mustBeNumeric} = 1
+        %     end
+        %     obj.LegInfoRecorder.startRecording(expected_size);
+        % end
+        % 
+        % function stopRecording(obj)
+        %     obj.LegInfoRecorder.stopRecording();
+        % end
 
         function goToPosition(obj, positions)
             msg = ros2message("starq_interfaces/LegCommandArray");

@@ -5,7 +5,7 @@ classdef ODriveController < handle
         NumberOfMotors
         ODriveConfigs
         ConfigureMotorsServiceClient
-        ODriveInfoRecorder
+        %ODriveInfoRecorder
         ODriveCommandPublisher
         ODriveInfoRate
     end
@@ -20,13 +20,13 @@ classdef ODriveController < handle
             obj.NumberOfMotors = num_motors;
             obj.ODriveConfigs= repmat(ros2message("starq_interfaces/ODriveConfig"), ...
                 obj.NumberOfMotors, 1);
-            for i = obj.NumberOfMotors:-1:1
+            for i = 1:obj.NumberOfMotors
                 obj.ODriveConfigs(i) = defaultODriveConfig(i-1, i-1);
             end
             obj.ConfigureMotorsServiceClient = ros2svcclient(obj.Node,...
                 "/starq/motors/conf","starq_interfaces/ConfigureMotors");
-            obj.ODriveInfoRecorder = TopicRecorder(obj.Node, ...
-                "/starq/motors/info", "starq_interfaces/ODriveInfoArray");
+            % obj.ODriveInfoRecorder = TopicRecorder(obj.Node, ...
+            %     "/starq/motors/info", "starq_interfaces/ODriveInfoArray");
             obj.ODriveCommandPublisher = ros2publisher(obj.Node, ...
                 "/starq/motors/cmd", "starq_interfaces/ODriveCommandArray");
             obj.ODriveInfoRate = 50; % Hz
@@ -80,55 +80,17 @@ classdef ODriveController < handle
             obj.idle()
         end
 
-        function startRecording(obj, expected_size)
-            arguments
-                obj
-                expected_size {mustBeNumeric} = 1
-            end
-            obj.ODriveInfoRecorder.startRecording(expected_size);
-        end
-
-        function stopRecording(obj)
-            obj.ODriveInfoRecorder.stopRecording();
-        end
-
-        function [time, motor_pos, motor_vel, motor_trq, ...
-                    motor_pos_err, motor_vel_err, motor_trq_err,...
-                    motor_qcurrent, bus_current, bus_voltage,...
-                    fet_temp, motor_temp...
-                 ] = recordingData(obj)
-            recording = obj.ODriveInfoRecorder.RecordingData;
-            recording_size = length(recording);
-            time = linspace(0,(1/obj.ODriveInfoRate)*recording_size, recording_size);
-            motor_pos = nan(recording_size, obj.NumberOfMotors);
-            motor_vel = nan(recording_size, obj.NumberOfMotors);
-            motor_trq = nan(recording_size, obj.NumberOfMotors);
-            motor_pos_err = nan(recording_size, obj.NumberOfMotors);
-            motor_vel_err = nan(recording_size, obj.NumberOfMotors);
-            motor_trq_err = nan(recording_size, obj.NumberOfMotors);
-            motor_qcurrent = nan(recording_size, obj.NumberOfMotors);
-            bus_current = nan(recording_size, obj.NumberOfMotors);
-            bus_voltage = nan(recording_size, obj.NumberOfMotors);
-            fet_temp = nan(recording_size, obj.NumberOfMotors);
-            motor_temp = nan(recording_size, obj.NumberOfMotors);
-            for r = 1:recording_size
-                motor_infos = recording(r);
-                for m = 1:length(motor_infos.infos)
-                    info = motor_infos.infos(m);
-                    motor_pos(r,m) = info.pos_estimate;
-                    motor_vel(r,m) = info.vel_estimate;
-                    motor_trq(r,m) = info.torque_estimate;
-                    motor_pos_err(r,m) = info.pos_error;
-                    motor_vel_err(r,m) = info.vel_error;
-                    motor_trq_err(r,m) = info.torque_error;
-                    motor_qcurrent(r,m) = info.iq_measured;
-                    bus_current(r,m) = info.bus_current;
-                    bus_voltage(r,m) = info.bus_voltage;
-                    fet_temp(r,m) = info.fet_temperature;
-                    motor_temp(r,m) = info.motor_temperature;
-                end
-            end
-        end
+        % function startRecording(obj, expected_size)
+        %     arguments
+        %         obj
+        %         expected_size {mustBeNumeric} = 1
+        %     end
+        %     obj.ODriveInfoRecorder.startRecording(expected_size);
+        % end
+        % 
+        % function stopRecording(obj)
+        %     obj.ODriveInfoRecorder.stopRecording();
+        % end
 
         function goToPosition(obj, positions)
             msg = ros2message("starq_interfaces/ODriveCommandArray");
