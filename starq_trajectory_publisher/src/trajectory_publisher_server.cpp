@@ -9,6 +9,7 @@
 #include <rclcpp_components/register_node_macro.hpp>
 
 #include <starq_interfaces/action/run_leg_trajectory.hpp>
+#include <starq_interfaces/msg/o_drive_info_array.hpp>
 
 #include <starq_trajectory_publisher/visibility_control.h>
 
@@ -35,8 +36,6 @@ public:
 
         this->motor_info_sub_ = this->create_subscription<ODriveInfoArray>("/starq/motors/info", 10,
             std::bind(&TrajectoryPublisherServer::motor_info_callback_, this, _1));
-        this->leg_info_sub_ = this->create_subscription<LegInfoArray>("/starq/legs/info", 10,
-            std::bind(&TrajectoryPublisherServer::leg_info_callback_, this, _1));
 
         this->leg_cmd_pub_ = this->create_publisher<LegCommandArray>("/starq/legs/cmd", 10);
 
@@ -52,7 +51,6 @@ private:
 
     rclcpp::Publisher<LegCommandArray>::SharedPtr leg_cmd_pub_;
     rclcpp::Subscription<ODriveInfoArray>::SharedPtr motor_info_sub_;
-    rclcpp::Subscription<LegInfoArray>::SharedPtr leg_info_sub_;
     rclcpp::TimerBase::SharedPtr feedback_timer_;
 
     bool is_running_, is_in_fault_state_;
@@ -84,28 +82,19 @@ private:
         this->goal_handle_ = goal_handle;
         this->trajectory_feedback_ = std::make_shared<RunLegTrajectory::Feedback>();
         this->trajectory_result_ = std::make_shared<RunLegTrajectory::Result>();
-        this->is_in_fault_state_ = false;
-        this->fault_ = 0U;
         this->is_running_ = true;
         std::thread{std::bind(&TrajectoryPublisherServer::execute_, this)}.detach();
     }
 
     void motor_info_callback_(const ODriveInfoArray::SharedPtr info_msg) {
-        if (!this->trajectory_feedback_)
-            return;
-        this->trajectory_feedback_->latest_motor_info = *info_msg;
         for (auto info : info_msg->infos)
             if (info.fault != 0) {
                 this->is_in_fault_state_ = true;
                 this->fault_ = info.fault;
-                break;
+                return;
             }
-    }
-
-    void leg_info_callback_(const LegInfoArray::SharedPtr info_msg) {
-        if (!this->trajectory_feedback_)
-            return;
-        this->trajectory_feedback_->lastest_leg_info = *info_msg;
+        this->is_in_fault_state_ = false;
+        this->fault_ = 0;
     }
 
     void feedback_callback_() {

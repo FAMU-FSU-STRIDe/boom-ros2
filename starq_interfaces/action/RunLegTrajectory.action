@@ -9,5 +9,3 @@ uint32 fault
 ---
 # Feedback (@ 50 Hz)
 uint32 loops_completed
-starq_interfaces/LegInfoArray lastest_leg_info
-starq_interfaces/ODriveInfoArray latest_motor_info

@@ -4,6 +4,10 @@ classdef BoomController < BaseController
         BoomEncodersSubscriber
         BoomEncodersLatestInfo
         BoomEncodersRecording
+        BoomEncodersRecordingLength
+        BoomEncodersExpectedRecordingLength
+        BoomEncodersInfoRate
+        isRecordingBoomEncoders
     end
 
     methods

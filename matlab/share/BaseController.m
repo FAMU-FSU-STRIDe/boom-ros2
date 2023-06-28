@@ -2,36 +2,44 @@ classdef BaseController < handle
     
     properties
         Node
+
         MotorConfigs
         LegConfigs
+
         ConfigureMotorsServiceClient
         ConfigureLegsServiceClient
+
         RunLegTrajectoryActionClient
         RunLegTrajectoryActionGoalHandle
         RunLegTrajectoryActionLatestFeedback
         RunLegTrajectoryActionLatestResult
-        isInRecordingMode
-        RecordingLength
-        RecordingExpectedLength
-        TrajectoryActionRecording
-        FeedbackRate
+
+        isRecordingTrajectory
+        TrajectoryRecording
+        TrajectoryRecordingLength
+        TrajectoryRecordingExpectedLength
+        TrajectoryFeedbackRate
     end
     
     methods (Access=public)
         function obj = BaseController()
             obj.Node = ros2node("starq_matlab_controller");
+
             obj.MotorConfigs = [];
             obj.LegConfigs = [];
+
             obj.ConfigureMotorsServiceClient = ros2svcclient(obj.Node,...
                 "/starq/motors/conf","starq_interfaces/ConfigureMotors");
             obj.ConfigureLegsServiceClient = ros2svcclient(obj.Node,...
                 "/starq/legs/conf", "starq_interfaces/ConfigureLegs");
+
             obj.RunLegTrajectoryActionClient = ros2actionclient(obj.Node,...
                 "/starq/legs/run_trajectory", "starq_interfaces/RunLegTrajectory");
-            obj.isInRecordingMode = false;
-            obj.RecordingLength = 0;
-            obj.RecordingExpectedLength = 1;
-            obj.FeedbackRate = 50; % Hz
+
+            obj.isRecordingTrajectory = false;
+            obj.TrajectoryRecordingLength = 0;
+            obj.TrajectoryRecordingExpectedLength = 500; 
+            obj.TrajectoryFeedbackRate = 50; % Hz
         end
 
         function sendLegTrajectory(obj, goalMsg, record)
@@ -40,6 +48,7 @@ classdef BaseController < handle
                 goalMsg
                 record = false
             end
+
             cllbckOptions = ros2ActionSendGoalOptions(...
                 FeedbackFcn=@obj.runLegTrajectoryFeedbackCallback,...
                 ResultFcn=@obj.runLegTrajectoryResultCallback);
@@ -47,7 +56,7 @@ classdef BaseController < handle
                 obj.RunLegTrajectoryActionGoalHandle = ...
                     sendGoal(obj.RunLegTrajectoryActionClient, goalMsg, cllbckOptions);
                 if (record)
-                    obj.startRecording(goalMsg);
+                    obj.startRecordingTrajectory(goalMsg);
                 end
             else
                 disp("Could not connect to RunLegTrajectoryActionClient");
@@ -105,29 +114,27 @@ classdef BaseController < handle
             obj.updateMotorConfigs();
         end
 
-        function startRecording(obj, goalMsg)
-            obj.RecordingLength = 0;
-            obj.RecordingExpectedLength = numel(goalMsg.trajectory) * double(goalMsg.num_loops)...
-                * obj.FeedbackRate / double(goalMsg.publish_rate);
-            obj.TrajectoryActionRecording = repmat(...
+        function startRecordingTrajectory(obj)
+            obj.TrajectoryRecordingLength = 0;
+            obj.TrajectoryRecording = repmat(...
                 ros2message("starq_interfaces/RunLegTrajectoryFeedback"),...
-                obj.RecordingExpectedLength, 1);
-            obj.isInRecordingMode = true;
+                obj.TrajectoryRecordingExpectedLength, 1);
+            obj.isRecordingTrajectory = true;
         end
 
-        function stopRecording(obj)
-            obj.isInRecordingMode = false;
+        function stopRecordingTrajectory(obj)
+            obj.isRecordingTrajectory = false;
         end
 
         function [time, motor_pos, motor_vel, motor_trq, ...
                     motor_pos_err, motor_vel_err, motor_trq_err,...
                     motor_qcurrent, bus_current, bus_voltage,...
                     fet_temp, motor_temp...
-                 ] = recordingResults(obj)
-            record = obj.TrajectoryActionRecording;
+                 ] = trajectoryRecording(obj)
+            record = obj.TrajectoryRecording;
             record_size = length(record);
             motors_count = length(obj.MotorConfigs);
-            time = linspace(0,(1/obj.FeedbackRate)*record_size, record_size);
+            time = linspace(0,(1/obj.TrajectoryFeedbackRate)*record_size, record_size);
             motor_pos = nan(record_size, motors_count);
             motor_vel = nan(record_size, motors_count);
             motor_trq = nan(record_size, motors_count);
@@ -162,14 +169,14 @@ classdef BaseController < handle
     methods (Access=private)
         function runLegTrajectoryFeedbackCallback(obj, ~, msg)
             obj.RunLegTrajectoryActionLatestFeedback = msg;
-            if (obj.isInRecordingMode)
-                obj.RecordingLength = obj.RecordingLength + 1;
-                obj.TrajectoryActionRecording(obj.RecordingLength) = msg;
+            if (obj.isRecordingTrajectory)
+                obj.TrajectoryRecordingLength = obj.TrajectoryRecordingLength + 1;
+                obj.TrajectoryRecording(obj.TrajectoryRecordingLength) = msg;
             end
         end
         function runLegTrajectoryResultCallback(obj, ~, msg)
             obj.RunLegTrajectoryActionLatestResult = msg;
-            obj.stopRecording();
+            obj.stopRecordingTrajectory();
         end
     end
 end

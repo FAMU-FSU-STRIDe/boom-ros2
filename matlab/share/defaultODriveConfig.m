@@ -1,4 +1,4 @@
-function confMsg = defaultMotorConfig(id, can_id)
+function confMsg = defaultODriveConfig(id, can_id)
     confMsg = ros2message("starq_interfaces/ODriveConfig");
     confMsg.id = uint8(id);
     confMsg.can_id = uint8(can_id);
