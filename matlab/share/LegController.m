@@ -21,7 +21,7 @@ classdef LegController < handle
             obj.LegConfigs= repmat(ros2message("starq_interfaces/LegConfig"), ...
                 obj.NumberOfLegs, 1);
             for i = obj.NumberOfLegs:-1:1
-                obj.LegConfigs(i) = defaultFiveBar2DLegConfig(i, [2*i-1, 2*i]);
+                obj.LegConfigs(i) = defaultFiveBar2DLegConfig(i-1, [2*(i-1), 2*(i-1)+1]);
             end
             obj.ConfigureLegsServiceClient = ros2svcclient(obj.Node,...
                 "/starq/legs/conf","starq_interfaces/ConfigureLegs");

@@ -15,6 +15,6 @@ float32 motor_temperature
 float32 bus_voltage
 float32 bus_current
 
-float32 pos_error
-float32 vel_error
-float32 torque_error
+float32 last_pos_cmd
+float32 last_vel_cmd
+float32 last_torque_cmd

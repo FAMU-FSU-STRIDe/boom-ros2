@@ -13,16 +13,19 @@ function goalMsg = matrixToRunLegTrajectoryGoal(trajectory, num_loops, publish_r
     
     goalMsg.num_loops = int32(num_loops);
     goalMsg.publish_rate = single(publish_rate);
-    for dim = 1:size(trajectory, 4)
+    for order = 1:size(trajectory, 4)
         for time = 1:size(trajectory,3)
             for leg = 1:size(trajectory,2)
-                if (dim == 1)
+                if (order == 1)
                     goalMsg.trajectory(time).commands(leg).input_pos = ...
-                        single(trajectory(:,leg,time,dim));
-                elseif (dim == 2)
+                        single(trajectory(:,leg,time,order));
+                    sz = size(trajectory(:,leg,time,order));
+                    goalMsg.trajectory(time).commands(leg).input_vel = single(zeros(sz));
+                    goalMsg.trajectory(time).commands(leg).input_acc = single(zeros(sz));
+                elseif (order == 2)
                     goalMsg.trajectory(time).commands(leg).input_vel = ...
-                        single(trajectory(:,leg,time,dim));
-                elseif (dim == 3)
+                        single(trajectory(:,leg,time,order));
+                elseif (order == 3)
                     goalMsg.trajectory(time).commands(leg).input_acc = ...
                         single(trajectory(:,leg,time,1));
                 end

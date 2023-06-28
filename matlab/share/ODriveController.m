@@ -161,8 +161,8 @@ classdef ODriveController < handle
                 values = values * ones(1, obj.NumberOfMotors);
             end
             if (length(values) == obj.NumberOfMotors)
-                for m = 1:length(obj.NumberOfMotors)
-                    obj.ODriveConfigs(m).(field) = cast(values, type);
+                for m = 1:obj.NumberOfMotors
+                    obj.ODriveConfigs(m).(field) = cast(values(m), type);
                 end
                 obj.sendConfigs();
             else

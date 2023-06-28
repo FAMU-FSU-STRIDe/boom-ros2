@@ -5,7 +5,7 @@ clear
 hop_maker
 
 % Set run parameters
-stride_frequency = 1.0; % Hz
+stride_frequency = 2.5; % Hz
 num_loops = 5;
 
 % Create connection to boom ROS network
@@ -17,11 +17,11 @@ boom.ready();
 % Run and record gait
 boom.startRecording();
 boom.runPointTrajectory(trajectory, stride_frequency, num_loops);
+boom.stopRecording();
 
 % Pause until the action is done
 period = num_loops / stride_frequency; % s
 pause(period + 1.0);
-boom.stopRecording();
 
 % Get results from recording
 [time, motor_pos, motor_vel, motor_trq,...
@@ -52,3 +52,5 @@ ylabel("Height (m)")
 
 % Put motors in idle mode
 boom.idle()
+
+clear boom
