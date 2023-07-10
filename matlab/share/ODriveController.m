@@ -3,11 +3,10 @@ classdef ODriveController < handle
     properties
         Node
         NumberOfMotors
-        ODriveConfigs
-        ConfigureMotorsServiceClient
-        ODriveInfoRecorder
-        ODriveCommandPublisher
-        ODriveInfoRate
+        Configs
+        ServiceClient
+        Recorder
+        Publisher
     end
     
     methods
@@ -18,18 +17,17 @@ classdef ODriveController < handle
             end
             obj.Node = node;
             obj.NumberOfMotors = num_motors;
-            obj.ODriveConfigs= repmat(ros2message("starq_interfaces/ODriveConfig"), ...
+            obj.Configs= repmat(ros2message("starq_interfaces/ODriveConfig"), ...
                 obj.NumberOfMotors, 1);
             for i = 1:obj.NumberOfMotors
-                obj.ODriveConfigs(i) = defaultODriveConfig(i-1, i-1);
+                obj.Configs(i) = defaultODriveConfig(i-1, i-1);
             end
-            obj.ConfigureMotorsServiceClient = ros2svcclient(obj.Node,...
+            obj.ServiceClient = ros2svcclient(obj.Node,...
                 "/starq/motors/conf","starq_interfaces/ConfigureMotors");
-            obj.ODriveInfoRecorder = TopicRecorder(obj.Node, ...
+            obj.Recorder = TopicRecorder(obj.Node, ...
                 "/starq/motors/info", "starq_interfaces/ODriveInfoArray");
-            obj.ODriveCommandPublisher = ros2publisher(obj.Node, ...
+            obj.Publisher = ros2publisher(obj.Node, ...
                 "/starq/motors/cmd", "starq_interfaces/ODriveCommandArray");
-            obj.ODriveInfoRate = 50; % Hz
         end
 
         function setStates(obj, states)
@@ -85,11 +83,11 @@ classdef ODriveController < handle
                 obj
                 expected_size {mustBeNumeric} = 1
             end
-            obj.ODriveInfoRecorder.startRecording(expected_size);
+            obj.Recorder.startRecording(expected_size);
         end
 
         function stopRecording(obj)
-            obj.ODriveInfoRecorder.stopRecording();
+            obj.Recorder.stopRecording();
         end
 
         function goToPosition(obj, positions)
@@ -98,7 +96,7 @@ classdef ODriveController < handle
                 for p = 1:obj.NumberOfMotors
                     msg.commands(p).input_position = positions(p);
                 end
-                send(obj.ODriveCommandPublisher, msg);
+                send(obj.Publisher, msg);
             else
                 disp("ODriveController: Incorrect number of positions");
             end
@@ -110,11 +108,11 @@ classdef ODriveController < handle
 
         function sendConfigs(obj)
             msg = ros2message("starq_interfaces/ConfigureMotorsRequest");
-            msg.configs = obj.ODriveConfigs;
-            if (waitForServer(obj.ConfigureMotorsServiceClient, 'Timeout', 1) == 1)
-                call(obj.ConfigureMotorsServiceClient, msg);
+            msg.configs = obj.Configs;
+            if (waitForServer(obj.ServiceClient, 'Timeout', 1) == 1)
+                call(obj.ServiceClient, msg);
             else
-                disp("ODriveController: Could not connect to ConfigureMotorsServiceClient");
+                disp("ODriveController: Could not connect to ServiceClient");
             end
         end
 
@@ -124,7 +122,7 @@ classdef ODriveController < handle
             end
             if (length(values) == obj.NumberOfMotors)
                 for m = 1:obj.NumberOfMotors
-                    obj.ODriveConfigs(m).(field) = cast(values(m), type);
+                    obj.Configs(m).(field) = cast(values(m), type);
                 end
                 obj.sendConfigs();
             else

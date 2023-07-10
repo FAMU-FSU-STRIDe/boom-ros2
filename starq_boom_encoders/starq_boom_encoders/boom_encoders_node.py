@@ -39,6 +39,7 @@ class BoomEncodersNode(Node):
 
         # Convert to ROS type
         info_msg = BoomEncoderInfo()
+        info_msg.time = self.get_clock().now().to_msg()
         info_msg.orientation = orientation / self.base_cpr
         info_msg.tilt = tilt / self.arm_cpr
         info_msg.height = tilt * self.arm_length / self.arm_cpr

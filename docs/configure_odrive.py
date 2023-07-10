@@ -31,13 +31,13 @@ odrv0.config.enable_can_a = True
 odrv0.can.config.baud_rate = 500000
 odrv0.axis0.config.can.node_id = can_id
 odrv0.axis0.config.can.version_msg_rate_ms = 0
-odrv0.axis0.config.can.heartbeat_msg_rate_ms = 10
-odrv0.axis0.config.can.encoder_msg_rate_ms = 10
-odrv0.axis0.config.can.iq_msg_rate_ms = 10
+odrv0.axis0.config.can.heartbeat_msg_rate_ms = 20
+odrv0.axis0.config.can.encoder_msg_rate_ms = 20
+odrv0.axis0.config.can.iq_msg_rate_ms = 20
 odrv0.axis0.config.can.error_msg_rate_ms = 0
-odrv0.axis0.config.can.temperature_msg_rate_ms = 10
-odrv0.axis0.config.can.bus_voltage_msg_rate_ms = 10
-odrv0.axis0.config.can.torques_msg_rate_ms = 10
+odrv0.axis0.config.can.temperature_msg_rate_ms = 20
+odrv0.axis0.config.can.bus_voltage_msg_rate_ms = 20
+odrv0.axis0.config.can.torques_msg_rate_ms = 20
 
 print("Configuring power supply...")
 odrv0.config.dc_bus_overvoltage_trip_level = 35
@@ -50,6 +50,15 @@ odrv0.axis0.config.motor.pole_pairs = 7
 odrv0.axis0.config.motor.torque_constant = 8.27 / 330
 odrv0.axis0.config.motor.calibration_current = 3.88
 odrv0.axis0.config.calibration_lockin.current = 3.88
+
+print("Configuring thermistor...")
+odrv0.axis0.motor.motor_thermistor.config.enabled = true
+odrv0.axis0.motor.motor_thermistor.config.temp_limit_lower = 10
+odrv0.axis0.motor.motor_thermistor.config.temp_limit_upper = 50
+odrv0.axis0.motor.motor_thermistor.config.r_ref = 5000
+odrv0.axis0.motor.motor_thermistor.config.beta = 3977
+odrv0.axis0.motor.motor_thermistor.config.t_ref = 25
+
 
 print("Running motor calibration...")
 odrv0.axis0.requested_state = AXIS_STATE_MOTOR_CALIBRATION

@@ -88,6 +88,7 @@ class STARQMotorDriverNode(Node):
                 info.last_pos_cmd = last_cmd.input_position * config.gear_ratio
                 info.last_vel_cmd = last_cmd.input_velocity * config.gear_ratio
                 info.last_torque_cmd = last_cmd.input_torque / config.gear_ratio
+            infos.time = self.get_clock().now().to_msg()
             infos.infos[config.id] = info
         self.info_pub.publish(infos)
         

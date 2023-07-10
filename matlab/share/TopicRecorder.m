@@ -4,8 +4,8 @@ classdef TopicRecorder < handle
         Node
         Subscriber
         isRecording
-        RecordingData
-        RecordingSize
+        Data
+        Size
     end
     
     methods
@@ -20,8 +20,8 @@ classdef TopicRecorder < handle
                 obj
                 expected_size {mustBeNumeric} = 1
             end
-            obj.RecordingSize = 0;
-            obj.RecordingData = repmat(ros2message(obj.Subscriber), expected_size, 1);
+            obj.Size = 0;
+            obj.Data = repmat(ros2message(obj.Subscriber), expected_size, 1);
             obj.isRecording = true;
         end
 
@@ -34,8 +34,8 @@ classdef TopicRecorder < handle
     methods (Access=private)
         function msgCallback(obj, msg)
             if (obj.isRecording)
-                obj.RecordingSize = obj.RecordingSize + 1;
-                obj.RecordingData(obj.RecordingSize) = msg;
+                obj.Size = obj.Size + 1;
+                obj.Data(obj.Size) = msg;
             end
         end
     end

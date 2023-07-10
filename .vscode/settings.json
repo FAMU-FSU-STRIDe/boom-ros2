@@ -1,9 +1,15 @@
 {
     "python.analysis.extraPaths": [
+        "/starq_ws/install/starq_motor_controller/lib/python3.10/site-packages",
+        "/starq_ws/install/starq_boom_encoders/lib/python3.10/site-packages",
+        "/starq_ws/install/starq_interfaces/local/lib/python3.10/dist-packages",
         "/opt/ros/humble/lib/python3.10/site-packages",
         "/opt/ros/humble/local/lib/python3.10/dist-packages"
     ],
     "python.autoComplete.extraPaths": [
+        "/starq_ws/install/starq_motor_controller/lib/python3.10/site-packages",
+        "/starq_ws/install/starq_boom_encoders/lib/python3.10/site-packages",
+        "/starq_ws/install/starq_interfaces/local/lib/python3.10/dist-packages",
         "/opt/ros/humble/lib/python3.10/site-packages",
         "/opt/ros/humble/local/lib/python3.10/dist-packages"
     ],
@@ -76,5 +82,6 @@
         "typeinfo": "cpp",
         "variant": "cpp",
         "fstream": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/src/starq_interfaces"
 }

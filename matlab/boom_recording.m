@@ -5,14 +5,14 @@ node = ros2node("matlab_node");
 
 recorder = TopicRecorder(node, "/starq/boom/info", "starq_interfaces/BoomEncoderInfo");
 
-recorder.startRecording();
+recorder.startRecording(500);
 
 pause(10.0)
 
 recorder.stopRecording();
 
-tilt_data = [recorder.RecordingData.tilt];
-orientation_data = [recorder.RecordingData.orientation];
+tilt_data = [recorder.Data.tilt];
+orientation_data = [recorder.Data.orientation];
 
 figure
 subplot(2,1,1)

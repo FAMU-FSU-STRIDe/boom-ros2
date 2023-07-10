@@ -18,9 +18,15 @@ public:
     : L1_(L1), L2_(L2) {}
 
     ODriveCommandArray get_inverse(const LegCommand& cmd) override {
+
         const std::vector<float> point = cmd.input_pos;
+
+        if (point.size() != 2)
+            return ODriveCommandArray();
+
         const float theta0 = std::atan2(point[Y], point[X]);
         const float theta1 = std::atan2(point[Y], -point[X]);
+
         const float R = std::sqrt(point[X]*point[X] + point[Y]*point[Y]);
         const float alpha = std::acos((R*R + L1_*L1_ - L2_*L2_) / (2.0f*R*L1_));
 
@@ -33,8 +39,27 @@ public:
 
     LegInfo get_forward(const ODriveInfoArray& angles) override {
         (void) angles;
-        // TODO
-        return LegInfo();
+        
+        std::vector<float> position;
+        for (auto info : angles.infos)
+            position.push_back(info.pos_estimate);
+        
+        if (position.size() != 2)
+            return LegInfo();
+
+        const float alpha = 0.5f*(M_PI - position[A] - position[B]);
+        const float gamma = std::asin(L1_*std::sin(alpha)/L2_);
+        const float phi = M_PI - alpha - gamma;
+
+        const float theta = position[A] + alpha;
+        const float R = L2_*std::sin(phi)/std::sin(alpha);
+
+        const float X = R*std::cos(theta);
+        const float Y = R*std::sin(theta);
+
+        LegInfo info;
+        info.pos_estimate = {X, Y};
+        return info;
     }
 
 private:

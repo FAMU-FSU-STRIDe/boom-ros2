@@ -2,6 +2,7 @@
 close all
 clear
 
+% Run hop_maker.m for trajectory
 hop_maker
 
 % Set run parameters
@@ -15,7 +16,7 @@ boom = BoomController();
 boom.ready();
 
 % Start recording
-boom.startRecording();
+boom.startRecording(num_loops / stride_frequency * 50);
 
 % Run point trajectory
 boom.runPointTrajectory(trajectory, stride_frequency, num_loops);
@@ -28,21 +29,19 @@ pause(period + 1.0);
 boom.stopRecording();
 
 % Get results from recording
-[motor_pos, motor_vel, motor_trq,...
+[mtime, motor_pos, motor_vel, motor_trq,...
     motor_pos_cmd, motor_vel_cmd, motor_trq_cmd,...
     motor_qcurrent, bus_current, bus_voltage,...
-    fet_temp, motor_temp] = boom.motorData();
-
-time = linspace(0,period, size(motor_pos,1));
+    fet_temp, motor_temp] = parseMotorData(boom.MotorData);
 
 % Get results from boom encoders
-[orientation, tilt, height, speed] = boom.boomEncodersData();
+[btime, orientation, tilt, height, speed] = parseBoomData(boom.BoomData);
 
 % Plot results
 figure()
 hold on
-plot(time, motor_pos_cmd(:,1), '--k');
-plot(time, motor_pos(:,1), '-r');
+plot(mtime, motor_pos_cmd(:,1), '--k');
+plot(mtime, motor_pos(:,1), '-r');
 xlabel("Time (s)")
 ylabel("Position (rev)")
 legend(["Commanded", "Encoder Estimate"])

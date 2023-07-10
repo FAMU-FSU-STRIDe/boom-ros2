@@ -2,30 +2,30 @@ classdef BasicController < handle
     
     properties
         Node
-        ODriveController
-        LegController
-        TrajectoryPublisher
+        Motors
+        Legs
+        LegTrajectoryPublisher
     end
     
     methods
         function obj = BasicController()
             obj.Node = ros2node("starq_matlab_controller");
-            obj.ODriveController = ODriveController(obj.Node, 2);
-            obj.LegController = LegController(obj.Node, 1);
-            obj.TrajectoryPublisher = TrajectoryPublisher(obj.Node);
+            obj.Motors = ODriveController(obj.Node, 2);
+            obj.Legs = LegController(obj.Node, 1);
+            obj.LegTrajectoryPublisher = LegTrajectoryPublisher(obj.Node);
         end
 
         function ready(obj)
-            obj.ODriveController.ready();
-            obj.LegController.ready();
+            obj.Motors.ready();
+            obj.Legs.ready();
         end
 
         function idle(obj)
-            obj.ODriveController.idle();
+            obj.Motors.idle();
         end
 
         function estop(obj)
-            obj.ODriveController.estop();
+            obj.Motors.estop();
         end
 
         function runTrajectory(obj, trajectory, stride_frequency, num_loops)
@@ -36,11 +36,11 @@ classdef BasicController < handle
                 num_loops = 1;
             end
             publish_rate = size(trajectory, 3) * stride_frequency;
-            obj.TrajectoryPublisher.sendLegTrajectory(trajectory, num_loops, publish_rate);
+            obj.LegTrajectoryPublisher.sendLegTrajectory(trajectory, num_loops, publish_rate);
         end
 
         function cancelTrajectory(obj)
-            obj.TrajectoryPublisher.cancelTrajectory();
+            obj.LegTrajectoryPublisher.cancelTrajectory();
         end
 
         function startRecording(obj, expected_size)
@@ -48,28 +48,21 @@ classdef BasicController < handle
                 obj
                 expected_size {mustBeNumeric} = 1
             end
-            obj.ODriveController.startRecording(expected_size);
-            obj.LegController.startRecording(expected_size);
+            obj.Motors.startRecording(expected_size);
+            obj.Legs.startRecording(expected_size);
         end
 
         function stopRecording(obj)
-            obj.ODriveController.stopRecording();
-            obj.LegController.stopRecording();
+            obj.Motors.stopRecording();
+            obj.Legs.stopRecording();
         end
 
-        function [motor_pos, motor_vel, motor_trq, ...
-                    motor_pos_cmd, motor_vel_cmd, motor_trq_cmd,...
-                    motor_qcurrent, bus_current, bus_voltage,...
-                    fet_temp, motor_temp] = motorData(obj)
-            [motor_pos, motor_vel, motor_trq, ...
-                    motor_pos_cmd, motor_vel_cmd, motor_trq_cmd,...
-                    motor_qcurrent, bus_current, bus_voltage,...
-                    fet_temp, motor_temp] = ...
-                    parseMotorInfoArrayData(obj.ODriveController.ODriveInfoRecorder.RecordingData);
+        function motor_info_data = MotorData(obj)
+            motor_info_data = obj.Motors.Recorder.Data;
         end
 
-        function todo = legData(obj)
-            todo = obj.LegController.recordingData();
+        function leg_info_data = LegData(obj)
+            leg_info_data = obj.Legs.Recorder.Data;
         end
     end
 end

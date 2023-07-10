@@ -1,5 +1,3 @@
-clc
-close all
 %% Params
 
 stride_frequency = 2.5; % Hz

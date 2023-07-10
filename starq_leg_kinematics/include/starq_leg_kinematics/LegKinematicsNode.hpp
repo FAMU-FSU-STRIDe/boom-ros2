@@ -93,6 +93,7 @@ private:
 
     void get_info_callback_(const ODriveInfoArray::SharedPtr info_msg_in) const {
         LegInfoArray info_msg_out;
+        info_msg_out.time = info_msg_in->time;
         for (const LegConfig& leg_conf : leg_confs_) {
             ODriveInfoArray motor_info;
             for (uint8_t motor_id : leg_conf.motor_ids) {

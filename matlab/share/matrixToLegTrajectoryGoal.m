@@ -1,4 +1,4 @@
-function goalMsg = matrixToRunLegTrajectoryGoal(trajectory, num_loops, publish_rate)
+function goalMsg = matrixToLegTrajectoryGoal(trajectory, num_loops, publish_rate)
 
     goalMsg = ros2message("starq_interfaces/RunLegTrajectoryGoal");
     if (size(trajectory, 4) > 3)
@@ -7,7 +7,7 @@ function goalMsg = matrixToRunLegTrajectoryGoal(trajectory, num_loops, publish_r
         disp("DIM: coordinate axes (i.e X,Y,Z)");
         disp("LEG: leg id");
         disp("TIME: time dimension [time step = 1 / publish rate]");
-        disp("ORDER: position, velocity (opt.), torque (opt.)");
+        disp("ORDER: position, velocity (opt.), acceleration (opt.)");
         return
     end
     
@@ -27,7 +27,7 @@ function goalMsg = matrixToRunLegTrajectoryGoal(trajectory, num_loops, publish_r
                         single(trajectory(:,leg,time,order));
                 elseif (order == 3)
                     goalMsg.trajectory(time).commands(leg).input_acc = ...
-                        single(trajectory(:,leg,time,1));
+                        single(trajectory(:,leg,time,order));
                 end
             end
         end
