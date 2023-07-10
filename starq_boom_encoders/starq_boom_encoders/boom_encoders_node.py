@@ -12,7 +12,7 @@ class BoomEncodersNode(Node):
 
         self.get_logger().info("Starting boom encoders node.")
 
-        self.serial_port = '/dev/ttyACM0'
+        self.serial_port = '/dev/teensy' # Make sure udev rule is configured (docs/99-teensy.rules)
         self.baud_rate = 9600
         self.serial_port = serial.Serial(self.serial_port, self.baud_rate)
 

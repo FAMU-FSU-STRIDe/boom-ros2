@@ -1,0 +1,4 @@
+# Move to /etc/udev/rules.d/99-teensy.rules
+# Teensy 3.5 will be found under /dev/teensy
+
+SUBSYSTEM=="tty", ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="0483", SYMLINK+="teensy"
