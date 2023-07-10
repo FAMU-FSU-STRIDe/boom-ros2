@@ -39,6 +39,9 @@ def recieve_can_msg(can_id : int, msg_name : str):
         for msg in _canbus:
             if msg.arbitration_id == ((can_id << 5) | can_msg.frame_id):
                 return _candb.decode_message("Axis0_" + msg_name, msg.data)
+        return None
+    except can.CanOperationError
+        return None
     finally:
         signal.setitimer(signal.ITIMER_REAL, 0)
 
