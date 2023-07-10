@@ -85,7 +85,7 @@ class STARQMotorDriverNode(Node):
                 info.torque_estimate = 8.27 * info.iq_measured / 330
                 info.fet_temperature, info.motor_temperature = canfunc.get_temperatures(can_id)
             except TimeoutError as te:
-                self.get_logger().warn(te)
+                self.get_logger().warn(str(te))
             if (config.id < len(self.last_cmds)):
                 last_cmd = self.last_cmds[config.id]
                 info.last_pos_cmd = last_cmd.input_position * config.gear_ratio
