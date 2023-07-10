@@ -11,7 +11,11 @@ function [time, orientation, tilt, height, speed] = parseBoomData(info_data)
     for r = 1:record_size
 
         info = info_data(r);
-        time(r) = double(info.time.sec) + double(info.time.nanosec)*1E-9;
+
+        if(~isempty(motor_infos.time))
+            time(r) = double(motor_infos.time.sec) + double(motor_infos.time.nanosec)*1E-9;
+        end
+        
         orientation(r) = info.orientation;
         tilt(r) = info.tilt;
         height(r) = info.height;

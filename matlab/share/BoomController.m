@@ -40,7 +40,7 @@ classdef BoomController < BasicController
         end
 
         function boom_encoder_data = BoomData(obj)
-            boom_encoder_data = obj.BoomRecorder.Data;
+            boom_encoder_data = obj.BoomRecorder.Data(1:obj.BoomRecorder.Size);
         end
     end
 end

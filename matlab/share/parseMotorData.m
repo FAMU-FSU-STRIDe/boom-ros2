@@ -40,6 +40,8 @@ function [time, motor_pos, motor_vel, motor_trq, motor_pos_cmd, motor_vel_cmd, m
             motor_temp(r,m) = info.motor_temperature;
         end
     end
+
+    time = time - time(1);
     
 end
 

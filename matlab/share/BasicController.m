@@ -58,11 +58,11 @@ classdef BasicController < handle
         end
 
         function motor_info_data = MotorData(obj)
-            motor_info_data = obj.Motors.Recorder.Data;
+            motor_info_data = obj.Motors.Recorder.Data(1:obj.Motors.Recorder.Size);
         end
 
         function leg_info_data = LegData(obj)
-            leg_info_data = obj.Legs.Recorder.Data;
+            leg_info_data = obj.Legs.Recorder.Data(1:obj.Legs.Recorder.Size);
         end
     end
 end

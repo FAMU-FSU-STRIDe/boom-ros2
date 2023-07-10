@@ -1,6 +1,7 @@
 import can
 import cantools
 import signal
+import math
 
 # Global objects
 _caninit = True
@@ -32,9 +33,10 @@ def recieve_can_msg(can_id : int, msg_name : str):
         for msg in _canbus:
             if msg.arbitration_id == ((can_id << 5) | can_msg.frame_id):
                 return _candb.decode_message("Axis0_" + msg_name, msg.data)
+    except TimeoutError:
+        return None
     finally:
         signal.setitimer(signal.ITIMER_REAL, 0)
-    return None
 
 # Clear motor errors
 def clear_errors(can_id : int):
@@ -90,40 +92,40 @@ def set_gains(can_id : int, pos_gain : float, vel_gain : float, vel_int_gain : f
 def get_error_and_state(can_id : int):
     can_msg = recieve_can_msg(can_id, 'Heartbeat')
     if can_msg is None:
-        return 0.0, 0.0
+        return math.nan, math.nan
     return can_msg['Axis_Error'].value, can_msg['Axis_State'].value
 
 # Encoder data (Position + Velocity)
 def get_position_and_velocity_estimates(can_id : int):
     can_msg = recieve_can_msg(can_id, 'Get_Encoder_Estimates')
     if can_msg is None:
-        return 0.0, 0.0
+        return math.nan, math.nan
     return can_msg['Pos_Estimate'], can_msg['Vel_Estimate']
 
 # Torque estimate + target
 def get_torque_target_and_estimate(can_id : int):
     can_msg = recieve_can_msg(can_id, 'Get_Torques')
     if can_msg is None:
-        return 0.0, 0.0
+        return math.nan, math.nan
     return can_msg['Torque_Target'], can_msg['Torque_Estimate']
 
 # QCurrent data
 def get_qcurrent_setpoint_and_measured(can_id : int):
     can_msg = recieve_can_msg(can_id, 'Get_Iq')
     if can_msg is None:
-        return 0.0, 0.0
+        return math.nan, math.nan
     return can_msg['Iq_Setpoint'], can_msg['Iq_Measured']
 
 # Temperature data (FET + Motor)
 def get_temperatures(can_id : int):
     can_msg = recieve_can_msg(can_id, 'Get_Temperature')
     if can_msg is None:
-        return 0.0, 0.0
+        return math.nan, math.nan
     return can_msg['FET_Temperature'], can_msg['Motor_Temperature']
 
 # Bus Voltage + Current
 def get_bus_voltage_and_current(can_id : int):
     can_msg = recieve_can_msg(can_id, 'Get_Bus_Voltage_Current')
     if can_msg is None:
-        return 0.0, 0.0
+        return math.nan, math.nan
     return can_msg['Bus_Voltage'], can_msg['Bus_Current']
