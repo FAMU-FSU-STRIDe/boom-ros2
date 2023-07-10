@@ -13,7 +13,7 @@ except Exception:
     _caninit = False
 
 # Set debug logger
-def set_logger(logger)
+def set_logger(logger):
     _logger = logger
 
 # Send a odrive message to CAN
