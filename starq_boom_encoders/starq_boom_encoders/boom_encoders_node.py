@@ -14,7 +14,12 @@ class BoomEncodersNode(Node):
 
         self.serial_port = '/dev/teensy' # Make sure udev rule is configured (docs/99-teensy.rules)
         self.baud_rate = 9600
-        self.serial_port = serial.Serial(self.serial_port, self.baud_rate)
+
+        try:
+            self.serial_port = serial.Serial(self.serial_port, self.baud_rate)
+        except Exception:
+            self.get_logger().error("Could not find Teensy. Make sure it is properly connected.")
+            return
 
         self.info_pub = self.create_publisher(BoomEncoderInfo, '/starq/boom/info', 10)
 
@@ -62,9 +67,10 @@ def main(args=None):
         print(e)
     except KeyboardInterrupt:
         pass
-    node.get_logger().info("Boom encoder node closed.")
-    node.destroy_node()
-    rclpy.shutdown()
+    finally:
+        node.get_logger().info("Boom encoder node closed.")
+        node.destroy_node()
+        rclpy.shutdown()
 
 
 if __name__ == '__main__':

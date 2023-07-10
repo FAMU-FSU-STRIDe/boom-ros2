@@ -9,7 +9,7 @@ RUN pip3 install \
         can \
         cantools
 
-RUN pip3 install serial pyserial
+RUN pip3 install pyserial
 RUN pip3 install setuptools==58.2.0
 
 RUN echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc

@@ -1,12 +1,19 @@
 import can
 import cantools
+import signal
 
 # Global objects
+_caninit = True
 _candb = cantools.db.load_file("/starq_ws/src/docs/odrive-cansimple.dbc")
-_canbus = can.Bus("can0", bustype="socketcan")
+try:
+    _canbus = can.Bus("can0", bustype="socketcan")
+except Exception:
+    _caninit = False
 
 # Send a odrive message to CAN
 def send_can_msg(can_id : int, msg_name : str, msg_data):
+    if not _caninit:
+        return
     can_msg = _candb.get_message_by_name("Axis0_" + msg_name)
     can_data = can_msg.encode(msg_data)
     can_msg = can.Message(arbitration_id=((can_id << 5) | can_msg.frame_id), is_extended_id=False, data=can_data)
@@ -14,10 +21,19 @@ def send_can_msg(can_id : int, msg_name : str, msg_data):
 
 # Recieve a odrive message from CAN
 def recieve_can_msg(can_id : int, msg_name : str):
-    can_msg = _candb.get_message_by_name("Axis0_" + msg_name)
-    for msg in _canbus:
-        if msg.arbitration_id == ((can_id << 5) | can_msg.frame_id):
-            return _candb.decode_message("Axis0_" + msg_name, msg.data)
+    if not _caninit:
+        return None
+    def timeout_handler(signum, frame):
+        raise TimeoutError(f"Failed to retrieve CAN message for {msg_name} on CAN id {can_id}.")
+    signal.signal(signal.SIGALRM, timeout_handler)
+    signal.setitimer(signal.ITIMER_REAL, 0.020)
+    try:
+        can_msg = _candb.get_message_by_name("Axis0_" + msg_name)
+        for msg in _canbus:
+            if msg.arbitration_id == ((can_id << 5) | can_msg.frame_id):
+                return _candb.decode_message("Axis0_" + msg_name, msg.data)
+    finally:
+        signal.setitimer(signal.ITIMER_REAL, 0)
     return None
 
 # Clear motor errors
@@ -73,29 +89,41 @@ def set_gains(can_id : int, pos_gain : float, vel_gain : float, vel_int_gain : f
 # Heartbeat (Error + State info)
 def get_error_and_state(can_id : int):
     can_msg = recieve_can_msg(can_id, 'Heartbeat')
+    if can_msg is None:
+        return 0.0, 0.0
     return can_msg['Axis_Error'].value, can_msg['Axis_State'].value
 
 # Encoder data (Position + Velocity)
 def get_position_and_velocity_estimates(can_id : int):
     can_msg = recieve_can_msg(can_id, 'Get_Encoder_Estimates')
+    if can_msg is None:
+        return 0.0, 0.0
     return can_msg['Pos_Estimate'], can_msg['Vel_Estimate']
 
 # Torque estimate + target
 def get_torque_target_and_estimate(can_id : int):
     can_msg = recieve_can_msg(can_id, 'Get_Torques')
+    if can_msg is None:
+        return 0.0, 0.0
     return can_msg['Torque_Target'], can_msg['Torque_Estimate']
 
 # QCurrent data
 def get_qcurrent_setpoint_and_measured(can_id : int):
     can_msg = recieve_can_msg(can_id, 'Get_Iq')
+    if can_msg is None:
+        return 0.0, 0.0
     return can_msg['Iq_Setpoint'], can_msg['Iq_Measured']
 
 # Temperature data (FET + Motor)
 def get_temperatures(can_id : int):
     can_msg = recieve_can_msg(can_id, 'Get_Temperature')
+    if can_msg is None:
+        return 0.0, 0.0
     return can_msg['FET_Temperature'], can_msg['Motor_Temperature']
 
 # Bus Voltage + Current
 def get_bus_voltage_and_current(can_id : int):
     can_msg = recieve_can_msg(can_id, 'Get_Bus_Voltage_Current')
+    if can_msg is None:
+        return 0.0, 0.0
     return can_msg['Bus_Voltage'], can_msg['Bus_Current']
