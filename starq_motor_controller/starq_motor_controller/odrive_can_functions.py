@@ -6,14 +6,15 @@ import math
 # Global objects
 _caninit = True
 _candb = cantools.db.load_file("/starq_ws/src/docs/odrive-cansimple.dbc")
-_logger = None
 try:
     _canbus = can.Bus("can0", bustype="socketcan")
 except Exception:
     _caninit = False
 
 # Set debug logger
+_logger = None
 def set_logger(logger):
+    global _logger
     _logger = logger
 
 # Send a odrive message to CAN
