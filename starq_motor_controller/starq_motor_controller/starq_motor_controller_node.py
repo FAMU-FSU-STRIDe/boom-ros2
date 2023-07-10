@@ -12,6 +12,8 @@ class STARQMotorDriverNode(Node):
         super().__init__('motor_driver')
         self.get_logger().info("Starting motor controller node.")
 
+        canfunc.set_logger(self.get_logger())
+
         self.motor_confs : list[ODriveConfig] = []
         self.last_cmds : list[ODriveCommand] = []
         self.max_motor_id = -1
