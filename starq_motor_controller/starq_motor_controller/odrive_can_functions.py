@@ -100,10 +100,10 @@ def get_error_and_state(can_id : int):
         return can_msg['Axis_Error'].value, can_msg['Axis_State'].value
     except TimeoutError as te:
         _logger.warn(str(te))
-        return math.nan, math.nan
+        return 0, 0
     except can.CanOperationError:
         _logger.warn("CAN Error from Heartbeat.")
-        return math.nan, math.nan
+        return 0, 0
 
 # Encoder data (Position + Velocity)
 def get_position_and_velocity_estimates(can_id : int):

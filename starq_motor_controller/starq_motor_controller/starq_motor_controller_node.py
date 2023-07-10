@@ -75,23 +75,31 @@ class STARQMotorDriverNode(Node):
         infos = ODriveInfoArray()
         infos.infos = [ODriveInfo()] * (self.max_motor_id+1)
         for config in self.motor_confs:
+
             info = ODriveInfo()
             can_id = config.can_id
+
             info.fault, info.state = canfunc.get_error_and_state(can_id)
             info.pos_estimate, info.vel_estimate = canfunc.get_position_and_velocity_estimates(can_id)
             info.bus_voltage, info.bus_current = canfunc.get_bus_voltage_and_current(can_id)
-            info.iq_setpoint, info.iq_measured = canfunc.get_qcurrent_setpoint_and_measured(can_id)
+            info.fet_temperature, info.motor_temperature = canfunc.get_temperatures(can_id)
+
+            #info.iq_setpoint, info.iq_measured = canfunc.get_qcurrent_setpoint_and_measured(can_id)
+            # info.torque_estimate = 8.27 * info.iq_measured / 330
+            # ^ Slow response? Causing issues
+
             #info.torque_target, info.torque_estimate = canfunc.get_torque_target_and_estimate(can_id)
             # ^ Not working for some reason?
-            info.torque_estimate = 8.27 * info.iq_measured / 330
-            info.fet_temperature, info.motor_temperature = canfunc.get_temperatures(can_id)
+
             if (config.id < len(self.last_cmds)):
                 last_cmd = self.last_cmds[config.id]
                 info.last_pos_cmd = last_cmd.input_position * config.gear_ratio
                 info.last_vel_cmd = last_cmd.input_velocity * config.gear_ratio
                 info.last_torque_cmd = last_cmd.input_torque / config.gear_ratio
+
             infos.time = self.get_clock().now().to_msg()
             infos.infos[config.id] = info
+            
         self.info_pub.publish(infos)
         
     # Put motors in idle
