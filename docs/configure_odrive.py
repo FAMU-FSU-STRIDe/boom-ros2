@@ -28,7 +28,7 @@ odrv0 = odrive.find_any()
 
 print(f"Configuring CAN... (Node ID: {can_id})")
 odrv0.config.enable_can_a = True
-odrv0.can.config.baud_rate = 500000
+odrv0.can.config.baud_rate = 1_000_000
 odrv0.axis0.config.can.node_id = can_id
 odrv0.axis0.config.can.version_msg_rate_ms = 0
 odrv0.axis0.config.can.heartbeat_msg_rate_ms = 20
@@ -53,8 +53,8 @@ odrv0.axis0.config.calibration_lockin.current = 3.88
 
 print("Configuring thermistor...")
 odrv0.axis0.motor.motor_thermistor.config.enabled = true
-odrv0.axis0.motor.motor_thermistor.config.temp_limit_lower = 10
-odrv0.axis0.motor.motor_thermistor.config.temp_limit_upper = 50
+odrv0.axis0.motor.motor_thermistor.config.temp_limit_lower = -40
+odrv0.axis0.motor.motor_thermistor.config.temp_limit_upper = 125
 odrv0.axis0.motor.motor_thermistor.config.r_ref = 5000
 odrv0.axis0.motor.motor_thermistor.config.beta = 3977
 odrv0.axis0.motor.motor_thermistor.config.t_ref = 25
