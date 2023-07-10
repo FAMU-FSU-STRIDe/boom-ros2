@@ -40,8 +40,6 @@ def recieve_can_msg(can_id : int, msg_name : str):
             if msg.arbitration_id == ((can_id << 5) | can_msg.frame_id):
                 return _candb.decode_message("Axis0_" + msg_name, msg.data)
         return None
-    except can.CanOperationError:
-        return None
     finally:
         signal.setitimer(signal.ITIMER_REAL, 0)
 
@@ -103,6 +101,9 @@ def get_error_and_state(can_id : int):
     except TimeoutError as te:
         _logger.warn(str(te))
         return math.nan, math.nan
+    except can.CanOperationError:
+        _logger.warn("CAN Error from Heartbeat.")
+        return math.nan, math.nan
 
 # Encoder data (Position + Velocity)
 def get_position_and_velocity_estimates(can_id : int):
@@ -111,6 +112,9 @@ def get_position_and_velocity_estimates(can_id : int):
         return can_msg['Pos_Estimate'], can_msg['Vel_Estimate']
     except TimeoutError as te:
         _logger.warn(str(te))
+        return math.nan, math.nan
+    except can.CanOperationError:
+        _logger.warn("CAN Error from Encoder Estimates.")
         return math.nan, math.nan
 
 # Torque estimate + target
@@ -121,6 +125,9 @@ def get_torque_target_and_estimate(can_id : int):
     except TimeoutError as te:
         _logger.warn(str(te))
         return math.nan, math.nan
+    except can.CanOperationError:
+        _logger.warn("CAN Error from Torques.")
+        return math.nan, math.nan
 
 # QCurrent data
 def get_qcurrent_setpoint_and_measured(can_id : int):
@@ -129,6 +136,9 @@ def get_qcurrent_setpoint_and_measured(can_id : int):
         return can_msg['Iq_Setpoint'], can_msg['Iq_Measured']
     except TimeoutError as te:
         _logger.warn(str(te))
+        return math.nan, math.nan
+    except can.CanOperationError:
+        _logger.warn("CAN Error from Iq.")
         return math.nan, math.nan
 
 # Temperature data (FET + Motor)
@@ -139,6 +149,9 @@ def get_temperatures(can_id : int):
     except TimeoutError as te:
         _logger.warn(str(te))
         return math.nan, math.nan
+    except can.CanOperationError:
+        _logger.warn("CAN Error from Temperature.")
+        return math.nan, math.nan
 
 # Bus Voltage + Current
 def get_bus_voltage_and_current(can_id : int):
@@ -147,4 +160,7 @@ def get_bus_voltage_and_current(can_id : int):
         return can_msg['Bus_Voltage'], can_msg['Bus_Current']
     except TimeoutError as te:
         _logger.warn(str(te))
+        return math.nan, math.nan
+    except can.CanOperationError:
+        _logger.warn("CAN Error from Voltage/Current.")
         return math.nan, math.nan
