@@ -111,8 +111,6 @@ def main(args=None):
     node = STARQMotorDriverNode()
     try:
         rclpy.spin(node)
-    except Exception as e:
-        node.get_logger().error(str(e))
     except KeyboardInterrupt:
         pass
     finally:
