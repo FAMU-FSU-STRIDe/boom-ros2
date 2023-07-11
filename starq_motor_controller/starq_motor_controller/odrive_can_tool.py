@@ -104,7 +104,7 @@ class ODriveCANTool(Listener):
         self.node = node
 
         # Maximum of 63 (0x3F) can ids
-        self.data = [ODriveInfo] * 0x3F
+        self.data = [ODriveInfo()] * 0x3F
 
         # Download: https://odrive-cdn.nyc3.digitaloceanspaces.com/releases/support-files/CZ2pCIXzftSQ0cg-duTIUGifMfiFgkAOl-YUsVpvEkc/odrive-cansimple.dbc
         self.candb = cantools.db.load_file("/starq_ws/src/docs/odrive-cansimple.dbc")
