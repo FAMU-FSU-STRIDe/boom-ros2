@@ -133,6 +133,7 @@ class ODriveCANTool(Listener):
                 if frame_id == 0x1: # Heartbeat message data has a different type than the rest
                     value = value.value
                 setattr(self.data[can_id], field, value) # Update data by field name
+        self.node.get_logger().info(str(self.data))
 
 
     def get_latest_info(self, can_id : int) -> ODriveInfo:

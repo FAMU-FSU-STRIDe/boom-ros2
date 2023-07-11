@@ -66,8 +66,8 @@ class STARQMotorDriverNode(Node):
                 info.last_pos_cmd = last_cmd.input_position
                 info.last_vel_cmd = last_cmd.input_velocity
                 info.last_torque_cmd = last_cmd.input_torque
-            infos.time = self.get_clock().now().to_msg()
             infos.infos[config.id] = info
+        infos.time = self.get_clock().now().to_msg()
         self.info_pub.publish(infos)
         
     # Put motors in idle
