@@ -104,7 +104,7 @@ class ODriveCANTool(Listener):
         self.node = node
 
         # Maximum of 63 (0x3F) can ids
-        self.data = [ODriveInfo()] * 0x3F
+        self.data = [ODriveInfo() for _ in range(0x3F)]
 
         # Download: https://odrive-cdn.nyc3.digitaloceanspaces.com/releases/support-files/CZ2pCIXzftSQ0cg-duTIUGifMfiFgkAOl-YUsVpvEkc/odrive-cansimple.dbc
         self.candb = cantools.db.load_file("/starq_ws/src/docs/odrive-cansimple.dbc")
@@ -133,7 +133,6 @@ class ODriveCANTool(Listener):
                 if frame_id == 0x1: # Heartbeat message data has a different type than the rest
                     value = value.value
                 setattr(self.data[can_id], field, value) # Update data by field name
-        self.node.get_logger().info(str(self.data))
 
 
     def get_latest_info(self, can_id : int) -> ODriveInfo:
