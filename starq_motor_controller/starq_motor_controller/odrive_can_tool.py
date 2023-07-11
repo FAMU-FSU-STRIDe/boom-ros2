@@ -151,7 +151,7 @@ class ODriveCANTool(Listener):
         if config.requested_state == 0: # Emergency stop check
             self.emergency_stop()
             return
-        self.clear_errors() # Clear errors
+        self.clear_errors(can_id) # Clear errors
         for msg_name, keypairs in _config_msgs.items():
             msg_data = {}
             for key, field in keypairs:
