@@ -34,6 +34,3 @@ float32 trap_traj_inertia
 float32 position_gain
 float32 velocity_gain
 float32 velocity_integrator_gain
-
-# Gear ratio
-float32 gear_ratio

@@ -10,6 +10,5 @@ function confMsg = defaultODriveConfig(id, can_id)
     confMsg.position_gain = single(25);
     confMsg.velocity_gain = single(0.15);
     confMsg.velocity_integrator_gain = single(0.30);
-    confMsg.gear_ratio = single(6);
 end
 

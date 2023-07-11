@@ -14,8 +14,8 @@ enum MotorAngleIndices {A, B};
 
 public:
 
-    FiveBar2DModel(const float L1, const float L2)
-    : L1_(L1), L2_(L2) {}
+    FiveBar2DModel(const float L1, const float L2, const float GR1, const float GR2)
+    : L1_(L1), L2_(L2), GR1_(GR1), GR2_(GR2) {}
 
     ODriveCommandArray get_inverse(const LegCommand& cmd) override {
 
@@ -32,8 +32,8 @@ public:
 
         ODriveCommandArray cmds;
         cmds.commands.resize(2);
-        cmds.commands[A].input_position = (theta0+alpha)/(2.0*M_PI);
-        cmds.commands[B].input_position = (theta1+alpha)/(2.0*M_PI);
+        cmds.commands[A].input_position = GR1_ * (theta0+alpha)/(2.0*M_PI);
+        cmds.commands[B].input_position = GR2_ * (theta1+alpha)/(2.0*M_PI);
         return cmds;
     }
 
@@ -47,7 +47,7 @@ public:
         if (position.size() != 2)
             return LegInfo();
 
-        const float alpha = 0.5f*(M_PI - position[A] - position[B]);
+        const float alpha = 0.5f*(M_PI - position[A]/GR1_ - position[B]/GR2_);
         const float gamma = std::asin(L1_*std::sin(alpha)/L2_);
         const float phi = M_PI - alpha - gamma;
 
@@ -64,7 +64,7 @@ public:
 
 private:
 
-    const float L1_, L2_;
+    const float L1_, L2_, GR1_, GR2_;
 
 };
 
