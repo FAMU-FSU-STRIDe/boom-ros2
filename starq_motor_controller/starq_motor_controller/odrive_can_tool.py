@@ -95,7 +95,7 @@ _command_msgs = {
 _command_msg_modes = {
     1: 'Set_Input_Torque',
     2: 'Set_Input_Vel',
-    3: 'Set_Input_Position'
+    3: 'Set_Input_Pos'
 }
 
 class ODriveCANTool(Listener):
