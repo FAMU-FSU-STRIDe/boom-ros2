@@ -63,9 +63,9 @@ class STARQMotorDriverNode(Node):
             if (config.id < len(self.last_cmds)):
                 # Add last commanded position to info for reference
                 last_cmd = self.last_cmds[config.id]
-                info.last_pos_cmd = last_cmd.input_position * config.gear_ratio
-                info.last_vel_cmd = last_cmd.input_velocity * config.gear_ratio
-                info.last_torque_cmd = last_cmd.input_torque / config.gear_ratio
+                info.last_pos_cmd = last_cmd.input_position
+                info.last_vel_cmd = last_cmd.input_velocity
+                info.last_torque_cmd = last_cmd.input_torque
             infos.time = self.get_clock().now().to_msg()
             infos.infos[config.id] = info
         self.info_pub.publish(infos)
