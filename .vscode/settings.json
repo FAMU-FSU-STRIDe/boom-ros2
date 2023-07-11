@@ -83,5 +83,5 @@
         "variant": "cpp",
         "fstream": "cpp"
     },
-    "cmake.sourceDirectory": "C:/Users/jtyle/OneDrive/Documents/BOOM_WS/matlab/custom/matlab_msg_gen/win64/src/starq_interfaces"
+    "ros.distro": "humble",
 }
