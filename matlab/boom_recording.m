@@ -1,5 +1,6 @@
 clear
 close all
+addpath('share')
 
 node = ros2node("matlab_node");
 

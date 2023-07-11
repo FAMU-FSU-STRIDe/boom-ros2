@@ -10,8 +10,6 @@ classdef BasicController < handle
     methods
         function obj = BasicController()
             obj.Node = ros2node("starq_matlab_controller");
-            obj.Motors = ODriveController(obj.Node, 2);
-            obj.Legs = LegController(obj.Node, 1);
             obj.LegTrajectoryPublisher = LegTrajectoryPublisher(obj.Node);
         end
 

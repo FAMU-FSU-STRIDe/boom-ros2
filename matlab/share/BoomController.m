@@ -7,6 +7,8 @@ classdef BoomController < BasicController
     methods
         function obj = BoomController()
             @obj.BasicController;
+            obj.Motors = ODriveController(obj.Node, 2);
+            obj.Legs = LegController(obj.Node, 1);
             obj.BoomRecorder = TopicRecorder(obj.Node,...
                 "/starq/boom/info", "starq_interfaces/BoomEncoderInfo");
         end
