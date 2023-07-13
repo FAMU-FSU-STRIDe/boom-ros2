@@ -1,0 +1,26 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 50
+    use_sim_time: true
+    joint_trajectory_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+joint_trajectory_controller:
+  ros__parameters:
+    joints:
+      - leg_fr_hip_joint
+      - leg_fr_leg_link_joint
+      - leg_fl_hip_joint
+      - leg_fl_leg_link_joint
+      - leg_hr_hip_joint
+      - leg_hr_leg_link_joint
+      - leg_hl_hip_joint
+      - leg_hl_leg_link_joint
+    interface_name: position
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
