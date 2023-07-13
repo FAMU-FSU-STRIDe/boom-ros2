@@ -1,16 +1,13 @@
 %% Hop trajectory
 close all
-clear boom
-addpath('share')
+clear
 
-% NOTE:
-% Run trajectory generation before this script
-% Examples: 'hop_maker', 'square_maker'
-% Make sure variable 'trajectory' is defined
+% Run hop_maker.m for trajectory
+hop_maker
 
 % Set run parameters
 stride_frequency = 2.5; % Hz
-num_loops = 75;
+num_loops = 5;
 
 % Create connection to boom ROS network
 boom = BoomController();
@@ -48,14 +45,6 @@ plot(mtime, motor_pos(:,1), '-r');
 xlabel("Time (s)")
 ylabel("Position (rev)")
 legend(["Commanded", "Encoder Estimate"])
-
-figure()
-hold on
-plot(mtime, motor_temp(:,1), 'r');
-plot(mtime, motor_temp(:,2), 'b');
-xlabel("Time (s)")
-ylabel("Temperature (C)")
-legend(["Motor 0", "Motor 1"])
 
 % Put motors in idle mode
 boom.idle()
