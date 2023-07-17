@@ -48,8 +48,8 @@ print("Configuring motor...")
 odrv0.axis0.config.motor.motor_type = MOTOR_TYPE_HIGH_CURRENT
 odrv0.axis0.config.motor.pole_pairs = 7
 odrv0.axis0.config.motor.torque_constant = 8.27 / 330
-odrv0.axis0.config.motor.calibration_current = 3.88
-odrv0.axis0.config.calibration_lockin.current = 3.88
+odrv0.axis0.config.motor.calibration_current = 5.0
+odrv0.axis0.config.calibration_lockin.current = 5.0
 
 print("Configuring thermistor...")
 odrv0.axis0.motor.motor_thermistor.config.enabled = True
