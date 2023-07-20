@@ -40,9 +40,12 @@ odrv0.axis0.config.can.bus_voltage_msg_rate_ms = 20
 odrv0.axis0.config.can.torques_msg_rate_ms = 20
 
 print("Configuring power supply...")
-odrv0.config.dc_bus_overvoltage_trip_level = 35
-odrv0.config.dc_max_positive_current = 5
-odrv0.config.dc_max_negative_current = -1
+n_bats = 2
+bat_n_cells = 4
+odrv0.config.dc_bus_undervoltage_trip_level = n_bats * 3.3 * bat_n_cells
+odrv0.config.dc_bus_overvoltage_trip_level = n_bats * 4.25 * bat_n_cells
+odrv0.config.dc_max_positive_current = 500
+odrv0.config.dc_max_negative_current = -60
 
 print("Configuring motor...")
 odrv0.axis0.config.motor.motor_type = MOTOR_TYPE_HIGH_CURRENT
@@ -74,9 +77,9 @@ print("Reconnecting to ODrive...")
 odrv0 = odrive.find_any()
 
 print("Configuring limits...")
-odrv0.axis0.config.motor.current_soft_max = 7.76
-odrv0.axis0.config.motor.current_hard_max = 26.4
-odrv0.axis0.controller.config.vel_limit = 10
+odrv0.axis0.config.motor.current_soft_max = 10.0
+odrv0.axis0.config.motor.current_hard_max = 18.75
+odrv0.axis0.controller.config.vel_limit = 25
 
 print("Configuring encoder...")
 odrv0.axis0.config.load_encoder = ENCODER_ID_ONBOARD_ENCODER0
