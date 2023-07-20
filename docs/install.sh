@@ -44,7 +44,7 @@ sudo cp /starq_ws/src/docs/startup/boom.service /etc/systemd/system/boom.service
 sudo systemctl enable boom.service
 
 sudo chmod +777 /starq_ws/src/docs/startup/update-boom.sh
-sudo cp /starq_ws/src/docs/startup/boom-update.service /etc/systemd/system/boom.service
+sudo cp /starq_ws/src/docs/startup/boom-update.service /etc/systemd/system/update-boom.service
 sudo systemctl enable boom-update.service
 
 # Configure Teensy udev rule
