@@ -1,6 +1,5 @@
 #!/bin/bash
 
-nmcli device wifi list
 nmcli device disconnect wlan0
 nmcli device wifi connect Vicon
 
@@ -12,4 +11,4 @@ colcon build
 nmcli device disconnect wlan0
 nmcli dev wifi hotspot ifname wlan0 ssid StrideBoom password "strideboom"
 
-systemctl restart boom.service
+systemctl restart boom.service &
