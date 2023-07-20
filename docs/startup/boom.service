@@ -1,6 +1,6 @@
 [Unit]
 Description=Setup boom
-After=can0.service
+After=boom-update.service can0.service
 
 [Service]
 ExecStart=/starq_ws/src/docs/startup/start-boom.sh

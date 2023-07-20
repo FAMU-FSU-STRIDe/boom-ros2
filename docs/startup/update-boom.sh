@@ -1,7 +1,7 @@
 #!/bin/bash
 
 nmcli device disconnect wlan0
-nmcli device wifi connect Vicon
+nmcli device wifi connect Vicon password viconORL
 
 cd /starq_ws/src
 git pull origin main
@@ -10,5 +10,3 @@ colcon build
 
 nmcli device disconnect wlan0
 nmcli dev wifi hotspot ifname wlan0 ssid StrideBoom password "strideboom"
-
-systemctl restart boom.service &
