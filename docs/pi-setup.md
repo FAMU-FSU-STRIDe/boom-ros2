@@ -69,10 +69,9 @@ sudo systemctl enable boom.service
 sudo cp /starq_ws/src/docs/99-teensy.rules /etc/udev/rules.d/99-teensy.rules
 ```
 - Configure mobile hotspot
+```
+sudo chmod +777 /starq_ws/src/docs/update-boom.sh
+. /starq_ws/src/docs/update-boom.sh
+```
 
-- Build STARQ packages
-```
-source /opt/ros/humble/setup.bash
-cd /starq_ws
-colcon build
-```
+Good to go?
