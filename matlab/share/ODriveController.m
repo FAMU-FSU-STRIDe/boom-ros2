@@ -31,35 +31,41 @@ classdef ODriveController < handle
         end
 
         function setStates(obj, states)
-            obj.setAll('requested_state', states, 'uint32');
+            obj.setAll('requested_state', states, 'uint32', true);
         end
 
         function setControlModes(obj, modes)
-            obj.setAll('control_mode', modes, 'uint32');
+            obj.setAll('control_mode', modes, 'uint32', true);
         end
 
         function setInputModes(obj, modes)
-            obj.setAll('input_mode', modes, 'uint32');
+            obj.setAll('input_mode', modes, 'uint32', true);
         end
 
         function setVelocityLimits(obj, limits)
-            obj.setAll('velocity_limit', limits, 'single');
+            obj.setAll('velocity_limit', limits, 'single', true);
         end
 
         function setCurrentLimits(obj, limits)
-            obj.setAll('current_limit', limits, 'single');
+            obj.setAll('current_limit', limits, 'single', true);
         end
 
         function setPGains(obj, pgains)
-            obj.setAll('position_gain', pgains, 'single');
+            obj.setAll('position_gain', pgains, 'single', true);
         end
 
         function setVGains(obj, vgains)
-            obj.setAll('velocity_gain', vgains, 'single');
+            obj.setAll('velocity_gain', vgains, 'single', true);
         end
 
         function setVIGains(obj, vigains)
-            obj.setAll('velocity_integrator_gain', vigains, 'single');
+            obj.setAll('velocity_integrator_gain', vigains, 'single', true);
+        end
+
+        function setGains(obj, pgains, vgains, vigains)
+            obj.setAll('position_gain', pgains, 'single', false);
+            obj.setAll('velocity_gain', vgains, 'single', false);
+            obj.setAll('velocity_integrator_gain', vigains, 'single', true);
         end
 
         function ready(obj)
@@ -94,7 +100,9 @@ classdef ODriveController < handle
             msg = ros2message("starq_interfaces/ODriveCommandArray");
             if (length(positions) == obj.NumberOfMotors)
                 for p = 1:obj.NumberOfMotors
-                    msg.commands(p).input_position = positions(p);
+                    msg.commands(p).input_position = single(positions(p));
+                    msg.commands(p).input_velocity = single(0);
+                    msg.commands(p).input_torque = single(0);
                 end
                 send(obj.Publisher, msg);
             else
@@ -116,7 +124,7 @@ classdef ODriveController < handle
             end
         end
 
-        function setAll(obj, field, values, type)
+        function setAll(obj, field, values, type, update)
             if (length(values) == 1)
                 values = values * ones(1, obj.NumberOfMotors);
             end
@@ -124,7 +132,9 @@ classdef ODriveController < handle
                 for m = 1:obj.NumberOfMotors
                     obj.Configs(m).(field) = cast(values(m), type);
                 end
-                obj.sendConfigs();
+                if (update)
+                    obj.sendConfigs();
+                end
             else
                 disp(strcat("ODriveController: Incorrect number of ", field, "s"));
             end

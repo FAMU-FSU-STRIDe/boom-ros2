@@ -56,9 +56,9 @@ classdef LegController < handle
 
         function goToPosition(obj, positions)
             msg = ros2message("starq_interfaces/LegCommandArray");
-            if (length(positions) == obj.NumberOfLegs)
+            if (size(positions, 2) == obj.NumberOfLegs)
                 for p = 1:obj.NumberOfLegs
-                    msg.commands(p).input_pos = positions(:,p);
+                    msg.commands(p).input_pos = single(positions(:,p));
                 end
                 send(obj.Publisher, msg);
             else

@@ -5,13 +5,13 @@ T = 1/stride_frequency;
 
 N = 500;
 
-V_thrust = 500; % mm/s
+V_thrust = 1000; % mm/s
 V_swing = 1000; % mm/s
 V_return = 1000; % mm/s
 
-L_touchdown = 150; % mm
+L_touchdown = 110; % mm
 L_liftoff = 200; % mm
-L_swing = 105; % mm
+L_swing = 110; % mm
 
 
 %% Calculation

@@ -114,7 +114,7 @@ class ODriveCANTool(Listener):
         except Exception:
             # Troubleshooting
             # sudo chmod +777 /starq_ws/src/docs/startup/start-can0.sh
-            # sudo cp /starq_ws/src/docs/startup/can0setup.service /etc/systemd/system/can0setup.service
+            # sudo cp /starq_ws/src/docs/startup/can0.service /etc/systemd/system/can0.service
             # sudo systemctl enable can0setup.sh
             # sudo systemctl start can0setup.sh
             self.node.get_logger().error("Could not connect to CAN interface.")

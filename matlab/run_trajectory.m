@@ -9,8 +9,8 @@ addpath('share')
 % Make sure variable 'trajectory' is defined
 
 % Set run parameters
-stride_frequency = 2.5; % Hz
-num_loops = 75;
+stride_frequency = 0.25; % Hz
+num_loops = 2;
 
 % Create connection to boom ROS network
 boom = BoomController();
@@ -32,30 +32,33 @@ pause(period + 1.0);
 boom.stopRecording();
 
 % Get results from recording
-[mtime, motor_pos, motor_vel, motor_trq,...
-    motor_pos_cmd, motor_vel_cmd, motor_trq_cmd,...
-    motor_qcurrent, bus_current, bus_voltage,...
-    fet_temp, motor_temp] = parseMotorData(boom.MotorData);
+motor_data = parseMotorData(boom.MotorData);
 
 % Get results from boom encoders
-[btime, orientation, tilt, height, speed] = parseBoomData(boom.BoomData);
+boom_data = parseBoomData(boom.BoomData);
 
 % Plot results
 figure()
 hold on
-plot(mtime, motor_pos_cmd(:,1), '--k');
-plot(mtime, motor_pos(:,1), '-r');
+plot(motor_data.time, motor_data.motor_pos_cmd(:,1), '--k');
+plot(motor_data.time, motor_data.motor_pos(:,1), '-r');
 xlabel("Time (s)")
 ylabel("Position (rev)")
 legend(["Commanded", "Encoder Estimate"])
 
 figure()
 hold on
-plot(mtime, motor_temp(:,1), 'r');
-plot(mtime, motor_temp(:,2), 'b');
+plot(motor_data.time, motor_data.motor_temp(:,1), 'r');
+plot(motor_data.time, motor_data.motor_temp(:,2), 'b');
 xlabel("Time (s)")
 ylabel("Temperature (C)")
 legend(["Motor 0", "Motor 1"])
+
+figure()
+hold on
+plot(motor_data.time, motor_data.motor_qcurrent);
+xlabel("Time (s)")
+ylabel("QCurrent (A)")
 
 % Put motors in idle mode
 boom.idle()
