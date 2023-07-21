@@ -3,7 +3,7 @@ function trajectoryMsg = matrixToJointTrajectory(trajectory, names, publish_rate
     trajectoryMsg = ros2message("trajectory_msgs/JointTrajectory");
     trajectoryMsg.joint_names = names;
 
-    if (size(trajectory, 3) > 3)
+    if (size(trajectory, 3) > 4)
         disp("Wrong trajectory format");
         disp("Format: trajectory(<MOTOR>, <TIME>, <ORDER>)");
         disp("MOTOR: motor id");
@@ -19,10 +19,13 @@ function trajectoryMsg = matrixToJointTrajectory(trajectory, names, publish_rate
             elseif (order == 2)
                 trajectoryMsg.points(time).velocities = trajectory(:,time,2);
             elseif (order == 3)
+                trajectoryMsg.points(time).accelerations = trajectory(:,time,3);
+            elseif (order == 4)
                 trajectoryMsg.points(time).effort = trajectory(:,time,3);
             end
         end
-        trajectoryMsg.points(time).time_from_start = time / publish_rate;
+        time_from_start = time / publish_rate;
+        trajectoryMsg.points(time).time_from_start = ros2duration(time_from_start);
     end
 
 end
