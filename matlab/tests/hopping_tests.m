@@ -8,15 +8,6 @@ VELINT_GAIN = 0.5;
 
 NUM_HOPS = 500;
 
-%% Start Boom
-
-boom = BoomController();
-
-% Set Gains
-boom.Motors.setPGains(POS_GAIN)
-boom.Motors.setVGains(VEL_GAIN)
-boom.Motors.setVIGains(VELINT_GAIN)
-
 %% Hop generation
 
 N = 100;
@@ -36,6 +27,7 @@ load_N = int32(N*(load_time/period));
 extend_N = int32(N*(extend_time/period));
 post_N = int32(N*(post_time/period));
 
+t = linspace(0,period,N);
 x = zeros(1,N);
 y = h_stand*ones(1,N);
 y(1:pre_N) = h_stand;
@@ -44,7 +36,19 @@ y(pre_N + load_N + (1:extend_N)) = h_extend;
 y(pre_N + load_N + extend_N + (1:post_N)) = h_stand;
 
 figure
-plot(y)
+plot(t,y)
+axis([-inf inf -200 -100])
+ylabel("Height (mm)")
+xlabel("Time (s)")
+
+%% Start Boom
+
+boom = BoomController();
+
+% Set Gains
+boom.Motors.setPGains(POS_GAIN)
+boom.Motors.setVGains(VEL_GAIN)
+boom.Motors.setVIGains(VELINT_GAIN)
 
 %% Run trajectory
 
