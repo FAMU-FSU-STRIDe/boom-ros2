@@ -1,7 +1,7 @@
 # Message to update ODrive Controller config
 
-# Motor ID
-uint8 id
+# Motor Name
+string name
 
 # CAN Communication ID
 uint8 can_id

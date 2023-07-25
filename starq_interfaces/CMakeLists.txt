@@ -11,8 +11,6 @@ find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/ODriveConfig.msg"
-  "msg/ODriveCommand.msg"
-  "msg/ODriveCommandArray.msg"
   "msg/ODriveInfo.msg"
   "msg/ODriveInfoArray.msg"
   "srv/ConfigureMotors.srv"

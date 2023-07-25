@@ -1,3 +1,0 @@
-float32 input_position
-float32 input_velocity
-float32 input_torque

@@ -1,6 +1,7 @@
 from can import Notifier
 import rclpy
 from rclpy.node import Node
+from sensor_msgs.msg import JointState
 from starq_interfaces.msg import *
 from starq_interfaces.srv._configure_motors import *
 from starq_motor_controller.odrive_can_tool import ODriveCANTool
@@ -18,12 +19,11 @@ class STARQMotorDriverNode(Node):
             # Create CAN notifier
             self.cannotify = Notifier(self.cantool.canbus, [self.cantool])
 
-        self.motor_confs : list[ODriveConfig] = []
-        self.last_cmds : list[ODriveCommand] = []
-        self.max_motor_id = -1
+        self.motor_confs : dict[str, ODriveConfig] = {}
+        self.last_cmd : JointState = {}
 
         info_frequency = 50.0 # Hz
-        self.cmd_sub = self.create_subscription(ODriveCommandArray, '/starq/motors/cmd', self.cmd_motors_callback, 10)
+        self.cmd_sub = self.create_subscription(JointState, '/starq/motors/cmd', self.cmd_motors_callback, 10)
         self.conf_srv = self.create_service(ConfigureMotors, '/starq/motors/conf', self.conf_motors_callback)
         self.info_pub = self.create_publisher(ODriveInfoArray, '/starq/motors/info', 10)
         self.info_timer = self.create_timer(1.0/info_frequency, self.get_info_callback)
@@ -31,27 +31,13 @@ class STARQMotorDriverNode(Node):
         self.get_logger().info("Motor controller node initialized.")
 
     # Send motor commands
-    def cmd_motors_callback(self, msg : ODriveCommandArray):
-        if len(self.motor_confs) == 0: # Check for empty config list
-            self.get_logger().warn("No motors configured!")
-        for config in self.motor_confs:
-            try:
-                # Check if command size and config size match
-                cmd : ODriveCommand = msg.commands[config.id]
-            except IndexError:
-                self.get_logger().error(f"Missing motor command for id: {config.id}")
-                continue
-            self.cantool.send_command(config.can_id, cmd, config.control_mode)
-        self.last_cmds = msg.commands # Update latest commands
+    def cmd_motors_callback(self, msg : JointState):
+        self.cantool.send_commands(msg, self.motor_confs)
+        self.last_cmds = msg
 
     # Configure motors
     def conf_motors_callback(self, request : ConfigureMotors_Request, response):
-        self.max_motor_id = -1 # Keep track of largest motor id
-        self.motor_confs = list[ODriveConfig](request.configs)
-        for config in self.motor_confs:
-            self.cantool.send_configuration(config.can_id, config)
-            if config.id > self.max_motor_id: # Max motor id = max number of motors
-                self.max_motor_id = config.id
+        self.motor_confs = self.cantool.load_configurations(request.configs)
         self.get_logger().info("Motor configurations updated.")
         return response
 
