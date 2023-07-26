@@ -149,7 +149,7 @@ class ODriveCANTool(Listener):
 
     def send_configuration(self, can_id : int, config : ODriveConfig) -> None:
         if config.requested_state == 0: # Emergency stop check
-            self.emergency_stop()
+            self.emergency_stop(can_id)
             return
         self.clear_errors(can_id) # Clear errors
         for msg_name, keypairs in _config_msgs.items():
