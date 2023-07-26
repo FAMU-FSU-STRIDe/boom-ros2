@@ -110,6 +110,34 @@ classdef ODriveController < handle
             end
         end
 
+        function setVelocities(obj, velocities)
+            msg = ros2message("starq_interfaces/ODriveCommandArray");
+            if (length(velocities) == obj.NumberOfMotors)
+                for m = 1:obj.NumberOfMotors
+                    msg.commands(m).input_position = single(0);
+                    msg.commands(m).input_velocity = single(velocities(m));
+                    msg.commands(m).input_torque = single(0);
+                end
+                send(obj.Publisher, msg);
+            else
+                disp("ODriveController: Incorrect number of velocities");
+            end
+        end
+
+        function setTorques(obj, torques)
+            msg = ros2message("starq_interfaces/ODriveCommandArray");
+            if (length(torques) == obj.NumberOfMotors)
+                for m = 1:obj.NumberOfMotors
+                    msg.commands(m).input_position = single(0);
+                    msg.commands(m).input_velocity = single(0);
+                    msg.commands(m).input_torque = single(torques(m));
+                end
+                send(obj.Publisher, msg);
+            else
+                disp("ODriveController: Incorrect number of torques");
+            end
+        end
+
     end
 
     methods (Access=private)
