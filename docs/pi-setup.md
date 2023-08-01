@@ -63,9 +63,10 @@ sudo chmod +777 /starq_ws/src/docs/startup/start-boom.sh
 sudo cp /starq_ws/src/docs/startup/boom.service /etc/systemd/system/boom.service
 sudo systemctl enable boom.service
 ```
-- Configure Teensy udev rule
+- Configure Teensy udev rule and permissions
 ```
 sudo cp /starq_ws/src/docs/99-teensy.rules /etc/udev/rules.d/99-teensy.rules
+sudo usermod -aG dialout pi
 ```
 - Configure mobile hotspot
 ```
