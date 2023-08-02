@@ -1,0 +1,3 @@
+[submodule "sbmpo_ros2"]
+	path = sbmpo_ros2
+	url = git@github.com:JTylerBoylan/sbmpo-ros2
