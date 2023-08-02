@@ -6,9 +6,11 @@
         "limitSymbolsToIncludedHeaders": false
       },
       "includePath": [
-        "/starq_ws/install/starq_interfaces/include/**",
         "/opt/ros/humble/include/**",
+        "/starq_ws/src/sbmpo_ros2/sbmpo/include/**",
+        "/starq_ws/src/sbmpo_ros2/sbmpo_ros2/include/**",
         "/starq_ws/src/starq_leg_kinematics/include/**",
+        "/starq_ws/src/starq_sbmpo/include/**",
         "/starq_ws/src/starq_trajectory_publisher/include/**",
         "/usr/include/**"
       ],
