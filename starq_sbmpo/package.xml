@@ -10,6 +10,7 @@
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <depend>sbmpo_ros2</depend>
+  <depend>nvblox_msgs</depend>
 
   <export>
     <build_type>ament_cmake</build_type>
