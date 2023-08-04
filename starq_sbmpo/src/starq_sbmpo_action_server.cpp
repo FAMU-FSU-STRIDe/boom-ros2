@@ -5,8 +5,6 @@
 
 #include <rclcpp_components/register_node_macro.hpp>
 
-#define INVALID_DISTANCE std::numeric_limits<float>::infinity()
-
 namespace starq_sbmpo {
 
 using namespace sbmpo;
@@ -41,7 +39,7 @@ public:
 
     float costmap(const float x, const float y) {
         const float dist_to_obstacle = map_lookup_(x,y);
-        if (dist_to_obstacle != INVALID_DISTANCE) {
+        if (dist_to_obstacle != std::numeric_limits<float>::infinity()) {
             // TODO: Map obstacle distances to costs
         }
         return 0;
@@ -57,7 +55,7 @@ private:
 
         // See if slice exists
         if (this->sdf_ == nullptr)
-            return INVALID_DISTANCE;
+            return std::numeric_limits<float>::infinity();
 
         // Get the map indices
         float x_index = round((x - this->sdf_->origin.x) / this->sdf_->resolution);
@@ -66,7 +64,7 @@ private:
         // Check map bounds
         if (x_index < 0 || x_index >= static_cast<int>(this->sdf_->width) ||
             y_index < 0 || y_index >= static_cast<int>(this->sdf_->height))
-            return INVALID_DISTANCE;
+            return std::numeric_limits<float>::infinity();
 
         // Convert to index
         size_t index = y_index * this->sdf_->width + x_index;
@@ -76,7 +74,7 @@ private:
 
         // Check if unknown
         if (distance == this->sdf_->unknown_value)
-            return INVALID_DISTANCE;
+            return std::numeric_limits<float>::infinity();
         
         return distance;
     }
