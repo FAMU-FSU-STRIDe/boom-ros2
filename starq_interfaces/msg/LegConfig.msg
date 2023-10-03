@@ -1,3 +1,3 @@
-uint8 id
+string name
 string kinematic_type
-uint8[] motor_ids
+string[] motor_names

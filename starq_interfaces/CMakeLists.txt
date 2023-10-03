@@ -9,19 +9,20 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
+find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/ODriveConfig.msg"
   "msg/ODriveInfo.msg"
-  "msg/ODriveInfoArray.msg"
-  "srv/ConfigureMotors.srv"
   "msg/LegConfig.msg"
-  "msg/LegCommand.msg"
-  "msg/LegCommandArray.msg"
-  "msg/LegInfo.msg"
-  "msg/LegInfoArray.msg"
-  "msg/BoomEncoderInfo.msg"
-  "srv/ConfigureLegs.srv"
+  "msg/LegState.msg"
+  "srv/ConfigureMotor.srv"
+  "srv/ConfigureLeg.srv"
   "action/RunLegTrajectory.action"
+  "msg/BoomEncoderInfo.msg"
+  DEPENDENCIES std_msgs geometry_msgs sensor_msgs
 )
 
 ament_package()
