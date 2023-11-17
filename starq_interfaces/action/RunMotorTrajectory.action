@@ -1,0 +1,11 @@
+# Request
+int32 num_loops
+float32 publish_rate # Hz
+starq_interfaces/ODriveCommandArray[] trajectory
+---
+# Result
+uint32 exit_code
+uint32 fault
+---
+# Feedback (@ 50 Hz)
+uint32 loops_completed

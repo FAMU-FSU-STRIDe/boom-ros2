@@ -15,7 +15,8 @@ find_package(starq_interfaces REQUIRED)
 include_directories(include)
 
 add_library(starq_trajectory_publisher SHARED
-  src/trajectory_publisher_server.cpp)
+  src/leg_trajectory_publisher_server.cpp
+  src/motor_trajectory_publisher_server.cpp)
 
 target_include_directories(starq_trajectory_publisher PRIVATE
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -31,8 +32,12 @@ ament_target_dependencies(starq_trajectory_publisher
   starq_interfaces)
 
 rclcpp_components_register_node(starq_trajectory_publisher 
-  PLUGIN "starq::TrajectoryPublisherServer" 
-  EXECUTABLE trajectory_publisher_server)
+  PLUGIN "starq::LegTrajectoryPublisherServer" 
+  EXECUTABLE leg_trajectory_publisher_server)
+
+rclcpp_components_register_node(starq_trajectory_publisher 
+  PLUGIN "starq::MotorTrajectoryPublisherServer" 
+  EXECUTABLE motor_trajectory_publisher_server)
 
 install(TARGETS
   starq_trajectory_publisher

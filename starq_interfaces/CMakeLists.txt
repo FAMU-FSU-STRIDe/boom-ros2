@@ -24,6 +24,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/BoomEncoderInfo.msg"
   "srv/ConfigureLegs.srv"
   "action/RunLegTrajectory.action"
+  "action/RunMotorTrajectory.action"
 )
 
 ament_package()

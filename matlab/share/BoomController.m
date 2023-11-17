@@ -24,7 +24,7 @@ classdef BoomController < BasicController
             traj_size = size(points,2);
             trajectory = nan(dims, 1, traj_size);
             trajectory(:,1,:) = points;
-            obj.runTrajectory(trajectory, stride_frequency, num_loops);
+            obj.runLegTrajectory(trajectory, stride_frequency, num_loops);
         end
         
         function startRecording(obj, expected_size)

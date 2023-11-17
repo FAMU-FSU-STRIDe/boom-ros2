@@ -12,6 +12,7 @@
         "/starq_ws/src/starq_leg_kinematics/include/**",
         "/starq_ws/src/starq_sbmpo/include/**",
         "/starq_ws/src/starq_trajectory_publisher/include/**",
+        "/starq_ws/install/starq_interfaces/include/**",
         "/usr/include/**"
       ],
       "name": "ROS",

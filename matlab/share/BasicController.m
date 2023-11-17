@@ -5,12 +5,14 @@ classdef BasicController < handle
         Motors
         Legs
         LegTrajectoryPublisher
+        MotorTrajectoryPublisher
     end
     
     methods
         function obj = BasicController()
             obj.Node = ros2node("starq_matlab_controller");
             obj.LegTrajectoryPublisher = LegTrajectoryPublisher(obj.Node);
+            obj.MotorTrajectoryPublisher = MotorTrajectoryPublisher(obj.Node);
         end
 
         function ready(obj)
@@ -26,7 +28,7 @@ classdef BasicController < handle
             obj.Motors.estop();
         end
 
-        function runTrajectory(obj, trajectory, stride_frequency, num_loops)
+        function runLegTrajectory(obj, trajectory, stride_frequency, num_loops)
             arguments
                 obj
                 trajectory
@@ -37,8 +39,23 @@ classdef BasicController < handle
             obj.LegTrajectoryPublisher.sendLegTrajectory(trajectory, num_loops, publish_rate);
         end
 
-        function cancelTrajectory(obj)
+        function cancelLegTrajectory(obj)
             obj.LegTrajectoryPublisher.cancelTrajectory();
+        end
+
+        function runMotorTrajectory(obj, trajectory, frequency, num_loops)
+            arguments
+                obj
+                trajectory
+                frequency = 1; % Hz
+                num_loops = 1;
+            end
+            publish_rate = size(trajectory, 3) * frequency;
+            obj.MotorTrajectoryPublisher.sendLegTrajectory(trajectory, num_loops, publish_rate);
+        end
+
+        function cancelMotorTrajectory(obj)
+            obj.MotorTrajectoryPublisher.cancelTrajectory();
         end
 
         function startRecording(obj, expected_size)

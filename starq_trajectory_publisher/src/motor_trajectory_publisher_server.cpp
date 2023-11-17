@@ -8,7 +8,7 @@
 #include <rclcpp_action/rclcpp_action.hpp>
 #include <rclcpp_components/register_node_macro.hpp>
 
-#include <starq_interfaces/action/run_leg_trajectory.hpp>
+#include <starq_interfaces/action/run_motor_trajectory.hpp>
 #include <starq_interfaces/msg/o_drive_info_array.hpp>
 
 #include <starq_trajectory_publisher/visibility_control.h>
@@ -17,49 +17,49 @@ namespace starq {
 
 using namespace starq_interfaces::msg;
 
-class TrajectoryPublisherServer : public rclcpp::Node {
+class MotorTrajectoryPublisherServer : public rclcpp::Node {
 
 public:
 
-    using RunLegTrajectory = starq_interfaces::action::RunLegTrajectory;
-    using GoalHandle = rclcpp_action::ServerGoalHandle<RunLegTrajectory>;
+    using RunMotorTrajectory = starq_interfaces::action::RunMotorTrajectory;
+    using GoalHandle = rclcpp_action::ServerGoalHandle<RunMotorTrajectory>;
 
-    explicit TrajectoryPublisherServer(const rclcpp::NodeOptions& options = rclcpp::NodeOptions())
+    explicit MotorTrajectoryPublisherServer(const rclcpp::NodeOptions& options = rclcpp::NodeOptions())
     : rclcpp::Node("trajectory_publisher", options), is_running_(false), is_in_fault_state_(false), fault_(0) {
         using namespace std::placeholders;
         RCLCPP_INFO(this->get_logger(), "Starting Trajectory Publisher server.");
 
-        this->action_server_ = rclcpp_action::create_server<RunLegTrajectory>(this, "/starq/legs/run_trajectory",
-            std::bind(&TrajectoryPublisherServer::handle_goal_, this, _1, _2),
-            std::bind(&TrajectoryPublisherServer::handle_cancel_, this, _1),
-            std::bind(&TrajectoryPublisherServer::handle_accepted_, this, _1));
+        this->action_server_ = rclcpp_action::create_server<RunMotorTrajectory>(this, "/starq/motors/run_trajectory",
+            std::bind(&MotorTrajectoryPublisherServer::handle_goal_, this, _1, _2),
+            std::bind(&MotorTrajectoryPublisherServer::handle_cancel_, this, _1),
+            std::bind(&MotorTrajectoryPublisherServer::handle_accepted_, this, _1));
 
         this->motor_info_sub_ = this->create_subscription<ODriveInfoArray>("/starq/motors/info", 10,
-            std::bind(&TrajectoryPublisherServer::motor_info_callback_, this, _1));
+            std::bind(&MotorTrajectoryPublisherServer::motor_info_callback_, this, _1));
 
-        this->leg_cmd_pub_ = this->create_publisher<LegCommandArray>("/starq/legs/cmd", 10);
+        this->motor_cmd_pub_ = this->create_publisher<ODriveCommandArray>("/starq/motors/cmd", 10);
 
         using namespace std::chrono_literals;
-        this->feedback_timer_ = this->create_wall_timer(20ms, std::bind(&TrajectoryPublisherServer::feedback_callback_, this));
+        this->feedback_timer_ = this->create_wall_timer(20ms, std::bind(&MotorTrajectoryPublisherServer::feedback_callback_, this));
 
         RCLCPP_INFO(this->get_logger(), "Trajectory Publisher server initialized.");
     }
 
 private:
 
-    rclcpp_action::Server<RunLegTrajectory>::SharedPtr action_server_;
+    rclcpp_action::Server<RunMotorTrajectory>::SharedPtr action_server_;
 
-    rclcpp::Publisher<LegCommandArray>::SharedPtr leg_cmd_pub_;
+    rclcpp::Publisher<ODriveCommandArray>::SharedPtr motor_cmd_pub_;
     rclcpp::Subscription<ODriveInfoArray>::SharedPtr motor_info_sub_;
     rclcpp::TimerBase::SharedPtr feedback_timer_;
 
     bool is_running_, is_in_fault_state_;
     uint32_t fault_;
     std::shared_ptr<GoalHandle> goal_handle_;
-    RunLegTrajectory::Feedback::SharedPtr trajectory_feedback_;
-    RunLegTrajectory::Result::SharedPtr trajectory_result_;
+    RunMotorTrajectory::Feedback::SharedPtr trajectory_feedback_;
+    RunMotorTrajectory::Result::SharedPtr trajectory_result_;
 
-    rclcpp_action::GoalResponse handle_goal_(const rclcpp_action::GoalUUID& uuid, std::shared_ptr<const RunLegTrajectory::Goal> goal) {
+    rclcpp_action::GoalResponse handle_goal_(const rclcpp_action::GoalUUID& uuid, std::shared_ptr<const RunMotorTrajectory::Goal> goal) {
         (void) uuid;
         (void) goal;
         RCLCPP_INFO(this->get_logger(), "Received run trajectory request.");
@@ -80,10 +80,10 @@ private:
 
     void handle_accepted_(const std::shared_ptr<GoalHandle> goal_handle) {
         this->goal_handle_ = goal_handle;
-        this->trajectory_feedback_ = std::make_shared<RunLegTrajectory::Feedback>();
-        this->trajectory_result_ = std::make_shared<RunLegTrajectory::Result>();
+        this->trajectory_feedback_ = std::make_shared<RunMotorTrajectory::Feedback>();
+        this->trajectory_result_ = std::make_shared<RunMotorTrajectory::Result>();
         this->is_running_ = true;
-        std::thread{std::bind(&TrajectoryPublisherServer::execute_, this)}.detach();
+        std::thread{std::bind(&MotorTrajectoryPublisherServer::execute_, this)}.detach();
     }
 
     void motor_info_callback_(const ODriveInfoArray::SharedPtr info_msg) {
@@ -116,7 +116,7 @@ private:
                     handle_result_(rclcpp_action::ResultCode::ABORTED);
                     return;
                 } else {
-                    this->leg_cmd_pub_->publish(cmds);
+                    this->motor_cmd_pub_->publish(cmds);
                     loop_rate.sleep();
                 }
             }
@@ -156,4 +156,4 @@ private:
 
 }
 
-RCLCPP_COMPONENTS_REGISTER_NODE(starq::TrajectoryPublisherServer)
+RCLCPP_COMPONENTS_REGISTER_NODE(starq::MotorTrajectoryPublisherServer)

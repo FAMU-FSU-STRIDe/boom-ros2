@@ -4,7 +4,9 @@
 
     <node pkg="starq_leg_kinematics" exec="leg_kinematics_node" name="leg_kinematics"  output="log"/>
 
-    <node pkg="starq_trajectory_publisher" exec="trajectory_publisher_server" name="trajectory_publisher"  output="log"/>
+    <node pkg="starq_trajectory_publisher" exec="leg_trajectory_publisher_server" name="leg_trajectory_publisher"  output="log"/>
+
+    <node pkg="starq_trajectory_publisher" exec="motor_trajectory_publisher_server" name="motor_trajectory_publisher"  output="log"/>
 
     <node pkg="starq_boom_encoders" exec="boom_encoders_node" name="boom_encoders"  output="log"/>
 

@@ -1,4 +1,4 @@
-classdef LegTrajectoryPublisher < handle
+classdef MotorTrajectoryPublisher < handle
     
     properties
         Node
@@ -10,21 +10,21 @@ classdef LegTrajectoryPublisher < handle
     end
     
     methods
-        function obj = LegTrajectoryPublisher(node)
+        function obj = MotorTrajectoryPublisher(node)
             obj.Node = node;
             obj.ActionClient = ros2actionclient(obj.Node,...
-                "/starq/legs/run_trajectory", "starq_interfaces/RunLegTrajectory");
+                "/starq/motors/run_trajectory", "starq_interfaces/RunMotorTrajectory");
             obj.isBusy = false;
         end
 
-        function sendLegTrajectory(obj, trajectory, num_loops, publish_rate)
-            goalMsg = matrixToLegTrajectoryGoal(trajectory, num_loops, publish_rate);
+        function sendMotorTrajectory(obj, trajectory, num_loops, publish_rate)
+            goalMsg = matrixToMotorTrajectoryGoal(trajectory, num_loops, publish_rate);
             cllbckOptions = ros2ActionSendGoalOptions(FeedbackFcn=@obj.feedbackCallback, ResultFcn=@obj.resultCallback);
             if (waitForServer(obj.ActionClient, 'Timeout', 1) == 1)
                 obj.GoalHandle = sendGoal(obj.ActionClient, goalMsg, cllbckOptions);
                 obj.isBusy = true;
             else
-                disp("LegTrajectoryPublisher: Could not connect to ActionClient");
+                disp("MotorTrajectoryPublisher: Could not connect to ActionClient");
             end
         end
 
