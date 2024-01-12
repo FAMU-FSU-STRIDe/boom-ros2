@@ -10,4 +10,8 @@
 
     <node pkg="starq_boom_encoders" exec="boom_encoders_node" name="boom_encoders"  output="log"/>
 
+    <node pkg="joy" exec="joy_node" name="joy_node" output="log"/>
+
+    <node pkg="l3harris_motor_joy" exec="joystick_node" name="joystick_node" output="log"/>
+
 </launch>
