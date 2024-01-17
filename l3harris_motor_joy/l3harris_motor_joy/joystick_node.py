@@ -27,20 +27,11 @@ class JoyStickNode(Node):
 
         self.odrive_pub = self.create_publisher(ODriveCommandArray, 'odrive', 10)
 
-        self.last_forward_control = 0.0
-        self.last_angle_control = 0.0
-
     def joy_callback(self, msg):
         forward_control = msg.axes[1]
         angle_control = msg.axes[0]
-        if (abs(forward_control - self.last_forward_control) < 0.001):
-            return
-        if (abs(angle_control - self.last_angle_control) < 0.001):
-            return
         self.setDirection(forward_control)
         self.setJointAngle(angle_control)
-        self.last_forward_control = forward_control
-        self.last_angle_control = angle_control
         
     def setDirection(self, forward):
         if forward > 0:
