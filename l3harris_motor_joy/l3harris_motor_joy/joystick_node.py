@@ -27,20 +27,11 @@ class JoyStickNode(Node):
 
         self.odrive_pub = self.create_publisher(ODriveCommandArray, 'odrive', 10)
 
-        self.last_forward_control = 0.0
-        self.last_angle_control = 0.0
-
     def joy_callback(self, msg):
         forward_control = msg.axes[1]
         angle_control = msg.axes[0]
-        if (abs(forward_control - self.last_forward_control) < 0.001):
-            return
-        if (abs(angle_control - self.last_angle_control) < 0.001):
-            return
         self.setDirection(forward_control)
         self.setJointAngle(angle_control)
-        self.last_forward_control = forward_control
-        self.last_angle_control = angle_control
         
     def setDirection(self, forward):
         if forward > 0:
@@ -49,8 +40,6 @@ class JoyStickNode(Node):
         else:
             GPIO.output(16, GPIO.LOW)
             GPIO.output(18, GPIO.HIGH)
-
-        self.get_logger().info("Setting Direction")
 
         self.pi_pwm.ChangeDutyCycle(abs(forward)*100)
 
@@ -62,8 +51,6 @@ class JoyStickNode(Node):
         msg.commands[0].input_position = 0.0
         msg.commands[0].input_velocity = angle
         msg.commands[0].input_torque = 0.0
-
-        self.get_logger().info("Publishing ODriveCommandArray")
 
         self.odrive_pub.publish(msg)
 
