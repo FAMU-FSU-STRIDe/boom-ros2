@@ -33,9 +33,9 @@ class JoyStickNode(Node):
     def joy_callback(self, msg):
         forward_control = msg.axes[1]
         angle_control = msg.axes[0]
-        if (abs(forward_control - self.last_forward_control) < 0.05):
+        if (abs(forward_control - self.last_forward_control) < 0.001):
             return
-        if (abs(angle_control - self.last_angle_control) < 0.05):
+        if (abs(angle_control - self.last_angle_control) < 0.001):
             return
         self.setDirection(forward_control)
         self.setJointAngle(angle_control)
