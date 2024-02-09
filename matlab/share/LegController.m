@@ -17,17 +17,17 @@ classdef LegController < handle
             end
             obj.Node = node;
             obj.NumberOfLegs = num_legs;
-            obj.Configs = repmat(ros2message("starq_interfaces/LegConfig"), ...
+            obj.Configs = repmat(ros2message("boom_interfaces/LegConfig"), ...
                 obj.NumberOfLegs, 1);
             for i = 1:obj.NumberOfLegs
                 obj.Configs(i) = defaultFiveBar2DLegConfig(i-1, [2*(i-1), 2*(i-1)+1]);
             end
             obj.ServiceClient = ros2svcclient(obj.Node,...
-                "/starq/legs/conf","starq_interfaces/ConfigureLegs");
+                "/boom/legs/conf","boom_interfaces/ConfigureLegs");
             obj.Recorder = TopicRecorder(obj.Node, ...
-                "/starq/legs/info", "starq_interfaces/LegInfoArray");
+                "/boom/legs/info", "boom_interfaces/LegInfoArray");
             obj.Publisher = ros2publisher(obj.Node, ...
-                "/starq/legs/cmd", "starq_interfaces/LegCommandArray");
+                "/boom/legs/cmd", "boom_interfaces/LegCommandArray");
         end
         
         function setKinematicType(obj, id, type)
@@ -55,7 +55,7 @@ classdef LegController < handle
         end
 
         function goToPosition(obj, positions)
-            msg = ros2message("starq_interfaces/LegCommandArray");
+            msg = ros2message("boom_interfaces/LegCommandArray");
             if (size(positions, 2) == obj.NumberOfLegs)
                 for p = 1:obj.NumberOfLegs
                     msg.commands(p).input_pos = single(positions(:,p));
@@ -71,7 +71,7 @@ classdef LegController < handle
     methods (Access=private)
 
         function sendConfigs(obj)
-            msg = ros2message("starq_interfaces/ConfigureLegsRequest");
+            msg = ros2message("boom_interfaces/ConfigureLegsRequest");
             msg.configs = obj.Configs;
             if (waitForServer(obj.ServiceClient, 'Timeout', 1) == 1)
                 call(obj.ServiceClient, msg);

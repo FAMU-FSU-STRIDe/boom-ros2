@@ -4,7 +4,7 @@ addpath('share')
 
 node = ros2node("matlab_node");
 
-recorder = TopicRecorder(node, "/starq/boom/info", "starq_interfaces/BoomEncoderInfo");
+recorder = TopicRecorder(node, "/boom/encoders", "boom_interfaces/BoomEncoderInfo");
 
 recorder.startRecording(500);
 

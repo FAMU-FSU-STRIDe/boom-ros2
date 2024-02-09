@@ -10,7 +10,7 @@ classdef BoomController < BasicController
             obj.Motors = ODriveController(obj.Node, 2);
             obj.Legs = LegController(obj.Node, 1);
             obj.BoomRecorder = TopicRecorder(obj.Node,...
-                "/starq/boom/info", "starq_interfaces/BoomEncoderInfo");
+                "/boom/encoders", "boom_interfaces/BoomEncoderInfo");
         end
 
         function runPointTrajectory(obj, points, stride_frequency, num_loops)

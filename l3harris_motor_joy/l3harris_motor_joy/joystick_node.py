@@ -3,8 +3,8 @@ from rclpy.node import Node
 
 from sensor_msgs.msg import Joy
 
-from starq_interfaces.msg import ODriveCommandArray
-from starq_interfaces.msg import ODriveCommand
+from boom_interfaces.msg import ODriveCommandArray
+from boom_interfaces.msg import ODriveCommand
 
 import RPi.GPIO as GPIO
 

@@ -17,17 +17,17 @@ classdef ODriveController < handle
             end
             obj.Node = node;
             obj.NumberOfMotors = num_motors;
-            obj.Configs= repmat(ros2message("starq_interfaces/ODriveConfig"), ...
+            obj.Configs= repmat(ros2message("boom_interfaces/ODriveConfig"), ...
                 obj.NumberOfMotors, 1);
             for i = 1:obj.NumberOfMotors
                 obj.Configs(i) = defaultODriveConfig(i-1, i-1);
             end
             obj.ServiceClient = ros2svcclient(obj.Node,...
-                "/starq/motors/conf","starq_interfaces/ConfigureMotors");
+                "/boom/motors/conf","boom_interfaces/ConfigureMotors");
             obj.Recorder = TopicRecorder(obj.Node, ...
-                "/starq/motors/info", "starq_interfaces/ODriveInfoArray");
+                "/boom/motors/info", "boom_interfaces/ODriveInfoArray");
             obj.Publisher = ros2publisher(obj.Node, ...
-                "/starq/motors/cmd", "starq_interfaces/ODriveCommandArray");
+                "/boom/motors/cmd", "boom_interfaces/ODriveCommandArray");
         end
 
         function setStates(obj, states)
@@ -97,7 +97,7 @@ classdef ODriveController < handle
         end
 
         function goToPosition(obj, positions)
-            msg = ros2message("starq_interfaces/ODriveCommandArray");
+            msg = ros2message("boom_interfaces/ODriveCommandArray");
             if (length(positions) == obj.NumberOfMotors)
                 for p = 1:obj.NumberOfMotors
                     msg.commands(p).input_position = single(positions(p));
@@ -111,12 +111,12 @@ classdef ODriveController < handle
         end
 
         function setVelocities(obj, velocities)
-            msg = ros2message("starq_interfaces/ODriveCommandArray");
+            msg = ros2message("boom_interfaces/ODriveCommandArray");
             if (length(velocities) == obj.NumberOfMotors)
                 for p = 1:obj.NumberOfMotors
                     msg.commands(p).input_position = single(0);
-                    msg.commands(p).input_velocity = single(0);
-                    msg.commands(p).input_torque = single(velocities(p));
+                    msg.commands(p).input_velocity = single(velocities(p)));
+                    msg.commands(p).input_torque = single(0);
                 end
                 send(obj.Publisher, msg);
             else
@@ -125,7 +125,7 @@ classdef ODriveController < handle
         end
 
         function setTorques(obj, torques)
-            msg = ros2message("starq_interfaces/ODriveCommandArray");
+            msg = ros2message("boom_interfaces/ODriveCommandArray");
             if (length(torques) == obj.NumberOfMotors)
                 for p = 1:obj.NumberOfMotors
                     msg.commands(p).input_position = single(0);
@@ -143,7 +143,7 @@ classdef ODriveController < handle
     methods (Access=private)
 
         function sendConfigs(obj)
-            msg = ros2message("starq_interfaces/ConfigureMotorsRequest");
+            msg = ros2message("boom_interfaces/ConfigureMotorsRequest");
             msg.configs = obj.Configs;
             if (waitForServer(obj.ServiceClient, 'Timeout', 1) == 1)
                 call(obj.ServiceClient, msg);

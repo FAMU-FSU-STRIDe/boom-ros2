@@ -13,7 +13,7 @@ classdef LegTrajectoryPublisher < handle
         function obj = LegTrajectoryPublisher(node)
             obj.Node = node;
             obj.ActionClient = ros2actionclient(obj.Node,...
-                "/starq/legs/run_trajectory", "starq_interfaces/RunLegTrajectory");
+                "/boom/legs/run_trajectory", "boom_interfaces/RunLegTrajectory");
             obj.isBusy = false;
         end
 

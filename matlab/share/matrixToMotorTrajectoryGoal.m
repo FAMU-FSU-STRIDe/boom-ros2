@@ -1,6 +1,6 @@
 function goalMsg = matrixToMotorTrajectoryGoal(trajectory, num_loops, publish_rate)
 
-    goalMsg = ros2message("starq_interfaces/RunMotorTrajectoryGoal");
+    goalMsg = ros2message("boom_interfaces/RunMotorTrajectoryGoal");
     if (size(trajectory, 3) > 3)
         disp("Wrong trajectory format");
         disp("Format: trajectory(<MOTOR>, <TIME>, <ORDER>)");

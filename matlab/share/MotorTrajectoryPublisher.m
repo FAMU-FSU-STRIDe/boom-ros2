@@ -13,7 +13,7 @@ classdef MotorTrajectoryPublisher < handle
         function obj = MotorTrajectoryPublisher(node)
             obj.Node = node;
             obj.ActionClient = ros2actionclient(obj.Node,...
-                "/starq/motors/run_trajectory", "starq_interfaces/RunMotorTrajectory");
+                "/boom/motors/run_trajectory", "boom_interfaces/RunMotorTrajectory");
             obj.isBusy = false;
         end
 

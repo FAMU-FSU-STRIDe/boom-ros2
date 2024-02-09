@@ -1,6 +1,6 @@
 function goalMsg = matrixToLegTrajectoryGoal(trajectory, num_loops, publish_rate)
 
-    goalMsg = ros2message("starq_interfaces/RunLegTrajectoryGoal");
+    goalMsg = ros2message("boom_interfaces/RunLegTrajectoryGoal");
     if (size(trajectory, 4) > 3)
         disp("Wrong trajectory format");
         disp("Format: trajectory(<DIM>, <LEG>, <TIME>, <ORDER>)");

@@ -28,13 +28,13 @@ sudo apt install ros-dev-tools
 
 echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 ```
-- Get STARQ Repository
+- Get Boom Repository
 ```
 sudo apt install git
-sudo mkdir /starq_ws
-sudo chmod 777 /starq_ws
-cd /starq_ws
-git clone https://github.com/FAMU-FSU-STRIDe/starq-ros2 src
+sudo mkdir /boom_ws
+sudo chmod 777 /boom_ws
+cd /boom_ws
+git clone https://github.com/FAMU-FSU-STRIDe/boom-ros2 src
 ```
 - Install dependencies
 ```
@@ -54,24 +54,24 @@ dtoverlay=spi0-hw-cs
 
 - Configure start up scripts
 ```
-sudo chmod +777 /starq_ws/src/docs/startup/start-can0.sh
-sudo cp /starq_ws/src/docs/startup/can0.service /etc/systemd/system/can0.service
+sudo chmod +777 /boom_ws/src/docs/startup/start-can0.sh
+sudo cp /boom_ws/src/docs/startup/can0.service /etc/systemd/system/can0.service
 sudo systemctl enable can0.service
 ```
 ```
-sudo chmod +777 /starq_ws/src/docs/startup/start-boom.sh
-sudo cp /starq_ws/src/docs/startup/boom.service /etc/systemd/system/boom.service
+sudo chmod +777 /boom_ws/src/docs/startup/start-boom.sh
+sudo cp /boom_ws/src/docs/startup/boom.service /etc/systemd/system/boom.service
 sudo systemctl enable boom.service
 ```
 - Configure Teensy udev rule and permissions
 ```
-sudo cp /starq_ws/src/docs/99-teensy.rules /etc/udev/rules.d/99-teensy.rules
+sudo cp /boom_ws/src/docs/99-teensy.rules /etc/udev/rules.d/99-teensy.rules
 sudo usermod -aG dialout pi
 ```
 - Configure mobile hotspot
 ```
-sudo chmod +777 /starq_ws/src/docs/update-boom.sh
-sudo /starq_ws/src/docs/update-boom.sh
+sudo chmod +777 /boom_ws/src/docs/update-boom.sh
+sudo /boom_ws/src/docs/update-boom.sh
 ```
 - Enable SSH
 ```

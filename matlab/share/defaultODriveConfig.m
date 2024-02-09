@@ -1,5 +1,5 @@
 function confMsg = defaultODriveConfig(id, can_id)
-    confMsg = ros2message("starq_interfaces/ODriveConfig");
+    confMsg = ros2message("boom_interfaces/ODriveConfig");
     confMsg.id = uint8(id);
     confMsg.can_id = uint8(can_id);
     confMsg.requested_state = uint32(1); % IDLE
