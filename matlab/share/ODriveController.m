@@ -115,7 +115,7 @@ classdef ODriveController < handle
             if (length(velocities) == obj.NumberOfMotors)
                 for p = 1:obj.NumberOfMotors
                     msg.commands(p).input_position = single(0);
-                    msg.commands(p).input_velocity = single(velocities(p)));
+                    msg.commands(p).input_velocity = single(velocities(p));
                     msg.commands(p).input_torque = single(0);
                 end
                 send(obj.Publisher, msg);

@@ -6,7 +6,7 @@ from can import Bus, Listener
 from can.message import Message
 from rclpy.node import Node
 import cantools
-from starq_interfaces.msg import ODriveInfo, ODriveConfig, ODriveCommand
+from boom_interfaces.msg import ODriveInfo, ODriveConfig, ODriveCommand
 
 # From https://docs.odriverobotics.com/v/latest/can-protocol.html
 
