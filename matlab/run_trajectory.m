@@ -9,8 +9,8 @@ addpath('share')
 % Make sure variable 'trajectory' is defined
 
 % Set run parameters
-stride_frequency = 0.25; % Hz
-num_loops = 2;
+stride_frequency = 2.0; % Hz
+num_loops = 50;
 
 % Create connection to boom ROS network
 boom = BoomController();
@@ -18,8 +18,12 @@ boom = BoomController();
 % Put motors in control mode
 boom.ready();
 
+% Hold zero
+boom.Motors.goToPosition([0 0]);
+pause(3.0)
+
 % Start recording
-boom.startRecording(num_loops / stride_frequency * 50);
+boom.startRecording(floor(num_loops / stride_frequency * 50));
 
 % Run point trajectory
 boom.runPointTrajectory(trajectory, stride_frequency, num_loops);
@@ -30,6 +34,13 @@ pause(period + 1.0);
 
 % Stop recording
 boom.stopRecording();
+
+% Reset to zero
+boom.Motors.goToPosition([0 0]);
+pause(3.0)
+
+% Put motors in idle mode
+boom.idle()
 
 % Get results from recording
 motor_data = parseMotorData(boom.MotorData);
@@ -59,6 +70,3 @@ hold on
 plot(motor_data.time, motor_data.motor_qcurrent);
 xlabel("Time (s)")
 ylabel("QCurrent (A)")
-
-% Put motors in idle mode
-boom.idle()

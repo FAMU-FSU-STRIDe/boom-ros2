@@ -3,14 +3,14 @@ clear
 close all
 %%
 
-PERIOD_ON = 300; % s
+PERIOD_ON = 90; % s
 PERIOD_OFF = 0; % s
-TORQUE = -0.50; % N*m
+TORQUE = 0.7; % N*m
 
 node = ros2node("temperature_test_matlab");
 odrv = ODriveController(node, 1);
 odrv.setControlModes(1);
-odrv.setCurrentLimits(15);
+odrv.setCurrentLimits(45);
 
 odrv.ready
 odrv.startRecording((PERIOD_ON + PERIOD_OFF) * 50)

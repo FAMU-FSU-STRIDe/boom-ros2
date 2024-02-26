@@ -56,8 +56,8 @@ odrv0.axis0.config.calibration_lockin.current = 5.0
 
 print("Configuring thermistor...")
 odrv0.axis0.motor.motor_thermistor.config.enabled = True
-odrv0.axis0.motor.motor_thermistor.config.temp_limit_lower = 80
-odrv0.axis0.motor.motor_thermistor.config.temp_limit_upper = 100
+odrv0.axis0.motor.motor_thermistor.config.temp_limit_lower = 125
+odrv0.axis0.motor.motor_thermistor.config.temp_limit_upper = 150
 odrv0.axis0.motor.motor_thermistor.config.r_ref = 5000
 odrv0.axis0.motor.motor_thermistor.config.beta = 3977
 odrv0.axis0.motor.motor_thermistor.config.t_ref = 25
@@ -77,8 +77,8 @@ print("Reconnecting to ODrive...")
 odrv0 = odrive.find_any()
 
 print("Configuring limits...")
-odrv0.axis0.config.motor.current_soft_max = 10.0
-odrv0.axis0.config.motor.current_hard_max = 18.75
+odrv0.axis0.config.motor.current_soft_max = 30.0
+odrv0.axis0.config.motor.current_hard_max = 50.0
 odrv0.axis0.controller.config.vel_limit = 25
 
 print("Configuring encoder...")
