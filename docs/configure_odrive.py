@@ -56,8 +56,8 @@ odrv0.axis0.config.calibration_lockin.current = 5.0
 
 print("Configuring thermistor...")
 odrv0.axis0.motor.motor_thermistor.config.enabled = True
-odrv0.axis0.motor.motor_thermistor.config.temp_limit_lower = 125
-odrv0.axis0.motor.motor_thermistor.config.temp_limit_upper = 150
+odrv0.axis0.motor.motor_thermistor.config.temp_limit_lower = 100
+odrv0.axis0.motor.motor_thermistor.config.temp_limit_upper = 125
 odrv0.axis0.motor.motor_thermistor.config.r_ref = 5000
 odrv0.axis0.motor.motor_thermistor.config.beta = 3977
 odrv0.axis0.motor.motor_thermistor.config.t_ref = 25
