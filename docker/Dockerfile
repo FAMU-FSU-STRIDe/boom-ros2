@@ -7,7 +7,8 @@ RUN apt-get install -y \
 RUN pip3 install \
         odrive \
         can \
-        cantools
+        cantools \
+        RPi.GPIO
 
 RUN pip3 install pyserial
 RUN pip3 install setuptools==58.2.0

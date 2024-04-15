@@ -5,6 +5,7 @@
 ### 2. Install Python 3.9
 
 ### 3. Install Visual Studio C++ 2022
+- On the 'Install workloads' page, make sure to select the base C++ development kit
 
 ### 4. Install CMake >3.15
 
