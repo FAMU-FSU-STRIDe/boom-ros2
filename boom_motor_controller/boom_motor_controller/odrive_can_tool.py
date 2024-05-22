@@ -130,6 +130,8 @@ class ODriveCANTool(Listener):
             msg_data = self.candb.decode_message("Axis0_" + msg_name, msg.data)
             for key, field in _info_msgs[msg_name]:
                 value = msg_data[key]
+                if frame_id == 0x1: # Heartbeat message data has a different type than the rest
+                    value = value.value
                 value_type = type(getattr(self.data[can_id], field))
                 setattr(self.data[can_id], field, value_type(value))
 
