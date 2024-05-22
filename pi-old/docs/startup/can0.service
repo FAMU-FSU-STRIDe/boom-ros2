@@ -1,0 +1,11 @@
+[Unit]
+Description=Setup can0
+
+[Service]
+ExecStart=/starq_ws/src/docs/startup/start-can0.sh
+Type=oneshot
+RemainAfterExit=yes
+User=root
+
+[Install]
+WantedBy=multi-user.target

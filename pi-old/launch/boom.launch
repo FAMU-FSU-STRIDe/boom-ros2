@@ -1,0 +1,17 @@
+<launch>
+
+    <node pkg="boom_motor_controller" exec="motor_controller_node" name="motor_driver" output="log"/>
+
+    <node pkg="boom_leg_kinematics" exec="leg_kinematics_node" name="leg_kinematics"  output="screen"/>
+
+    <node pkg="boom_trajectory_publisher" exec="leg_trajectory_publisher_server" name="leg_trajectory_publisher"  output="log"/>
+
+    <node pkg="boom_trajectory_publisher" exec="motor_trajectory_publisher_server" name="motor_trajectory_publisher"  output="log"/>
+
+    <node pkg="boom_encoders" exec="boom_encoders_node" name="boom_encoders"  output="log"/>
+
+    <node pkg="joy" exec="joy_node" name="joy_node" output="log"/>
+
+    <node pkg="l3harris_motor_joy" exec="joystick_node" name="joystick_node" output="log"/>
+
+</launch>
