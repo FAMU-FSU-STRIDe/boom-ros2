@@ -124,17 +124,14 @@ class ODriveCANTool(Listener):
     def on_message_received(self, msg: Message) -> None:
         # Runs when CAN Listener receives a new message
         frame_id = msg.arbitration_id & 0b11111 # Frame id = lower 5 bits
-        self.node.get_logger().info(f"frame_id: {frame_id}")
         if frame_id in _info_msg_ids:
             can_id = (msg.arbitration_id >> 5) & 0b111111 # CAN id = upper 6 bits
             msg_name = _info_msg_ids[frame_id]
             msg_data = self.candb.decode_message("Axis0_" + msg_name, msg.data)
-            self.node.get_logger().info(f"can_id: {can_id}, msg_name: {msg_name}")
             for key, field in _info_msgs[msg_name]:
                 value = msg_data[key]
-                # if frame_id == 0x1: # Heartbeat message data has a different type than the rest
-                #     value = value.value
-                setattr(self.data[can_id], field, value) # Update data by field name
+                value_type = type(getattr(self.data[can_id], field))
+                setattr(self.data[can_id], field, value_type(value))
 
 
     def get_latest_info(self, can_id : int) -> ODriveInfo:
