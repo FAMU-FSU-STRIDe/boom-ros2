@@ -9,8 +9,8 @@ addpath('share');
 % Make sure variable 'trajectory' is defined
 
 % Set run parameters
-stride_frequency = 3.6; % Hz
-num_loops = 75;
+stride_frequency = 0.25; % Hz
+num_loops = 5;
 
 % Create connection to boom ROS network
 boom = BoomController();
@@ -20,7 +20,7 @@ boom.ready();
 
 % Hold zero
 boom.Motors.goToPosition([0 0]);
-pauseSafe(3.0)
+pause(3.0)
 
 % Start recording
 boom.startRecording(floor(num_loops / stride_frequency * 50));
@@ -30,7 +30,7 @@ boom.runPointTrajectory(trajectory, stride_frequency, num_loops);
 
 % Pause until the action is done
 period = num_loops / stride_frequency; % s
-pauseSafe(period + 1.0);
+pauseSafe(boom, period + 1.0);
 
 % Stop recording
 boom.stopRecording();
