@@ -4,7 +4,7 @@
 
 using namespace boom;
 
-#define L1 50.0f
+#define L1 66.0f
 #define L2 150.0f
 #define GR1 6.0f
 #define GR2 6.0f
