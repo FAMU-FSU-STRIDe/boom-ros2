@@ -15,4 +15,4 @@ RUN pip3 install setuptools==58.2.0
 
 RUN echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 
-WORKDIR /starq_ws
+WORKDIR /boom_ws

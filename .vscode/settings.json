@@ -1,15 +1,15 @@
 {
     "python.analysis.extraPaths": [
-        "/starq_ws/install/starq_motor_controller/lib/python3.10/site-packages",
-        "/starq_ws/install/starq_boom_encoders/lib/python3.10/site-packages",
-        "/starq_ws/install/starq_interfaces/local/lib/python3.10/dist-packages",
+        "/boom_ws/install/boom_motor_controller/lib/python3.10/site-packages",
+        "/boom_ws/install/boom_encoders/lib/python3.10/site-packages",
+        "/boom_ws/install/boom_interfaces/local/lib/python3.10/dist-packages",
         "/opt/ros/humble/lib/python3.10/site-packages",
         "/opt/ros/humble/local/lib/python3.10/dist-packages"
     ],
     "python.autoComplete.extraPaths": [
-        "/starq_ws/install/starq_motor_controller/lib/python3.10/site-packages",
-        "/starq_ws/install/starq_boom_encoders/lib/python3.10/site-packages",
-        "/starq_ws/install/starq_interfaces/local/lib/python3.10/dist-packages",
+        "/boom_ws/install/boom_motor_controller/lib/python3.10/site-packages",
+        "/boom_ws/install/boom_boom_encoders/lib/python3.10/site-packages",
+        "/boom_ws/install/boom_interfaces/local/lib/python3.10/dist-packages",
         "/opt/ros/humble/lib/python3.10/site-packages",
         "/opt/ros/humble/local/lib/python3.10/dist-packages"
     ],

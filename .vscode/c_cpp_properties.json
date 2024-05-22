@@ -7,12 +7,9 @@
       },
       "includePath": [
         "/opt/ros/humble/include/**",
-        "/starq_ws/src/sbmpo_ros2/sbmpo/include/**",
-        "/starq_ws/src/sbmpo_ros2/sbmpo_ros2/include/**",
-        "/starq_ws/src/starq_leg_kinematics/include/**",
-        "/starq_ws/src/starq_sbmpo/include/**",
-        "/starq_ws/src/starq_trajectory_publisher/include/**",
-        "/starq_ws/install/starq_interfaces/include/**",
+        "/boom_ws/src/boom_leg_kinematics/include/**",
+        "/boom_ws/src/boom_trajectory_publisher/include/**",
+        "/boom_ws/install/boom_interfaces/include/**",
         "/usr/include/**"
       ],
       "name": "ROS",
