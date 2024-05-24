@@ -62,9 +62,11 @@ legend(["Commanded", "Encoder Estimate"])
 
 figure()
 hold on
-plot(leg_data.pos_est(1,:), leg_data.pos_est(2,:), 'g');
+plot(trajectory(1,:), trajectory(2,:), '--k');
+plot(leg_data.pos_est(1,:), leg_data.pos_est(2,:), '-g');
 xlabel("X (mm)")
 ylabel("Y (mm)")
+legend(["Commanded", "Estimate"])
 
 figure()
 hold on

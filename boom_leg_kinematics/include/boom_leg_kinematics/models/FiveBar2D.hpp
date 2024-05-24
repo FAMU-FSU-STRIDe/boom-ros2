@@ -58,11 +58,11 @@ namespace boom
             if (position.size() != 2)
                 return LegInfo();
 
-            const float alpha = 0.5f * (M_PI - position[A] / GR1_ - position[B] / GR2_);
+            const float alpha = 0.5f * (M_PI - position[A] / GR1_ + position[B] / GR2_);
             const float gamma = std::asin(L1_ * std::sin(alpha) / L2_);
             const float phi = M_PI - alpha - gamma;
 
-            const float theta = -(position[A] + alpha);
+            const float theta = position[A] - alpha;
             const float R = L2_ * std::sin(phi) / std::sin(alpha);
 
             const float X = R * std::cos(theta);
