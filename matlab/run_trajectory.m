@@ -9,8 +9,8 @@ addpath('share');
 % Make sure variable 'trajectory' is defined
 
 % Set run parameters
-stride_frequency = 0.25; % Hz
-num_loops = 5;
+stride_frequency = 0.5; % Hz
+num_loops = 4;
 
 % Create connection to boom ROS network
 boom = BoomController();
@@ -48,6 +48,9 @@ motor_data = parseMotorData(boom.MotorData);
 % Get results from boom encoders
 boom_data = parseBoomData(boom.BoomData);
 
+% Get results from leg kinematics
+leg_data = parseLegData(boom.LegData);
+
 % Plot results
 figure()
 hold on
@@ -56,6 +59,12 @@ plot(motor_data.time, motor_data.motor_pos(:,1), '-r');
 xlabel("Time (s)")
 ylabel("Position (rev)")
 legend(["Commanded", "Encoder Estimate"])
+
+figure()
+hold on
+plot(leg_data.pos_est(1,:), leg_data.pos_est(2,:), 'g');
+xlabel("X (mm)")
+ylabel("Y (mm)")
 
 figure()
 hold on
