@@ -28,7 +28,6 @@ namespace boom
 
         ODriveCommandArray get_inverse(const LegCommand &cmd) override
         {
-
             const std::vector<float> point = cmd.input_pos;
 
             if (point.size() != 2)
@@ -40,33 +39,40 @@ namespace boom
             const float R = std::sqrt(point[X] * point[X] + point[Y] * point[Y]);
             const float alpha = std::acos((R * R + L1_ * L1_ - L2_ * L2_) / (2.0f * R * L1_));
 
+            const float thetaA = theta0 - alpha;
+            const float thetaB = theta1 - alpha;
+
+            const float A = GR1_ * thetaA / (2.0 * M_PI);
+            const float B = GR2_ * thetaB / (2.0 * M_PI);
+
             ODriveCommandArray cmds;
             cmds.commands.resize(2);
-            cmds.commands[A].input_position = GR1_ * (theta0 - alpha) / (2.0 * M_PI);
-            cmds.commands[B].input_position = GR2_ * (theta1 - alpha) / (2.0 * M_PI);
+            cmds.commands[A].input_position = A;
+            cmds.commands[B].input_position = B;
             return cmds;
         }
 
         LegInfo get_forward(const ODriveInfoArray &angles) override
         {
-            (void)angles;
 
-            std::vector<float> position;
-            for (auto info : angles.infos)
-                position.push_back(info.pos_estimate);
-
-            if (position.size() != 2)
+            if (angles.infos.size() != 2)
                 return LegInfo();
 
-            const float alpha = 0.5f * (M_PI + position[A] / GR1_ - position[B] / GR2_);
-            const float gamma = std::asin(L1_ * std::sin(alpha) / L2_);
+            const float A = angles.infos[0].pos_estimate;
+            const float B = angles.infos[1].pos_estimate;
+
+            const float thetaA = 2.0 * M_PI * A / GR1_;
+            const float thetaB = 2.0 * M_PI * B / GR2_;
+
+            const float alpha = 0.5f * (M_PI - thetaA - thetaB);
+            const float gamma = std::asin(L1_ / L2_ * std::sin(alpha));
             const float phi = M_PI - alpha - gamma;
 
-            const float theta = position[A] - alpha;
             const float R = L2_ * std::sin(phi) / std::sin(alpha);
+            const float theta0 = thetaA + alpha;
 
-            const float X = R * std::cos(theta);
-            const float Y = R * std::sin(theta);
+            const float X = R * std::cos(-theta0);
+            const float Y = R * std::sin(-theta0);
 
             LegInfo info;
             info.pos_estimate = {X, Y};
