@@ -10,7 +10,7 @@ addpath('share');
 
 % Set run parameters
 stride_frequency = 0.25; % Hz
-num_loops = 4;
+num_loops = 1;
 
 % Create connection to boom ROS network
 boom = BoomController();

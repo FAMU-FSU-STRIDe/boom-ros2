@@ -42,13 +42,13 @@ namespace boom
             const float thetaA = theta0 - alpha;
             const float thetaB = theta1 - alpha;
 
-            const float A = GR1_ * thetaA / (2.0 * M_PI);
-            const float B = GR2_ * thetaB / (2.0 * M_PI);
+            const float thA = GR1_ * thetaA / (2.0 * M_PI);
+            const float thB = GR2_ * thetaB / (2.0 * M_PI);
 
             ODriveCommandArray cmds;
             cmds.commands.resize(2);
-            cmds.commands[A].input_position = A;
-            cmds.commands[B].input_position = B;
+            cmds.commands[A].input_position = thA;
+            cmds.commands[B].input_position = thB;
             return cmds;
         }
 
@@ -58,11 +58,11 @@ namespace boom
             if (angles.infos.size() != 2)
                 return LegInfo();
 
-            const float A = angles.infos[0].pos_estimate;
-            const float B = angles.infos[1].pos_estimate;
+            const float thA = angles.infos[0].pos_estimate;
+            const float thB = angles.infos[1].pos_estimate;
 
-            const float thetaA = 2.0 * M_PI * A / GR1_;
-            const float thetaB = 2.0 * M_PI * B / GR2_;
+            const float thetaA = 2.0 * M_PI * thA / GR1_;
+            const float thetaB = 2.0 * M_PI * thB / GR2_;
 
             const float alpha = 0.5f * (M_PI - thetaA - thetaB);
             const float gamma = std::asin(L1_ / L2_ * std::sin(alpha));
