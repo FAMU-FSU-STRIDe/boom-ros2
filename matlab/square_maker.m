@@ -1,6 +1,6 @@
 %% Params
 
-N = 50;
+N = 200;
 
 height = 80;
 width = 80;

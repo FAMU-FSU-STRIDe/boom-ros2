@@ -9,8 +9,8 @@ addpath('share');
 % Make sure variable 'trajectory' is defined
 
 % Set run parameters
-stride_frequency = 0.25; % Hz
-num_loops = 1;
+stride_frequency = 0.5; % Hz
+num_loops = 5;
 
 % Create connection to boom ROS network
 boom = BoomController();
