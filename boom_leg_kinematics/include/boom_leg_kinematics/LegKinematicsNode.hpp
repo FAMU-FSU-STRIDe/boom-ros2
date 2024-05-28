@@ -73,7 +73,9 @@ private:
                 return;
             }
             KinematicModel::Ptr model = model_map_.at(leg_conf.kinematic_type);
+            RCLCPP_INFO(this->get_logger(), "Command: %f %f", leg_cmd.input_pos[0], leg_cmd.input_pos[1]);
             const ODriveCommandArray motor_cmds = model->get_inverse(leg_cmd);
+            RCLCPP_INFO(this->get_logger(), "Motor commands: %f %f", motor_cmds.commands[0].input_position, motor_cmds.commands[1].input_position);
             for (size_t idx = 0; idx < motor_cmds.commands.size(); idx++) {
                 const uint8_t motor_id = leg_conf.motor_ids[idx];
                 if (size_t(motor_id) >= cmd_msg_out.commands.size())

@@ -9,7 +9,7 @@ addpath('share');
 % Make sure variable 'trajectory' is defined
 
 % Set run parameters
-stride_frequency = 0.5; % Hz
+stride_frequency = 0.25; % Hz
 num_loops = 4;
 
 % Create connection to boom ROS network
@@ -56,6 +56,16 @@ figure()
 hold on
 plot(motor_data.time, motor_data.motor_pos_cmd(:,1), '--k');
 plot(motor_data.time, motor_data.motor_pos(:,1), '-r');
+title("Motor 1 Encoder")
+xlabel("Time (s)")
+ylabel("Position (rev)")
+legend(["Commanded", "Encoder Estimate"])
+
+figure()
+hold on
+plot(motor_data.time, motor_data.motor_pos_cmd(:,2), '--k');
+plot(motor_data.time, motor_data.motor_pos(:,2), '-r');
+title("Motor 2 Encoder")
 xlabel("Time (s)")
 ylabel("Position (rev)")
 legend(["Commanded", "Encoder Estimate"])
